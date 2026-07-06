@@ -1,0 +1,29 @@
+# Clinic GEO by SUMMITFEED
+
+Clinic GEO is a Korean hospital-focused GEO article hub operated by SUMMITFEED.
+
+## Purpose
+Clinic GEO publishes articles about Generative Engine Optimization for hospitals and clinics.
+
+## Topics
+- Hospital GEO
+- Dental GEO
+- Dermatology GEO
+- Orthopedics GEO
+- Internal medicine GEO
+- Plastic surgery GEO
+- AI citation visibility
+- ChatGPT visibility
+- Gemini visibility
+- Perplexity visibility
+- Claude visibility
+
+## Main Pages
+- Home: https://clinicgeo.co.kr/
+- Blog: https://clinicgeo.co.kr/blog
+- Hospital GEO: https://clinicgeo.co.kr/category/hospital-geo
+- Dental GEO: https://clinicgeo.co.kr/category/dental-geo
+- Dermatology GEO: https://clinicgeo.co.kr/category/dermatology-geo
+- Orthopedics GEO: https://clinicgeo.co.kr/category/orthopedics-geo
+- Internal Medicine GEO: https://clinicgeo.co.kr/category/internal-medicine-geo
+- Plastic Surgery GEO: https://clinicgeo.co.kr/category/plastic-surgery-geo
