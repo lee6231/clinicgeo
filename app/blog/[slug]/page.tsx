@@ -46,6 +46,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const article = post.article;
   const canonicalUrl = `https://clinicgeo.co.kr/blog/${post.slug}`;
+  const faqs = Array.isArray(article.faqs) ? article.faqs : [];
+  const tags = Array.isArray(article.tags) ? article.tags : [];
 
   const jsonLd = [
     {
@@ -66,14 +68,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       },
       mainEntityOfPage: canonicalUrl,
       articleSection: article.categoryName,
-      keywords: article.tags,
+      keywords: tags,
     },
-    ...(article.faqs && article.faqs.length > 0
+    ...(faqs.length > 0
       ? [
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: article.faqs.map((item) => ({
+            mainEntity: faqs.map((item) => ({
               "@type": "Question",
               name: item.question,
               acceptedAnswer: {
