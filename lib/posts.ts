@@ -26,11 +26,6 @@ export const categories: Category[] = [
     description: "병원이 AI 검색에서 추천·인용되기 위해 필요한 기본 전략과 구조를 다룹니다.",
   },
   {
-    name: "GEO 대행사 선택 기준",
-    slug: "geo-agency-guide",
-    description: "병원 GEO 대행사 선택 시 AI 인용 구조, 성과 측정, 검수 기준을 비교합니다.",
-  },
-  {
     name: "치과 GEO",
     slug: "dental-geo",
     description: "임플란트, 교정, 라미네이트 등 치과 진료 영역의 AI 검색 최적화 전략을 다룹니다.",

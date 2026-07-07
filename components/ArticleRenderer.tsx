@@ -54,6 +54,17 @@ export function ArticleRenderer({ article }: { article: Article }) {
 
   return (
     <div className="space-y-10">
+      <section className="rounded-3xl border border-slate-200 bg-slate-50/80 p-8 shadow-sm sm:p-10">
+        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{article.categoryName}</p>
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{article.title}</h1>
+        <p className="mt-4 text-lg leading-8 text-slate-600">{article.meta_description}</p>
+        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
+          <span>발행일 {article.publishedAt}</span>
+          <span>발행 주체 Clinic GEO by SUMMITFEED</span>
+          {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
+        </div>
+      </section>
+
       <section className="rounded-3xl border border-blue-100 bg-blue-50/70 p-6 shadow-sm sm:p-8">
         <div className="flex flex-wrap items-center gap-3">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Quick Answer</p>

@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
 
-  if (!post || !post.published) {
+  if (!post || post.published !== true || !post.article) {
     return buildMetadata(`/blog/${slug}`, "아티클을 찾을 수 없습니다", "요청하신 아티클은 존재하지 않습니다.");
   }
 
@@ -40,7 +40,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const { slug } = await params;
   const post = posts.find((item) => item.slug === slug);
 
-  if (!post || !post.published || !post.article) {
+  if (!post || post.published !== true || !post.article) {
     notFound();
   }
 
@@ -93,17 +93,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <Header />
       <JsonLd jsonLd={jsonLd} />
       <main className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-16 sm:px-8 lg:px-10">
-        <header className="rounded-3xl border border-slate-200 bg-slate-50/80 p-8 shadow-sm sm:p-10">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">{article.categoryName}</p>
-          <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{article.title}</h1>
-          <p className="mt-4 text-lg leading-8 text-slate-600">{article.meta_description}</p>
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
-            <span>발행일 {article.publishedAt}</span>
-            <span>발행 주체 Clinic GEO by SUMMITFEED</span>
-            {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
-          </div>
-        </header>
-
         <ArticleRenderer article={article} />
       </main>
       <Footer />

@@ -10,7 +10,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/",
     "/blog",
     "/category/hospital-geo",
-    "/category/geo-agency-guide",
     "/category/dental-geo",
     "/category/dermatology-geo",
     "/category/orthopedics-geo",
