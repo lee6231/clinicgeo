@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
-import { baseMetadata } from "@/lib/seo";
+import { baseMetadata, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -28,14 +28,14 @@ export default function RootLayout({
               "@type": "Organization",
               name: "SUMMITFEED",
               alternateName: "Clinic GEO",
-              url: "https://clinicgeo.co.kr",
+              url: siteUrl,
               description: "SUMMITFEED가 운영하는 병의원 전용 AI 검색 최적화 GEO 콘텐츠 사이트",
             },
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
               name: "Clinic GEO by SUMMITFEED",
-              url: "https://clinicgeo.co.kr",
+              url: siteUrl,
               inLanguage: "ko-KR",
               about: "병의원 전용 AI 검색 최적화 GEO, AI 인용률",
             },

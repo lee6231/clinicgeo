@@ -10,6 +10,9 @@ export function Header() {
         </Link>
 
         <nav className="flex gap-5 overflow-x-auto whitespace-nowrap pb-1 text-sm font-medium text-slate-700 md:flex-wrap md:overflow-visible md:pb-0">
+          <Link href="/about" className="transition hover:text-blue-700">
+            회사소개
+          </Link>
           <Link href="/blog" className="transition hover:text-blue-700">
             전체 아티클
           </Link>

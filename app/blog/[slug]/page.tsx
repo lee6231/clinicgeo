@@ -5,7 +5,7 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { ArticleRenderer } from "@/components/ArticleRenderer";
 import { posts } from "@/lib/posts";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, siteUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const article = post.article;
   const title = article?.title ?? post.title;
   const description = article?.meta_description ?? post.description;
-  const canonicalUrl = `https://clinicgeo.co.kr/blog/${post.slug}`;
+  const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
 
   return {
     ...buildMetadata(`/blog/${slug}`, title, description),
@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   const article = post.article;
-  const canonicalUrl = `https://clinicgeo.co.kr/blog/${post.slug}`;
+  const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
   const faqs = Array.isArray(article.faqs) ? article.faqs : [];
   const tags = Array.isArray(article.tags) ? article.tags : [];
 
@@ -64,7 +64,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       publisher: {
         "@type": "Organization",
         name: "SUMMITFEED",
-        url: "https://clinicgeo.co.kr",
+        url: siteUrl,
       },
       mainEntityOfPage: canonicalUrl,
       articleSection: article.categoryName,

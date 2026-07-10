@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { categories, posts } from "@/lib/posts";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, siteUrl } from "@/lib/seo";
 
 const POSTS_PER_PAGE = 6;
 
@@ -66,7 +66,7 @@ export default async function Home({ searchParams }: HomeProps) {
           "@type": "CollectionPage",
           name: "Clinic GEO by SUMMITFEED",
           description: "병의원과 진료과별 AI 검색 최적화 GEO 콘텐츠 사이트",
-          url: "https://clinicgeo.co.kr",
+          url: siteUrl,
         }}
       />
       <main>
@@ -122,13 +122,13 @@ export default async function Home({ searchParams }: HomeProps) {
 
         <section className="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:py-20">
           <div>
-            <p className="text-sm font-semibold uppercase text-orange-600">GEO Landing</p>
+            <p className="text-sm font-semibold uppercase text-orange-600">Clinic GEO</p>
             <h2 className="mt-3 text-3xl font-semibold leading-tight text-slate-950 sm:text-4xl">
               아티클 허브보다 먼저, 병·의원 GEO의 기준을 보여줍니다.
             </h2>
             <p className="mt-5 text-base leading-8 text-slate-600">
               메인 화면은 단순한 목록이 아니라 Clinic GEO가 어떤 관점으로 의료 분야 AI 검색을 다루는지 보여주는
-              랜딩 구조로 정리했습니다. 방문자는 서비스 방향을 먼저 이해하고, 바로 아래에서 발행된 아티클을
+              콘텐츠 구조로 정리했습니다. 방문자는 서비스 방향을 먼저 이해하고, 바로 아래에서 발행된 아티클을
               이어서 확인할 수 있습니다.
             </p>
           </div>

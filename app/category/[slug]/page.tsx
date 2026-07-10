@@ -6,7 +6,7 @@ import { Header } from "@/components/Header";
 import { ArticleCard } from "@/components/ArticleCard";
 import { JsonLd } from "@/components/JsonLd";
 import { categories, posts } from "@/lib/posts";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, siteUrl } from "@/lib/seo";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -34,12 +34,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     "@type": "CollectionPage",
     name: category.name,
     description: category.description,
-    url: `https://clinicgeo.co.kr/category/${category.slug}`,
+    url: `${siteUrl}/category/${category.slug}`,
     itemListElement: categoryPosts.map((post, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: post.title,
-      url: `https://clinicgeo.co.kr/blog/${post.slug}`,
+      url: `${siteUrl}/blog/${post.slug}`,
     })),
   };
 

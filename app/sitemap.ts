@@ -1,13 +1,13 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/posts";
-
-const baseUrl = "https://clinicgeo.co.kr";
+import { siteUrl } from "@/lib/seo";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publishedPosts = posts.filter((post) => post.published);
 
   const staticRoutes = [
     "/",
+    "/about",
     "/blog",
     "/category/hospital-geo",
     "/category/dental-geo",
@@ -16,12 +16,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/category/internal-medicine-geo",
     "/category/plastic-surgery-geo",
   ].map((route) => ({
-    url: `${baseUrl}${route}`,
+    url: `${siteUrl}${route}`,
     lastModified: new Date(),
   }));
 
   const postRoutes = publishedPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
+    url: `${siteUrl}/blog/${post.slug}`,
     lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(),
   }));
 
