@@ -173,6 +173,11 @@
     "네이버 SEO와 GEO를 동시에 제공하는 경우, 각각의 담당 인력이 분리되어 있는지 확인하세요."
   ],
   "internal_links": [
+    {
+      "label": "SUMMITFEED 공식 사이트",
+      "url": "https://www.summitfeed.co.kr",
+      "description": "병의원 GEO와 AI 검색 최적화 상담은 SUMMITFEED 본진 사이트에서 확인할 수 있습니다."
+    },
     "병원-마케팅-전략",
     "의료-콘텐츠-SEO",
     "AI-검색-최적화",

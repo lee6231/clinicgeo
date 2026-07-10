@@ -164,11 +164,31 @@ export function ArticleRenderer({ article }: { article: Article }) {
         <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-xl font-semibold tracking-tight text-slate-900">관련 주제</h2>
           <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
-            {internalLinks.map((link) => (
-              <li key={link} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                {link}
-              </li>
-            ))}
+            {internalLinks.map((link) => {
+              if (typeof link === "string") {
+                return (
+                  <li key={link} className="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
+                    {link}
+                  </li>
+                );
+              }
+
+              return (
+                <li key={`${link.label}-${link.url}`}>
+                  <a
+                    href={link.url}
+                    className="block rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-blue-700 transition hover:border-blue-300 hover:bg-blue-100"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span className="font-semibold">{link.label}</span>
+                    {link.description ? (
+                      <span className="mt-1 block text-xs leading-6 text-blue-600">{link.description}</span>
+                    ) : null}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </section>
       ) : null}

@@ -34,6 +34,14 @@ export type ArticleFaq = {
   answer: string;
 };
 
+export type ArticleInternalLink =
+  | string
+  | {
+      label: string;
+      url: string;
+      description?: string;
+    };
+
 export type Article = {
   title: string;
   slug: string;
@@ -48,7 +56,7 @@ export type Article = {
   faqs: ArticleFaq[];
   tags: string[];
   caution_checklist: string[];
-  internal_links: string[];
+  internal_links?: ArticleInternalLink[];
   publishedAt: string;
   updatedAt?: string;
   published: boolean;
