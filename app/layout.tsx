@@ -10,6 +10,9 @@ export const metadata: Metadata = {
     "Clinic GEO는 SUMMITFEED가 운영하는 병의원 전용 AI 검색 최적화 GEO 콘텐츠 사이트입니다. 병원 GEO, 치과 GEO, 피부과 GEO, 정형외과 GEO, 내과 GEO, 성형외과 GEO 전략을 정리합니다.",
   verification: {
     google: "MNfPzAsS8gQ8y6aAgeNA3fcxex6NB52Vedcm8ajTUVs",
+    other: {
+      "msvalidate.01": "0CA366194B957ADC4BCE3905409C9F93",
+    },
   },
 };
 
