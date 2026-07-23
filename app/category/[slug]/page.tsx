@@ -7,6 +7,7 @@ import { ArticleCard } from "@/components/ArticleCard";
 import { JsonLd } from "@/components/JsonLd";
 import { categories, posts } from "@/lib/posts";
 import { buildMetadata, siteUrl } from "@/lib/seo";
+import { isArticleListed } from "@/lib/editorial";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -27,21 +28,39 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
-  const categoryPosts = posts.filter((post) => post.published && post.categorySlug === slug);
+  const categoryPosts = posts.filter(
+    (post) => post.published && post.categorySlug === slug && isArticleListed(post.slug),
+  );
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    name: category.name,
-    description: category.description,
-    url: `${siteUrl}/category/${category.slug}`,
-    itemListElement: categoryPosts.map((post, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: post.title,
-      url: `${siteUrl}/blog/${post.slug}`,
-    })),
-  };
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: category.name,
+      description: category.description,
+      url: `${siteUrl}/category/${category.slug}`,
+      itemListElement: categoryPosts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: post.title,
+        url: `${siteUrl}/blog/${post.slug}`,
+      })),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
+        { "@type": "ListItem", position: 2, name: "전체 콘텐츠", item: `${siteUrl}/blog` },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: category.name,
+          item: `${siteUrl}/category/${category.slug}`,
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white text-slate-950">
@@ -49,13 +68,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       <JsonLd jsonLd={jsonLd} />
       <main className="mx-auto max-w-6xl px-6 py-16">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">Category</p>
+          <p className="text-sm font-bold text-teal-800">콘텐츠 분류</p>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">{category.name}</h1>
           <p className="mt-4 text-lg leading-8 text-slate-600">{category.description}</p>
         </div>
 
         {categoryPosts.length === 0 ? (
-          <div className="mt-10 rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-slate-600">
+          <div className="mt-10 rounded-lg border border-dashed border-slate-300 bg-slate-50 p-10 text-center text-slate-600">
             이 카테고리에는 아직 발행된 아티클이 없습니다.
           </div>
         ) : (
@@ -67,8 +86,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         )}
 
         <div className="mt-10">
-          <Link href="/blog" className="text-sm font-semibold text-blue-700">
-            전체 아티클 보기 →
+          <Link href="/blog" className="text-sm font-bold text-teal-900 underline underline-offset-4">
+            전체 콘텐츠 보기
           </Link>
         </div>
       </main>

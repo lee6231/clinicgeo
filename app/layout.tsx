@@ -5,9 +5,12 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "Clinic GEO | 병의원 AI 검색 최적화",
+  title: "Clinic GEO | 병원·치과 선택과 GEO 공식 자료",
   description:
-    "Clinic GEO는 SUMMITFEED가 운영하는 병의원 전용 AI 검색 최적화 GEO 콘텐츠 사이트입니다. 병원 GEO, 치과 GEO, 피부과 GEO, 정형외과 GEO, 내과 GEO, 성형외과 GEO 전략을 정리합니다.",
+    "Clinic GEO는 병원·치과 선택 기준과 검색엔진·AI 플랫폼의 GEO 공식 자료를 정리하는 편집형 정보 사이트입니다.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   verification: {
     google: "MNfPzAsS8gQ8y6aAgeNA3fcxex6NB52Vedcm8ajTUVs",
     other: {
@@ -29,18 +32,17 @@ export default function RootLayout({
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "SUMMITFEED",
-              alternateName: "Clinic GEO",
+              name: "Clinic GEO",
               url: siteUrl,
-              description: "SUMMITFEED가 운영하는 병의원 전용 AI 검색 최적화 GEO 콘텐츠 사이트",
+              description: "병원 선택 기준과 GEO 공식 자료를 제공하는 편집형 정보 사이트",
             },
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              name: "Clinic GEO by SUMMITFEED",
+              name: "Clinic GEO",
               url: siteUrl,
               inLanguage: "ko-KR",
-              about: "병의원 전용 AI 검색 최적화 GEO, AI 인용률",
+              about: "병원·치과 선택 기준과 GEO 공식 자료",
             },
           ]}
         />

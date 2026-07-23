@@ -1,14 +1,21 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/posts";
 import { siteUrl } from "@/lib/seo";
+import { isArticleListed } from "@/lib/editorial";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const publishedPosts = posts.filter((post) => post.published);
+  const publishedPosts = posts.filter((post) => post.published && isArticleListed(post.slug));
 
   const staticRoutes = [
     "/",
     "/about",
     "/blog",
+    "/hospitals",
+    "/hospital-guides",
+    "/geo-resources",
+    "/editorial-policy",
+    "/advertising-disclosure",
+    "/correction-request",
     "/category/hospital-geo",
     "/category/dental-geo",
     "/category/dermatology-geo",
