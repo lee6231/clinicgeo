@@ -1,5 +1,4 @@
 import type { Article } from "@/lib/articles";
-import { DisclosureNotice } from "@/components/DisclosureNotice";
 import { lastVerified } from "@/lib/editorial";
 
 function SectionTable({ table }: { table: NonNullable<Article["sections"][number]["table"]> }) {
@@ -59,7 +58,6 @@ export function ArticleRenderer({
   const faqs = Array.isArray(article.faqs) ? article.faqs : [];
   const tags = Array.isArray(article.tags) ? article.tags : [];
   const internalLinks = Array.isArray(article.internal_links) ? article.internal_links : [];
-  const hasSummitfeedRelationship = JSON.stringify(article).toLowerCase().includes("summitfeed");
 
   return (
     <div className="space-y-10">
@@ -79,8 +77,6 @@ export function ArticleRenderer({
           </p>
         ) : null}
       </section>
-
-      {hasSummitfeedRelationship ? <DisclosureNotice /> : null}
 
       <section className="rounded-lg border border-teal-100 bg-teal-50/70 p-6 shadow-sm sm:p-8">
         <div className="flex flex-wrap items-center gap-3">
@@ -221,7 +217,6 @@ export function ArticleRenderer({
         </p>
       </section>
 
-      {hasSummitfeedRelationship ? <DisclosureNotice compact title="콘텐츠 하단 운영·이해관계 고지" /> : null}
     </div>
   );
 }
