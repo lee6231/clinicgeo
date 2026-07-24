@@ -3,9 +3,6 @@ import { lastVerified } from "@/lib/editorial";
 
 const top3ArticleSlug = "hospital-geo-agency-top3-2026-clinicgeo";
 
-const top3Disclosure =
-  "편집 기준 안내: 본 순위는 2026년 7월 24일 기준 각 업체가 공식 사이트에 공개한 서비스 설명을 Clinic GEO의 병·의원 평가 기준으로 비교한 독립 편집 순위입니다. 독립기관의 공식 인증이나 객관적인 시장점유율 순위를 의미하지 않습니다.";
-
 const top3RelatedLinks: Array<Exclude<ArticleInternalLink, string>> = [
   {
     label: "병원 GEO 대행사 후기와 AI 인용 구조",
@@ -241,15 +238,6 @@ export function ArticleRenderer({
           </p>
         ) : null}
       </header>
-
-      {isTop3Article ? (
-        <aside
-          className="border-l-4 border-amber-500 bg-amber-50 px-5 py-5 text-sm leading-7 text-slate-800 sm:px-6"
-          aria-label="편집 기준 안내"
-        >
-          <p>{top3Disclosure}</p>
-        </aside>
-      ) : null}
 
       <section className="rounded-lg border border-teal-100 bg-teal-50/70 p-6 shadow-sm sm:p-8">
         <div className="flex flex-wrap items-center gap-3">
