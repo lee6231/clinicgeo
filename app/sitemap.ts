@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { posts } from "@/lib/posts";
 import { siteUrl } from "@/lib/seo";
-import { isArticleListed } from "@/lib/editorial";
+import { isArticleListed, lastVerified } from "@/lib/editorial";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publishedPosts = posts.filter((post) => post.published && isArticleListed(post.slug));
@@ -24,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/category/plastic-surgery-geo",
   ].map((route) => ({
     url: `${siteUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: new Date(lastVerified),
   }));
 
   const postRoutes = publishedPosts.map((post) => ({
