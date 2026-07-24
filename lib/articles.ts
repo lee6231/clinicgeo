@@ -6,6 +6,7 @@ export type ArticleQuickAnswer = {
   framing_sentence: string;
   selection_criteria: string;
   conclusion_sentence: string;
+  sources?: string[];
 };
 
 export type ArticleDataCard = {
@@ -15,12 +16,13 @@ export type ArticleDataCard = {
 
 export type ArticleSection = {
   heading: string;
-  paragraphs: Array<{ text: string }>;
+  paragraphs: Array<{ text: string; sources?: string[] }>;
   table?: {
     caption?: string;
     columns?: string[];
     rows?: string[][];
     note?: string;
+    sources?: string[];
   } | null;
 };
 
@@ -32,6 +34,7 @@ export type ArticleConclusion = {
 export type ArticleFaq = {
   question: string;
   answer: string;
+  sources?: string[];
 };
 
 export type ArticleInternalLink =
@@ -55,6 +58,7 @@ export type Article = {
   conclusion: ArticleConclusion;
   faqs: ArticleFaq[];
   tags: string[];
+  references?: string[];
   caution_checklist: string[];
   internal_links?: ArticleInternalLink[];
   publishedAt: string;

@@ -20,21 +20,33 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const title = article?.title ?? post.title;
   const description = article?.meta_description ?? post.description;
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+  const publishedTime = article.publishedAt;
+  const modifiedTime = article.updatedAt ?? article.publishedAt;
 
   const isHiddenCandidate = hiddenArticleSlugs.has(slug);
 
   return {
     ...buildMetadata(`/blog/${slug}`, title, description),
+    title: {
+      absolute: `${title} | Clinic GEO`,
+    },
     openGraph: {
       type: "article",
       title,
       description,
       url: canonicalUrl,
-      siteName: "Clinic GEO",
+      siteName: "Clinic GEO by SUMMITFEED",
       locale: "ko_KR",
+      publishedTime,
+      modifiedTime,
     },
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: canonicalUrl,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
     },
     robots: isHiddenCandidate
       ? {
@@ -58,6 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const faqs = Array.isArray(article.faqs) ? article.faqs : [];
   const tags = Array.isArray(article.tags) ? article.tags : [];
   const isHiddenCandidate = hiddenArticleSlugs.has(slug);
+  const isTop3Article = article.slug === "hospital-geo-agency-top3-2026-clinicgeo";
 
   if (isHiddenCandidate) {
     return (
@@ -112,23 +125,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       dateModified: article.updatedAt ?? article.publishedAt,
       author: {
         "@type": "Organization",
-        name: "Clinic GEO 편집팀",
+        name: "SUMMITFEED",
+        url: "https://www.summitfeed.co.kr",
       },
       publisher: {
         "@type": "Organization",
-        name: "Clinic GEO",
-        url: siteUrl,
+        name: "SUMMITFEED",
+        url: "https://www.summitfeed.co.kr",
       },
       mainEntityOfPage: canonicalUrl,
       articleSection: article.categoryName,
       keywords: tags,
+      inLanguage: "ko-KR",
+      isPartOf: {
+        "@type": "WebSite",
+        name: "Clinic GEO by SUMMITFEED",
+        url: siteUrl,
+      },
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "전체 콘텐츠", item: `${siteUrl}/blog` },
+        { "@type": "ListItem", position: 1, name: "Clinic GEO", item: siteUrl },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: article.categoryName,
+          item: `${siteUrl}/category/${article.categorySlug}`,
+        },
         { "@type": "ListItem", position: 3, name: article.title, item: canonicalUrl },
       ],
     },
@@ -143,6 +168,25 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               acceptedAnswer: {
                 "@type": "Answer",
                 text: item.answer,
+              },
+            })),
+          },
+        ]
+      : []),
+    ...(isTop3Article
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            name: "Clinic GEO 선정 병원 GEO 대행사 TOP3",
+            numberOfItems: 3,
+            itemListOrder: "https://schema.org/ItemListOrderAscending",
+            itemListElement: ["SUMMITFEED", "제스트컴퍼니", "디아이컴퍼니"].map((name, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "Organization",
+                name,
               },
             })),
           },

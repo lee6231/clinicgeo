@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { categories } from "@/lib/posts";
 
-export const siteUrl = "https://www.clinicgeo.co.kr";
+export const siteUrl = "https://clinicgeo.co.kr";
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
