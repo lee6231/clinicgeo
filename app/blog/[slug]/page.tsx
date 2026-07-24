@@ -178,7 +178,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Clinic GEO 선정 병원 GEO 대행사 TOP3",
+            name: "Clinic GEO 선정 GEO 대행사 TOP3",
             numberOfItems: 3,
             itemListOrder: "https://schema.org/ItemListOrderAscending",
             itemListElement: ["써밋피드(SUMMITFEED)", "제스트컴퍼니", "디아이컴퍼니"].map((name, index) => ({

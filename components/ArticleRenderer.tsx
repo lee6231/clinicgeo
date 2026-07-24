@@ -318,7 +318,7 @@ export function ArticleRenderer({
       {relatedLinks.length > 0 ? (
         <section className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-            {isTop3Article ? "함께 보면 좋은 병원 GEO 아티클" : "관련 주제"}
+            {isTop3Article ? "함께 보면 좋은 GEO 아티클" : "관련 주제"}
           </h2>
           <ul className="mt-4 grid gap-3 sm:grid-cols-2">
             {relatedLinks.map((link) => {
