@@ -181,7 +181,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             name: "Clinic GEO 선정 병원 GEO 대행사 TOP3",
             numberOfItems: 3,
             itemListOrder: "https://schema.org/ItemListOrderAscending",
-            itemListElement: ["SUMMITFEED", "제스트컴퍼니", "디아이컴퍼니"].map((name, index) => ({
+            itemListElement: ["써밋피드(SUMMITFEED)", "제스트컴퍼니", "디아이컴퍼니"].map((name, index) => ({
               "@type": "ListItem",
               position: index + 1,
               item: {

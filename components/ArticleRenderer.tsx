@@ -20,12 +20,12 @@ const top3RelatedLinks: Array<Exclude<ArticleInternalLink, string>> = [
   {
     label: "GEO 대행사 가격과 비용 구조 가이드",
     url: "https://www.summitfeed.co.kr/geo/articles/geo-agency-pricing-cost-structure-guide",
-    description: "SUMMITFEED 외부 아티클",
+    description: "써밋피드(SUMMITFEED) 외부 아티클",
   },
   {
     label: "GEO 대행사와 네이버 SEO 대행사 비교",
     url: "https://www.summitfeed.co.kr/geo/articles/geo-agency-vs-naver-seo-agency-comparison-aeab7b",
-    description: "SUMMITFEED 외부 아티클",
+    description: "써밋피드(SUMMITFEED) 외부 아티클",
   },
 ];
 
@@ -61,7 +61,7 @@ function sourceLabel(source: string) {
     const hostname = url.hostname.replace(/^www\./, "");
 
     if (hostname === "summitfeed.co.kr") {
-      return `SUMMITFEED · ${url.pathname === "/" ? "공식 사이트" : url.pathname.split("/").filter(Boolean).at(-1)}`;
+      return `써밋피드(SUMMITFEED) · ${url.pathname === "/" ? "공식 사이트" : url.pathname.split("/").filter(Boolean).at(-1)}`;
     }
 
     if (hostname === "zestcompany.co.kr") {
@@ -110,11 +110,29 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
 
   const columns = Array.isArray(table.columns) ? table.columns : [];
   const rows = Array.isArray(table.rows) ? table.rows.filter(Array.isArray) : [];
+  const isRankTable = columns[0] === "순위";
+  const isSituationTable = columns[0] === "현재 필요한 것";
+  const columnClassName = (index: number) => {
+    if (isRankTable) {
+      return [
+        "w-[9%] whitespace-nowrap text-center",
+        "w-[22%] whitespace-nowrap",
+        "w-[34.5%]",
+        "w-[34.5%]",
+      ][index] ?? "";
+    }
+
+    if (isSituationTable) {
+      return ["w-[37%]", "w-[23%] whitespace-nowrap", "w-[40%]"][index] ?? "";
+    }
+
+    return "";
+  };
 
   return (
     <div className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white">
       <div className="overflow-x-auto">
-        <table className="min-w-[720px] divide-y divide-slate-200 text-sm">
+        <table className="min-w-[920px] table-fixed divide-y divide-slate-200 text-sm">
           {table.caption ? (
             <caption className="px-4 py-3 text-left text-sm font-medium text-slate-700">{table.caption}</caption>
           ) : null}
@@ -122,7 +140,10 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
             <thead className="bg-slate-50">
               <tr>
                 {columns.map((column, index) => (
-                  <th key={`${column}-${index}`} className="px-4 py-3 text-left font-semibold text-slate-900">
+                  <th
+                    key={`${column}-${index}`}
+                    className={`break-keep px-4 py-3 font-semibold text-slate-900 ${index === 0 && isRankTable ? "text-center" : "text-left"} ${columnClassName(index)}`}
+                  >
                     {column}
                   </th>
                 ))}
@@ -133,7 +154,10 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
             {rows.map((row, index) => (
               <tr key={`${row.join("-")}-${index}`}>
                 {row.map((cell, cellIndex) => (
-                  <td key={`${cell}-${cellIndex}`} className="px-4 py-3 align-top text-slate-700">
+                  <td
+                    key={`${cell}-${cellIndex}`}
+                    className={`break-keep px-4 py-4 align-top leading-6 text-slate-700 ${cellIndex === 0 && isRankTable ? "text-center font-semibold" : "text-left"} ${columnClassName(cellIndex)}`}
+                  >
                     {cell}
                   </td>
                 ))}
