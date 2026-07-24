@@ -131,7 +131,7 @@ export const resources: Resource[] = [
     source: "Google Search Central",
     type: "공식 자료",
     summary: "중복되거나 유사한 URL 가운데 대표 URL을 알리는 방법과 신호 강도를 정리합니다.",
-    reason: "SUMMITFEED 본진과 Clinic GEO의 콘텐츠 역할 및 canonical을 분리할 때 기준이 됩니다.",
+    reason: "외부 대행사 사이트와 Clinic GEO의 콘텐츠 역할 및 canonical을 분리할 때 기준이 됩니다.",
     url: "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
   },
   {

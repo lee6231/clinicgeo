@@ -7,7 +7,7 @@ type DisclosureNoticeProps = {
 
 export function DisclosureNotice({
   compact = false,
-  title = "운영·이해관계 안내",
+  title = "편집·이해관계 안내",
 }: DisclosureNoticeProps) {
   return (
     <aside
@@ -16,9 +16,9 @@ export function DisclosureNotice({
     >
       <p className="text-sm font-semibold text-amber-900">{title}</p>
       <p className="mt-2 text-sm leading-6">
-        Clinic GEO는 써밋피드(SUMMITFEED)와 운영 또는 사업상 이해관계가 있습니다. 써밋피드 또는 관련
-        서비스를 언급하는 콘텐츠에는 이 관계를 별도로 표시하며, 운영 관계가 정보의 우월성이나 효과를
-        보장한다는 의미는 아닙니다.
+        Clinic GEO는 콘텐츠에서 언급하는 병원·업체·대행사와 별도로 운영되는 편집형 정보 사이트입니다.
+        광고, 제휴, 자료 제공 등 경제적 이해관계가 있는 콘텐츠에는 해당 관계를 별도로 표시하며, 관계가
+        정보의 우월성이나 효과를 보장한다는 의미는 아닙니다.
       </p>
       {!compact ? (
         <Link

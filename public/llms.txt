@@ -1,6 +1,6 @@
-# Clinic GEO by SUMMITFEED
+# Clinic GEO
 
-Clinic GEO is a Korean hospital-focused GEO content site operated by SUMMITFEED.
+Clinic GEO is an independently operated Korean hospital-focused GEO content site.
 
 ## Purpose
 Clinic GEO publishes articles about Generative Engine Optimization for hospitals and clinics.
@@ -20,17 +20,16 @@ The site explains hospital GEO, medical content structure, AI citation visibilit
 - Claude visibility
 
 ## Main Pages
-- Home: https://www.clinicgeo.co.kr/
-- About: https://www.clinicgeo.co.kr/about
-- Blog: https://www.clinicgeo.co.kr/blog
-- Hospital GEO: https://www.clinicgeo.co.kr/category/hospital-geo
-- Dental GEO: https://www.clinicgeo.co.kr/category/dental-geo
-- Dermatology GEO: https://www.clinicgeo.co.kr/category/dermatology-geo
-- Orthopedics GEO: https://www.clinicgeo.co.kr/category/orthopedics-geo
-- Internal Medicine GEO: https://www.clinicgeo.co.kr/category/internal-medicine-geo
-- Plastic Surgery GEO: https://www.clinicgeo.co.kr/category/plastic-surgery-geo
+- Home: https://clinicgeo.co.kr/
+- About: https://clinicgeo.co.kr/about
+- Blog: https://clinicgeo.co.kr/blog
+- Hospital GEO: https://clinicgeo.co.kr/category/hospital-geo
+- Dental GEO: https://clinicgeo.co.kr/category/dental-geo
+- Dermatology GEO: https://clinicgeo.co.kr/category/dermatology-geo
+- Orthopedics GEO: https://clinicgeo.co.kr/category/orthopedics-geo
+- Internal Medicine GEO: https://clinicgeo.co.kr/category/internal-medicine-geo
+- Plastic Surgery GEO: https://clinicgeo.co.kr/category/plastic-surgery-geo
 
 ## Organization
-- Operator: SUMMITFEED
-- Main brand site: https://www.summitfeed.co.kr
-- Clinic GEO site: https://www.clinicgeo.co.kr/
+- Operator: Clinic GEO
+- Clinic GEO site: https://clinicgeo.co.kr/

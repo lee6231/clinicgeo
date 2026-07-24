@@ -4,7 +4,7 @@ import { lastVerified } from "@/lib/editorial";
 const top3ArticleSlug = "hospital-geo-agency-top3-2026-clinicgeo";
 
 const top3Disclosure =
-  "편집 기준 및 이해관계 안내: 본 순위는 2026년 7월 24일 기준 각 업체가 공식 사이트에 공개한 서비스 설명을 Clinic GEO의 병·의원 평가 기준으로 비교한 편집 순위입니다. Clinic GEO는 SUMMITFEED가 운영하므로 SUMMITFEED 평가에는 자사 평가가 포함되어 있습니다. 독립기관의 공식 인증이나 객관적인 시장점유율 순위를 의미하지 않습니다.";
+  "편집 기준 안내: 본 순위는 2026년 7월 24일 기준 각 업체가 공식 사이트에 공개한 서비스 설명을 Clinic GEO의 병·의원 평가 기준으로 비교한 독립 편집 순위입니다. 독립기관의 공식 인증이나 객관적인 시장점유율 순위를 의미하지 않습니다.";
 
 const top3RelatedLinks: Array<Exclude<ArticleInternalLink, string>> = [
   {
@@ -208,7 +208,7 @@ export function ArticleRenderer({
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
           <span>발행일 {article.publishedAt}</span>
           {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
-          <span>발행 주체: Clinic GEO by SUMMITFEED</span>
+          <span>발행 주체: Clinic GEO</span>
           <span>정보 최종 확인 {article.updatedAt ?? lastVerified}</span>
         </div>
         {hiddenCandidate ? (
@@ -221,7 +221,7 @@ export function ArticleRenderer({
       {isTop3Article ? (
         <aside
           className="border-l-4 border-amber-500 bg-amber-50 px-5 py-5 text-sm leading-7 text-slate-800 sm:px-6"
-          aria-label="편집 기준 및 이해관계 안내"
+          aria-label="편집 기준 안내"
         >
           <p>{top3Disclosure}</p>
         </aside>
@@ -383,7 +383,7 @@ export function ArticleRenderer({
         <section className="rounded-lg border border-teal-100 bg-teal-50 p-6 text-sm leading-7 text-slate-700 sm:p-8">
           <p>
             {isTop3Article
-              ? "이 글은 SUMMITFEED가 운영하는 Clinic GEO에서 발행한 병·의원 전용 GEO 아티클입니다. Clinic GEO는 병원, 치과, 피부과, 정형외과, 내과, 성형외과 등 진료과별 AI 검색 최적화 전략을 정리합니다."
+              ? "이 글은 Clinic GEO에서 독립적으로 발행한 병·의원 전용 GEO 아티클입니다. Clinic GEO는 병원, 치과, 피부과, 정형외과, 내과, 성형외과 등 진료과별 AI 검색 최적화 전략을 정리합니다."
               : "이 글은 Clinic GEO 편집팀이 병원·의료기관 관점에서 공개 정보와 GEO 관련 확인 기준을 정리한 콘텐츠입니다."}
           </p>
         </section>

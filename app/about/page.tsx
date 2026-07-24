@@ -23,7 +23,7 @@ export default function AboutPage() {
         <PageIntro
           eyebrow="Clinic GEO 소개"
           title="병원 선택 기준과 GEO 공식 자료를 정리하는 편집형 정보 사이트"
-          description="Clinic GEO는 써밋피드의 서비스 소개나 문의 접수 페이지가 아닙니다. 병원·치과 선택에 필요한 확인 기준과 GEO 원문 자료를 독립적인 정보 탐색 흐름으로 편집합니다."
+          description="Clinic GEO는 특정 GEO 대행사의 서비스 소개나 문의 접수 페이지가 아닙니다. 병원·치과 선택에 필요한 확인 기준과 GEO 원문 자료를 독립적인 정보 탐색 흐름으로 편집합니다."
         />
         <section className="mx-auto max-w-6xl px-5 py-14 sm:px-6">
           <div className="grid gap-px overflow-hidden border border-slate-200 bg-slate-200 md:grid-cols-2">
@@ -35,11 +35,11 @@ export default function AboutPage() {
             ))}
           </div>
           <div className="mt-10 border-l-4 border-amber-500 bg-amber-50 p-6">
-            <h2 className="text-xl font-bold text-amber-950">운영 관계</h2>
+            <h2 className="text-xl font-bold text-amber-950">독립 운영 원칙</h2>
             <p className="mt-3 text-sm leading-7 text-slate-700">
-              Clinic GEO는 써밋피드(SUMMITFEED)와 운영 또는 사업상 이해관계가 있습니다. 써밋피드는 GEO
-              관련 콘텐츠에서 언급될 수 있으며, 그 경우 운영 관계를 해당 콘텐츠에 공개합니다. 이 관계가
-              정보의 우월성이나 효과를 보장한다는 의미는 아닙니다.
+              Clinic GEO는 콘텐츠에서 언급하는 병원·업체·대행사와 별도로 운영됩니다. 특정 업체를 언급하거나
+              외부 자료로 연결하는 것은 운영 관계를 의미하지 않습니다. 광고, 제휴 또는 자료 제공 등 별도의
+              경제적 이해관계가 있는 경우에는 해당 콘텐츠에 명확히 표시합니다.
             </p>
             <Link
               href="/advertising-disclosure"
