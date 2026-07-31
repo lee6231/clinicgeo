@@ -219,6 +219,13 @@ export function ArticleRenderer({
   const references = uniqueSources(article.references);
   const relatedLinks = resolveRelatedLinks(article);
   const isTop3Article = article.slug === top3ArticleSlug;
+  const isWhiteBlueTheme =
+    article.visual_theme === "white-blue" ||
+    article.presentation?.theme === "white-blue";
+  const summaryLabel =
+    article.presentation?.summary_label ??
+    article.summary_label ??
+    "핵심 요약";
 
   return (
     <article className="space-y-10">
@@ -239,16 +246,42 @@ export function ArticleRenderer({
         ) : null}
       </header>
 
-      <section className="rounded-lg border border-teal-100 bg-teal-50/70 p-6 shadow-sm sm:p-8">
+      <section
+        className={
+          isWhiteBlueTheme
+            ? "rounded-lg border border-blue-200 bg-blue-50 p-6 shadow-sm sm:p-8"
+            : "rounded-lg border border-teal-100 bg-teal-50/70 p-6 shadow-sm sm:p-8"
+        }
+      >
         <div className="flex flex-wrap items-center gap-3">
-          <h2 className="text-sm font-semibold text-teal-800">Quick Answer</h2>
-          <span className="rounded-sm border border-teal-200 bg-white px-3 py-1 text-sm font-medium text-teal-800">
+          <h2
+            className={
+              isWhiteBlueTheme
+                ? "text-xl font-semibold text-blue-900"
+                : "text-sm font-semibold text-teal-800"
+            }
+          >
+            {summaryLabel}
+          </h2>
+          <span
+            className={
+              isWhiteBlueTheme
+                ? "rounded-sm border border-blue-200 bg-white px-3 py-1 text-sm font-medium text-blue-800"
+                : "rounded-sm border border-teal-200 bg-white px-3 py-1 text-sm font-medium text-teal-800"
+            }
+          >
             핵심 키워드: {article.focus_keyword ?? ""}
           </span>
         </div>
         <p className="mt-4 text-base leading-8 text-slate-700">{quickAnswer.definition_sentence}</p>
         <p className="mt-3 text-base leading-8 text-slate-700">{quickAnswer.framing_sentence}</p>
-        <div className="mt-5 rounded-lg border border-teal-200 bg-white p-4 text-sm leading-7 text-slate-700">
+        <div
+          className={
+            isWhiteBlueTheme
+              ? "mt-5 rounded-lg border border-blue-200 bg-white p-4 text-sm leading-7 text-slate-700"
+              : "mt-5 rounded-lg border border-teal-200 bg-white p-4 text-sm leading-7 text-slate-700"
+          }
+        >
           <p className="font-semibold text-slate-900">선택 기준</p>
           <p className="mt-2">{quickAnswer.selection_criteria}</p>
         </div>
@@ -257,10 +290,32 @@ export function ArticleRenderer({
       </section>
 
       {dataCards.length > 0 ? (
-        <section aria-label="TOP3 요약" className="grid gap-4 md:grid-cols-3">
+        <section
+          aria-label="핵심 요약"
+          className={
+            article.data_cards_layout === "two-by-two"
+              ? "grid gap-4 sm:grid-cols-2"
+              : "grid gap-4 md:grid-cols-3"
+          }
+        >
           {dataCards.map((card) => (
-            <div key={card.title} className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-slate-900">{card.title}</h2>
+            <div
+              key={card.title}
+              className={
+                isWhiteBlueTheme
+                  ? "rounded-lg border border-blue-200 bg-white p-6 shadow-sm"
+                  : "rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              }
+            >
+              <h2
+                className={
+                  isWhiteBlueTheme
+                    ? "text-lg font-semibold text-blue-900"
+                    : "text-lg font-semibold text-slate-900"
+                }
+              >
+                {card.title}
+              </h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">{card.body}</p>
             </div>
           ))}
@@ -292,7 +347,9 @@ export function ArticleRenderer({
 
       {cautionChecklist.length > 0 ? (
         <section className="rounded-lg border border-slate-200 bg-slate-50 p-8">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">이 순위를 참고할 때 확인할 사항</h2>
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+            {article.caution_title ?? "확인할 사항"}
+          </h2>
           <ul className="mt-6 space-y-3">
             {cautionChecklist.map((item) => (
               <li key={item} className="flex gap-3 text-sm leading-7 text-slate-700">
@@ -356,6 +413,50 @@ export function ArticleRenderer({
               </section>
             ))}
           </div>
+        </section>
+      ) : null}
+
+      {article.editorial ? (
+        <section className="rounded-lg border border-blue-200 bg-slate-50 p-8">
+          <h2 className="text-xl font-semibold tracking-tight text-slate-900">
+            작성·검토 기준
+          </h2>
+          <dl className="mt-5 grid gap-4 text-sm leading-7 sm:grid-cols-2">
+            {article.editorial.author ? (
+              <div>
+                <dt className="font-semibold text-slate-900">작성 주체</dt>
+                <dd className="text-slate-600">{article.editorial.author}</dd>
+              </div>
+            ) : null}
+            {article.editorial.publisher ? (
+              <div>
+                <dt className="font-semibold text-slate-900">발행 주체</dt>
+                <dd className="text-slate-600">{article.editorial.publisher}</dd>
+              </div>
+            ) : null}
+            {article.editorial.reviewedAt ? (
+              <div>
+                <dt className="font-semibold text-slate-900">최종 확인일</dt>
+                <dd className="text-slate-600">{article.editorial.reviewedAt}</dd>
+              </div>
+            ) : null}
+            {article.editorial.basis ? (
+              <div>
+                <dt className="font-semibold text-slate-900">작성 기준</dt>
+                <dd className="text-slate-600">{article.editorial.basis}</dd>
+              </div>
+            ) : null}
+          </dl>
+          {article.editorial.disclosure ? (
+            <p className="mt-5 border-t border-blue-100 pt-4 text-sm leading-7 text-slate-600">
+              {article.editorial.disclosure}
+            </p>
+          ) : null}
+          {article.editorial.limitations ? (
+            <p className="mt-2 text-sm leading-7 text-slate-500">
+              {article.editorial.limitations}
+            </p>
+          ) : null}
         </section>
       ) : null}
 

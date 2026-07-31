@@ -1,0 +1,137 @@
+name: Publish scheduled Clinic GEO articles
+
+on:
+  schedule:
+    - cron: "0 5 1 8 *" # 2026-08-01 14:00 KST
+    - cron: "0 0 2 8 *" # 2026-08-02 09:00 KST
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview due articles without publishing"
+        required: true
+        default: true
+        type: boolean
+      now:
+        description: "Optional ISO timestamp used for a dry run"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: clinicgeo-scheduled-article-publisher
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      SITE_URL: https://clinicgeo.co.kr
+      ARTICLE_ROUTE: /blog
+      ARTICLE_LIST_URL: https://clinicgeo.co.kr/blog
+      SITEMAP_URL: https://clinicgeo.co.kr/sitemap.xml
+      PUBLISH_RESULT_PATH: .publish-results/scheduled-publish.json
+
+    steps:
+      - name: Check out main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Find due articles
+        id: publish
+        shell: bash
+        run: |
+          args=()
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && "${{ inputs.dry_run }}" == "true" ]]; then
+            args+=("--dry-run")
+          fi
+          if [[ -n "${{ inputs.now }}" ]]; then
+            args+=("--now=${{ inputs.now }}")
+          fi
+          npm run publish:scheduled -- "${args[@]}"
+
+      - name: Validate scheduled content
+        if: steps.publish.outputs.would_publish == 'true'
+        run: |
+          npm run lint
+          npm run typecheck
+          npm run build
+
+      - name: Commit and push publication
+        if: steps.publish.outputs.changed == 'true'
+        shell: bash
+        run: |
+          git config user.name "lee6231"
+          git config user.email "dltmdcks623100@gmail.com"
+          git add content/articles
+          git commit -m "Publish scheduled Clinic GEO articles"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Wait for production and verify
+        if: steps.publish.outputs.changed == 'true'
+        run: npm run publish:verify
+
+      - name: Submit published URLs to IndexNow
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        shell: bash
+        run: |
+          node -e "const r=require('./.publish-results/scheduled-publish.json'); for (const a of r.articles) console.log(a.url)" |
+          while IFS= read -r url; do
+            npm run indexnow -- "$url"
+          done
+
+      - name: Submit sitemap and inspect URLs in Google Search Console
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GSC_SITE_URL: ${{ vars.GSC_SITE_URL }}
+          GSC_SITEMAP_URL: ${{ vars.GSC_SITEMAP_URL }}
+        run: npm run publish:gsc
+
+      - name: Send publication report
+        if: steps.publish.outputs.changed == 'true'
+        env:
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          PUBLISH_EMAIL_FROM: ${{ secrets.PUBLISH_EMAIL_FROM }}
+          PUBLISH_EMAIL_TO: ${{ secrets.PUBLISH_EMAIL_TO }}
+        run: npm run publish:report
+
+      - name: Write job summary
+        if: always()
+        shell: bash
+        run: |
+          if [[ -f "$PUBLISH_RESULT_PATH" ]]; then
+            node - <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require("fs");
+          const result = JSON.parse(fs.readFileSync(process.env.PUBLISH_RESULT_PATH, "utf8"));
+          console.log("## Scheduled publication");
+          console.log(`- Dry run: ${result.dryRun}`);
+          console.log(`- Published: ${result.changed}`);
+          console.log(`- Due articles: ${result.articles.length}`);
+          for (const article of result.articles) console.log(`- [${article.title}](${article.url})`);
+          if (result.googleSearchConsole?.skipped) {
+            console.log("- Google Search Console: skipped because service-account settings are missing");
+          }
+          if (result.emailReport?.skipped) {
+            console.log("- Email report: skipped because Resend settings are missing");
+          }
+          NODE
+          else
+            echo "No publication result was produced." >> "$GITHUB_STEP_SUMMARY"
+          fi

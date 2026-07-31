@@ -6,7 +6,13 @@
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit --incremental false",
+    "indexnow": "node scripts/submit-indexnow.mjs",
+    "publish:scheduled": "node scripts/publish-scheduled-articles.mjs",
+    "publish:verify": "node scripts/verify-published-url.mjs",
+    "publish:gsc": "node scripts/google-search-console.mjs",
+    "publish:report": "node scripts/send-publish-report.mjs"
   },
   "dependencies": {
     "next": "16.2.10",

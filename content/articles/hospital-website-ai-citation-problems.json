@@ -1,0 +1,445 @@
+{
+  "mode": "authority",
+  "site": "clinicgeo.co.kr",
+  "slug": "hospital-website-ai-citation-problems",
+  "title": "병원 GEO 점검: 홈페이지가 AI 검색에 인용되지 않는 7가지 이유",
+  "categorySlug": "hospital-geo",
+  "categoryName": "병원 GEO 아티클",
+  "focus_keyword": "병원 AI 검색 노출",
+  "meta_description": "병원 홈페이지가 Google에는 색인됐는데 AI 검색에서 보이지 않는 이유는 무엇일까요? 엔티티 불일치, 원본 정보 부족, 기술 설정과 내부 링크 문제 7가지를 정리했습니다.",
+  "publishedAt": "2026-08-02",
+  "updatedAt": "2026-08-02",
+  "publishAt": "2026-08-02T09:00:00+09:00",
+  "published": false,
+  "summary_label": "핵심 요약",
+  "quick_answer": {
+    "definition_sentence": "병원 홈페이지가 Google에 색인됐다는 사실과 ChatGPT·Gemini·Perplexity·Claude 답변에서 병원이 언급되거나 출처로 연결되는 것은 같은 결과가 아닙니다.",
+    "framing_sentence": "색인은 URL이 검색 시스템에 등록됐다는 뜻이고, AI 인용은 특정 질문에서 해당 문서가 답변 근거로 선택됐다는 뜻입니다. 병원 정보가 불명확하거나 질문에 답하는 원본 문서가 부족하면 색인 후에도 인용되지 않을 수 있습니다.",
+    "selection_criteria": "주요 원인: 병원 엔티티 불일치 / 의료진·진료 정보 부족 / 질문형 원본 문서 부족 / 중복 콘텐츠 / canonical·robots·sitemap 문제 / 내부 링크 부족 / 발행 주체와 최신성 불명확",
+    "conclusion_sentence": "먼저 대표 병원 정보와 핵심 진료 페이지를 정리하고, 기술 색인 상태를 확인한 뒤 동일 질문 세트로 브랜드 언급과 공식 출처 인용을 분리해 재측정해야 합니다.",
+    "sources": [
+      "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+    ]
+  },
+  "data_cards": [
+    {
+      "title": "엔티티 불일치",
+      "body": "병원명, 주소, 의료진, 공식 URL이 페이지와 외부 프로필마다 달라 검색 시스템이 동일 주체로 연결하기 어렵습니다."
+    },
+    {
+      "title": "원본 정보 부족",
+      "body": "서비스명과 홍보 문구만 있고 환자의 상황·비교·주의 질문에 답하는 병원 고유 문서가 부족합니다."
+    },
+    {
+      "title": "기술·연결 문제",
+      "body": "canonical, sitemap, robots, noindex, 404와 고아 페이지 때문에 핵심 문서가 발견되거나 중요 페이지로 연결되지 않습니다."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Google 색인과 AI 인용은 왜 다른 결과일까?",
+      "paragraphs": [
+        {
+          "text": "사이트맵 제출과 URL 색인은 검색엔진이 페이지 존재를 알고 처리할 수 있게 하는 기본 단계입니다. 그러나 색인된 모든 페이지가 생성형 AI 답변의 출처로 선택되는 것은 아닙니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+          ]
+        },
+        {
+          "text": "AI 답변은 질문과 관련된 여러 문서를 바탕으로 구성될 수 있으며, 플랫폼마다 검색 기능과 출처 표기 방식이 다릅니다. 따라서 병원명이 답변에 등장했는지, 공식 URL이 인용됐는지, 추천 문맥에 포함됐는지를 따로 확인해야 합니다.",
+          "sources": [
+            "https://help.openai.com/en/articles/9237897-chatgpt-search"
+          ]
+        },
+        {
+          "text": "Clinic GEO는 색인 완료를 성과의 끝으로 보지 않고, 질문별 응답과 출처를 기록한 뒤 어떤 정보가 부족한지 다시 홈페이지와 아티클에 반영하는 과정을 중요하게 봅니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "색인과 AI 인용의 차이",
+        "columns": [
+          "단계",
+          "확인되는 것",
+          "확인되지 않는 것"
+        ],
+        "rows": [
+          [
+            "사이트맵 발견",
+            "검색엔진이 제출된 URL 목록을 알 수 있음",
+            "실제 크롤링·색인·AI 인용 보장"
+          ],
+          [
+            "Google 색인",
+            "해당 URL이 Google 색인에 등록될 수 있음",
+            "ChatGPT·Gemini 등 다른 플랫폼의 인용"
+          ],
+          [
+            "브랜드 언급",
+            "답변 본문에 병원명이 등장",
+            "공식 홈페이지가 출처로 사용됐는지"
+          ],
+          [
+            "공식 출처 인용",
+            "병원 공식 URL이나 자사 아티클이 출처로 연결",
+            "추천 순위나 환자 전환 보장"
+          ],
+          [
+            "반복 측정",
+            "같은 조건에서 변화 추이를 비교",
+            "모든 사용자에게 동일한 답변 제공"
+          ]
+        ],
+        "note": "검색과 AI 답변은 질문, 시점, 위치, 계정, 모델과 검색 기능에 따라 달라질 수 있습니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+          "https://help.openai.com/en/articles/9237897-chatgpt-search"
+        ]
+      }
+    },
+    {
+      "heading": "병원 홈페이지가 AI 검색에 인용되지 않는 7가지 이유",
+      "paragraphs": [
+        {
+          "text": "아래 항목은 특정 플랫폼의 비공개 순위 공식을 의미하지 않습니다. 공개된 검색 가이드와 실제 홈페이지 점검에서 반복적으로 확인되는 구조적 문제를 정리한 체크리스트입니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "병원 홈페이지 AI 인용 저해 요인 7가지",
+        "columns": [
+          "원인",
+          "문제 상태",
+          "우선 개선"
+        ],
+        "rows": [
+          [
+            "1. 병원 엔티티 불일치",
+            "병원명·주소·전화·공식 URL 표기가 페이지마다 다름",
+            "대표 표기를 정하고 홈페이지·지도·외부 프로필을 통일"
+          ],
+          [
+            "2. 의료진 정보 부족",
+            "이름·사진만 있고 담당 진료와 소속 관계가 없음",
+            "경력·담당 영역·작성·검수 관계를 사실 기반으로 연결"
+          ],
+          [
+            "3. 진료별 독립 문서 부족",
+            "모든 진료를 메뉴 목록이나 한 페이지에서 처리",
+            "핵심 진료별 대표 URL과 허브 구조 생성"
+          ],
+          [
+            "4. 질문에 답하는 원본 정보 부족",
+            "광고 문구와 일반 설명만 반복",
+            "상황·비교·주의 질문에 직접 답하는 병원 고유 문서 발행"
+          ],
+          [
+            "5. 유사·중복 콘텐츠",
+            "제목만 바꾼 글과 다국어 복제물이 동시에 다수 발행",
+            "검색 의도별 대표 문서를 정하고 canonical·번역 관계 정리"
+          ],
+          [
+            "6. 기술 색인 문제",
+            "noindex, robots 차단, 잘못된 canonical, 404, sitemap 누락",
+            "대표 URL 응답과 Search Console·Bing 상태 점검"
+          ],
+          [
+            "7. 내부 링크와 발행 주체 부족",
+            "중요 페이지가 고립되고 운영사·수정일·출처가 없음",
+            "설명형 링크와 Organization·BlogPosting·Breadcrumb 연결"
+          ]
+        ],
+        "note": "가장 많은 글을 만드는 것보다 핵심 URL과 엔티티 관계를 먼저 정리하는 편이 안정적입니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+          "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+        ]
+      }
+    },
+    {
+      "heading": "가장 먼저 고쳐야 할 3가지는 무엇일까?",
+      "paragraphs": [
+        {
+          "text": "첫째, 병원명·주소·연락처·공식 URL·의료진 표기를 하나의 기준으로 통일합니다. 검색 시스템이 같은 병원과 의료진을 여러 주체로 오해하지 않도록 홈페이지와 외부 프로필을 함께 점검해야 합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/establish-business-details",
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+          ]
+        },
+        {
+          "text": "둘째, 매출 키워드 수가 아니라 핵심 진료 질문을 기준으로 대표 페이지를 선정합니다. 각 페이지는 첫 문단의 직접 답변, 병원 고유 정보, 확인할 사항, 관련 의료진과 FAQ를 포함하고 허브 페이지와 연결합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+          ]
+        },
+        {
+          "text": "셋째, Search Console과 Bing에서 대표 URL의 발견·색인 상태를 확인하고, 실제 AI 응답에서는 브랜드 언급과 공식 출처 인용을 별도로 기록합니다. 기술 점검과 응답 측정을 한 지표로 섞지 않는 것이 중요합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "병원 엔티티 연결은 어떤 구조로 만들어야 할까?",
+      "paragraphs": [
+        {
+          "text": "병원 홈페이지의 중심 엔티티는 의료기관입니다. 의료기관에서 의료진, 진료 서비스, 위치, 연락처와 발행 문서가 연결되고, 아티클은 다시 관련 진료 페이지와 의료진 정보로 돌아갈 수 있어야 합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+            "https://developers.google.com/search/docs/appearance/establish-business-details"
+          ]
+        },
+        {
+          "text": "Clinic GEO는 SUMMITFEED를 발행 Organization으로, Clinic GEO를 WebSite로, 각 글을 BlogPosting으로 연결합니다. 병원도 같은 원칙으로 공식 사이트의 Organization·LocalBusiness 계열 식별자를 정하고 페이지마다 같은 @id를 재사용하는 편이 일관성을 유지하기 쉽습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+          ]
+        },
+        {
+          "text": "sameAs나 mentions를 많이 넣는 것보다 실제로 확인되는 공식 프로필과 페이지 관계만 표시해야 합니다. 화면 본문과 다른 엔티티를 마크업에 추가하면 오히려 의미가 불명확해질 수 있습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "병원 엔티티 연결 예시",
+        "columns": [
+          "중심 엔티티",
+          "연결 대상",
+          "페이지에서 보여줄 관계"
+        ],
+        "rows": [
+          [
+            "의료기관",
+            "주소·전화·진료시간·공식 URL",
+            "하나의 대표 병원 정보로 통일"
+          ],
+          [
+            "의료기관",
+            "의료진",
+            "소속과 담당 진료를 명시"
+          ],
+          [
+            "의료진",
+            "진료·시술 페이지",
+            "담당 영역과 검수 관계를 사실 기반으로 연결"
+          ],
+          [
+            "진료 페이지",
+            "FAQ·관련 아티클",
+            "설명형 앵커텍스트로 질문 클러스터 구성"
+          ],
+          [
+            "아티클",
+            "발행 Organization·WebSite",
+            "작성 주체, 발행·수정일, 참고자료와 정정 경로"
+          ],
+          [
+            "사이트",
+            "sitemap·canonical·Breadcrumb",
+            "대표 URL과 계층을 일관되게 전달"
+          ]
+        ],
+        "note": "구조화 데이터는 화면에서 확인 가능한 관계만 표현해야 합니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+          "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb"
+        ]
+      }
+    },
+    {
+      "heading": "수정 후 AI 인용 여부는 어떻게 다시 확인할까?",
+      "paragraphs": [
+        {
+          "text": "수정 전과 후에 동일한 질문 세트, 플랫폼, 측정일 기록 방식을 사용해야 변화 비교가 가능합니다. 질문 표현을 바꾸거나 플랫폼별 결과를 하나의 평균으로만 합치면 어떤 변경이 영향을 줬는지 판단하기 어렵습니다.",
+          "sources": []
+        },
+        {
+          "text": "브랜드명 등장만 확인하지 말고 공식 URL 인용, 제3자 출처, 추천 포함, 경쟁사 동시 노출과 미노출을 구분합니다. 출처가 없는 응답은 브랜드 언급으로만 기록하는 편이 안전합니다.",
+          "sources": [
+            "https://help.openai.com/en/articles/9237897-chatgpt-search"
+          ]
+        },
+        {
+          "text": "AI 답변은 변동성이 있으므로 한 번의 성공 화면을 영구적인 성과로 표현하지 않습니다. 원본 응답, 플랫폼, 모델 또는 기능, 질문, 날짜와 인용 URL을 함께 보관해야 레퍼런스의 신뢰도를 높일 수 있습니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    }
+  ],
+  "conclusion": {
+    "heading": "결론",
+    "paragraphs": [
+      "병원 홈페이지가 색인됐는데 AI에서 보이지 않는다면 글 수를 늘리기 전에 병원 엔티티, 의료진과 진료 페이지, 기술 색인 상태와 내부 링크를 먼저 점검해야 합니다.",
+      "대표 URL과 원본 문서를 정리한 뒤 동일한 질문 세트로 브랜드 언급·공식 출처 인용·추천 포함을 분리해 재측정해야 어떤 개선이 필요한지 알 수 있습니다.",
+      "Clinic GEO와 SUMMITFEED는 병·의원 사이트 구조와 4개 AI 플랫폼 응답을 서로 다른 지표로 기록하고, 실제 수정 내역과 재측정 조건이 남는 운영 구조를 기준으로 삼습니다."
+    ]
+  },
+  "faqs": [
+    {
+      "question": "Google에 색인된 병원 글이면 ChatGPT도 읽을 수 있나요?",
+      "answer": "Google 색인과 ChatGPT의 검색·인용은 동일한 시스템이 아닙니다. 공개 페이지와 크롤링 접근성은 기본 조건이지만, 특정 질문에서 ChatGPT가 해당 URL을 사용하거나 인용한다고 보장할 수 없습니다.",
+      "sources": [
+        "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+        "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+      ]
+    },
+    {
+      "question": "사이트맵에 URL이 있으면 AI 인용 준비가 끝난 건가요?",
+      "answer": "사이트맵은 URL 발견을 돕는 파일입니다. 실제 색인, 문서 품질, 질문 적합성, 엔티티 관계와 AI 인용은 별도로 확인해야 합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
+      ]
+    },
+    {
+      "question": "병원 홈페이지 글은 몇 개 정도 있어야 하나요?",
+      "answer": "고정된 정답은 없습니다. 유사 글을 많이 만드는 것보다 핵심 진료와 환자 질문별 대표 문서를 만들고 의료진·서비스·FAQ·허브 페이지를 연결하는 편이 중요합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    },
+    {
+      "question": "JSON-LD를 추가하면 병원이 AI에 바로 나오나요?",
+      "answer": "JSON-LD는 페이지 의미를 보조하지만 검색 노출이나 AI 인용을 보장하지 않습니다. 화면 본문과 일치해야 하며 canonical, sitemap, 내부 링크, 원본 정보와 함께 점검해야 합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "question": "수정 후 언제 다시 측정해야 하나요?",
+      "answer": "먼저 운영 URL과 sitemap 반영, 검색엔진의 크롤링·색인 상태를 확인한 뒤 같은 질문 세트로 반복 측정합니다. 답변 변동성을 고려해 한 번의 응답보다 여러 시점의 기록을 비교하는 것이 좋습니다.",
+      "sources": []
+    }
+  ],
+  "tags": [
+    "병원 GEO",
+    "병원 AI 검색 노출",
+    "병원 홈페이지",
+    "ChatGPT 인용",
+    "Gemini",
+    "Perplexity",
+    "Claude",
+    "Google 색인",
+    "병원 엔티티",
+    "MedicalClinic",
+    "구조화 데이터",
+    "내부 링크",
+    "canonical",
+    "sitemap",
+    "E-E-A-T",
+    "Clinic GEO",
+    "SUMMITFEED"
+  ],
+  "references": [
+    "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+    "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+    "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+    "https://developers.google.com/search/docs/appearance/establish-business-details",
+    "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb",
+    "https://help.openai.com/en/articles/9237897-chatgpt-search",
+    "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+  ],
+  "caution_checklist": [
+    "Google 색인 완료를 AI 인용 완료로 표현하지 마세요.",
+    "브랜드 언급과 공식 출처 인용을 같은 지표로 합치지 마세요.",
+    "AI 인용 또는 환자 증가를 보장하지 마세요.",
+    "의료진·진료 정보는 병원이 확인한 사실만 사용하세요.",
+    "유사 글을 짧은 기간에 대량 발행하지 마세요.",
+    "구조화 데이터와 화면 본문이 일치하는지 확인하세요.",
+    "수정 전후의 질문·플랫폼·날짜·판정 기준을 동일하게 유지하세요."
+  ],
+  "internal_links": [
+    {
+      "label": "피부과 홈페이지에 필요한 GEO 정보",
+      "url": "/blog/dermatology-geo-website-required-information",
+      "description": "Clinic GEO 피부과 카테고리"
+    },
+    {
+      "label": "병원 GEO 대행사 추천 TOP3",
+      "url": "/blog/hospital-geo-agency-top3-2026-clinicgeo",
+      "description": "Clinic GEO 병원 GEO 아티클"
+    },
+    {
+      "label": "4개 AI 플랫폼 인용률 측정 방법",
+      "url": "https://www.summitfeed.co.kr/geo/articles/ai-citation-rate-measurement-method-4-platforms",
+      "description": "SUMMITFEED 측정 방법론"
+    }
+  ],
+  "entity_connections": [
+    {
+      "entity": "써밋피드(SUMMITFEED)",
+      "type": "Organization",
+      "id": "https://www.summitfeed.co.kr/#organization",
+      "relationship": "publisher"
+    },
+    {
+      "entity": "Clinic GEO",
+      "type": "WebSite",
+      "id": "https://clinicgeo.co.kr/#website",
+      "relationship": "isPartOf"
+    },
+    {
+      "entity": "병원 GEO",
+      "type": "Thing",
+      "id": "https://clinicgeo.co.kr/category/hospital-geo",
+      "relationship": "about"
+    },
+    {
+      "entity": "병원 홈페이지",
+      "type": "Thing",
+      "id": "https://clinicgeo.co.kr/blog/hospital-website-ai-citation-problems#topic",
+      "relationship": "about"
+    },
+    {
+      "entity": "ChatGPT",
+      "type": "Thing",
+      "id": "https://chatgpt.com/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Gemini",
+      "type": "Thing",
+      "id": "https://gemini.google.com/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Perplexity",
+      "type": "Thing",
+      "id": "https://www.perplexity.ai/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Claude",
+      "type": "Thing",
+      "id": "https://claude.ai/",
+      "relationship": "mentions"
+    }
+  ],
+  "editorial": {
+    "author": "SUMMITFEED",
+    "publisher": "SUMMITFEED",
+    "site": "Clinic GEO",
+    "basis": "Google Search Central과 OpenAI 공개 문서, Clinic GEO의 병·의원 사이트 점검 기준",
+    "reviewedAt": "2026-07-31",
+    "disclosure": "Clinic GEO는 SUMMITFEED가 운영하는 병·의원 GEO 아티클 허브입니다.",
+    "limitations": "AI 응답과 인용은 플랫폼·질문·시점·검색 기능에 따라 달라지며 특정 결과를 보장하지 않습니다."
+  },
+  "presentation": {
+    "summary_label": "핵심 요약",
+    "theme": "white-blue",
+    "compact_layout": true,
+    "show_table_of_contents": true
+  }
+}

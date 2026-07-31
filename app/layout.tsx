@@ -32,17 +32,22 @@ export default function RootLayout({
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Clinic GEO",
-              url: siteUrl,
-              description: "병원 선택 기준과 GEO 공식 자료를 제공하는 편집형 정보 사이트",
+              "@id": "https://www.summitfeed.co.kr/#organization",
+              name: "써밋피드(SUMMITFEED)",
+              url: "https://www.summitfeed.co.kr",
+              logo: "https://www.summitfeed.co.kr/icon.png",
             },
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": `${siteUrl}/#website`,
               name: "Clinic GEO",
               url: siteUrl,
               inLanguage: "ko-KR",
               about: "병원·치과 선택 기준과 GEO 공식 자료",
+              publisher: {
+                "@id": "https://www.summitfeed.co.kr/#organization",
+              },
             },
           ]}
         />

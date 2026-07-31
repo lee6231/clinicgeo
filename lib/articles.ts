@@ -48,11 +48,41 @@ export type ArticleInternalLink =
 export type Article = {
   title: string;
   slug: string;
+  publishAt?: string;
   categorySlug: string;
   categoryName: string;
+  category?: string;
+  display_category?: string;
   focus_keyword: string;
   meta_description: string;
   quick_answer: ArticleQuickAnswer;
+  summary_label?: string;
+  compact_layout?: boolean;
+  data_cards_layout?: "two-by-two";
+  visual_theme?: "white-blue";
+  hide_cta?: boolean;
+  caution_title?: string;
+  presentation?: {
+    summary_label?: string;
+    theme?: "white-blue" | string;
+    compact_layout?: boolean;
+    show_table_of_contents?: boolean;
+  };
+  entity_connections?: Array<{
+    entity: string;
+    type: string;
+    id?: string;
+    relationship: "publisher" | "isPartOf" | "about" | "mentions";
+  }>;
+  editorial?: {
+    author?: string;
+    publisher?: string;
+    site?: string;
+    basis?: string;
+    reviewedAt?: string;
+    disclosure?: string;
+    limitations?: string;
+  };
   data_cards: ArticleDataCard[];
   sections: ArticleSection[];
   conclusion: ArticleConclusion;
