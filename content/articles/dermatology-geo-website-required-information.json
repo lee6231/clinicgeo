@@ -1,0 +1,410 @@
+{
+  "mode": "authority",
+  "site": "clinicgeo.co.kr",
+  "slug": "dermatology-geo-website-required-information",
+  "title": "피부과 GEO란? AI 검색에 인용되는 피부과 홈페이지 필수 정보",
+  "categorySlug": "dermatology-geo",
+  "categoryName": "피부과 GEO",
+  "focus_keyword": "피부과 GEO",
+  "meta_description": "피부과 홈페이지가 AI 검색과 Google에서 이해되려면 어떤 정보가 필요할까요? 의료진, 진료·시술 정보, 위치, FAQ, 구조화 데이터와 내부 링크 기준을 정리했습니다.",
+  "publishedAt": "2026-08-01",
+  "updatedAt": "2026-08-01",
+  "publishAt": "2026-08-01T14:00:00+09:00",
+  "published": false,
+  "summary_label": "핵심 요약",
+  "quick_answer": {
+    "definition_sentence": "피부과 GEO는 병원명과 시술 키워드를 반복하는 작업이 아니라, 피부과의 운영 주체·의료진·진료 영역·위치·환자가 묻는 질문을 검색엔진과 AI가 일관된 하나의 엔티티로 이해하도록 정리하는 작업입니다.",
+    "framing_sentence": "홈페이지에 리프팅·여드름·색소·흉터 같은 메뉴만 나열돼 있어도 각 페이지에 대상, 일반적인 과정, 확인할 사항과 한계가 없으면 질문에 답할 수 있는 원본 정보가 부족할 수 있습니다.",
+    "selection_criteria": "필수 기준: 병원 기본정보의 일관성 / 의료진과 담당 진료 연결 / 진료·시술별 독립 URL / 질문에 직접 답하는 본문 / 의료광고 표현 점검 / canonical·sitemap·내부 링크 / 화면과 일치하는 JSON-LD",
+    "conclusion_sentence": "AI 인용을 보장하는 단일 마크업은 없습니다. 피부과가 직접 확인할 수 있는 원본 정보를 명확한 페이지 구조로 공개하고, 관련 문서를 연결하고, 색인과 실제 응답을 반복 측정하는 것이 우선입니다.",
+    "sources": [
+      "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+      "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+      "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+      "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001788&lsJoLnkSeq=900350305&print=print"
+    ]
+  },
+  "data_cards": [
+    {
+      "title": "의료진 엔티티",
+      "body": "이름만 표시하지 말고 담당 진료, 경력, 소속, 작성·검수 참여 범위를 병원 정보와 연결합니다."
+    },
+    {
+      "title": "진료별 원본 페이지",
+      "body": "리프팅·여드름·색소·흉터를 한 페이지에 몰지 않고 검색 의도별 독립 URL과 관련 FAQ를 구성합니다."
+    },
+    {
+      "title": "일관된 병원 정보",
+      "body": "병원명, 주소, 전화, 진료시간, 공식 URL을 홈페이지·지도·외부 프로필에서 같은 형식으로 유지합니다."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "피부과 홈페이지에서 AI와 Google이 먼저 확인할 정보는 무엇일까?",
+      "paragraphs": [
+        {
+          "text": "AI 검색과 일반 검색 모두 공개 웹페이지에서 병원과 페이지의 의미를 파악합니다. 따라서 병원명, 운영 주체, 주소, 연락처, 진료시간, 의료진, 진료 영역이 페이지마다 다르게 표현되지 않도록 정리하는 것이 출발점입니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+            "https://developers.google.com/search/docs/appearance/establish-business-details"
+          ]
+        },
+        {
+          "text": "Google은 구조화 데이터가 페이지 이해를 도울 수 있다고 설명하지만, 마크업 내용은 사용자가 실제 화면에서 확인할 수 있는 본문과 일치해야 합니다. JSON-LD에만 의료진이나 서비스를 추가하고 화면에는 보이지 않게 두는 방식은 피해야 합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+          ]
+        },
+        {
+          "text": "Clinic GEO는 피부과 홈페이지를 하나의 병원 엔티티와 의료진, 진료 주제, 위치 정보가 연결된 문서망으로 봅니다. 개별 글의 수보다 각 문서가 어떤 질문에 답하고 어느 핵심 페이지로 연결되는지가 중요합니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "피부과 홈페이지에 필요한 정보 6가지",
+      "paragraphs": [
+        {
+          "text": "필수 정보는 홍보 문구보다 환자가 병원을 이해하고 비교하는 데 필요한 사실 중심으로 구성하는 것이 좋습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "피부과 홈페이지 GEO 필수 정보",
+        "columns": [
+          "정보 영역",
+          "화면에 보여야 할 내용",
+          "연결할 엔티티"
+        ],
+        "rows": [
+          [
+            "병원 기본정보",
+            "공식 병원명, 주소, 전화, 진료시간, 대표 URL",
+            "MedicalClinic·LocalBusiness"
+          ],
+          [
+            "의료진",
+            "이름, 자격·경력, 담당 진료, 소속, 검수 참여",
+            "Physician·Person"
+          ],
+          [
+            "진료·시술",
+            "정의, 일반적 대상, 과정, 상담 전 확인사항, 주의점",
+            "Service·MedicalProcedure 관련 주제"
+          ],
+          [
+            "위치·내원",
+            "교통, 주차, 층·건물, 예약·내원 안내",
+            "Place·PostalAddress"
+          ],
+          [
+            "질문과 답변",
+            "환자가 실제로 묻는 비교·상황·주의 질문",
+            "FAQPage는 보조적으로 사용"
+          ],
+          [
+            "발행 정보",
+            "작성 주체, 발행일, 수정일, 참고자료, 정정 경로",
+            "BlogPosting·Organization"
+          ]
+        ],
+        "note": "Schema 유형은 페이지의 실제 내용과 사이트 구조에 맞게 선택해야 하며, 마크업 자체가 노출이나 인용을 보장하지 않습니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+          "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb"
+        ]
+      }
+    },
+    {
+      "heading": "리프팅·여드름·색소 페이지는 어떻게 나눠야 할까?",
+      "paragraphs": [
+        {
+          "text": "모든 진료와 장비를 하나의 긴 페이지에 나열하면 각 질문의 답이 어디에 있는지 불명확해질 수 있습니다. 리프팅, 여드름, 색소, 흉터처럼 검색 의도가 다른 주제는 독립 URL을 만들고 의료진·FAQ·관련 글을 내부 링크로 연결하는 편이 관리하기 쉽습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+          ]
+        },
+        {
+          "text": "각 페이지는 첫 문단에서 주제를 짧게 정의하고, 일반적으로 어떤 상담 질문이 생기는지, 어떤 정보를 확인해야 하는지, 개인별 판단이 필요한 부분은 무엇인지 순서대로 설명해야 합니다. 특정 효과를 보장하거나 다른 의료기관과의 우위를 단정하는 문장은 피해야 합니다.",
+          "sources": [
+            "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001788&lsJoLnkSeq=900350305&print=print"
+          ]
+        },
+        {
+          "text": "장비명과 이벤트 가격만으로 구성된 페이지보다 병원이 직접 제공할 수 있는 진료 원칙, 상담 과정, 의료진의 담당 범위, 페이지의 수정 기준을 공개한 문서가 고유한 원본 정보로 기능하기 쉽습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "정보가 부족한 피부과 홈페이지와 AI가 이해하기 쉬운 홈페이지의 차이",
+      "paragraphs": [
+        {
+          "text": "다음 비교는 인용 여부를 보장하는 점수표가 아니라, 페이지의 의미와 엔티티 연결을 더 명확하게 만드는 실무 점검 기준입니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "피부과 홈페이지 구조 비교",
+        "columns": [
+          "구분",
+          "정보가 부족한 구조",
+          "이해하기 쉬운 구조"
+        ],
+        "rows": [
+          [
+            "진료 구성",
+            "모든 시술을 한 페이지에 나열",
+            "질문 의도별 독립 URL과 허브 페이지 연결"
+          ],
+          [
+            "의료진 정보",
+            "이름과 사진만 표시",
+            "담당 진료·경력·소속·검수 관계 표시"
+          ],
+          [
+            "본문",
+            "효과·이벤트 중심의 짧은 문구",
+            "정의·과정·확인사항·한계를 사실 중심으로 설명"
+          ],
+          [
+            "페이지 관계",
+            "글과 서비스 페이지가 분리",
+            "설명형 앵커텍스트로 의료진·진료·FAQ 연결"
+          ],
+          [
+            "기술 신호",
+            "canonical·sitemap·JSON-LD 불일치",
+            "대표 URL과 화면 내용이 마크업과 일치"
+          ],
+          [
+            "업데이트",
+            "발행일과 책임 주체 없음",
+            "발행·수정일, 운영사, 참고자료와 정정 경로 공개"
+          ]
+        ],
+        "note": "검색엔진과 AI의 결과는 시점, 질문, 모델과 검색 기능에 따라 달라질 수 있습니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+        ]
+      }
+    },
+    {
+      "heading": "E-E-A-T와 엔티티 연결은 페이지에서 어떻게 보여줘야 할까?",
+      "paragraphs": [
+        {
+          "text": "E-E-A-T는 별도의 점수나 Schema 유형이 아닙니다. 피부과가 직접 제공할 수 있는 경험과 전문 정보, 책임 주체, 출처와 수정 기록을 사용자가 확인할 수 있게 만드는 운영 원칙으로 보는 편이 정확합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+          ]
+        },
+        {
+          "text": "Clinic GEO 아티클은 발행 주체를 SUMMITFEED로 연결하고, Clinic GEO 웹사이트 안의 피부과 GEO 카테고리에 포함하며, 관련된 치과·병원 GEO 문서와 SUMMITFEED의 기술 기준 글을 연결합니다. 이 방식은 두 사이트의 역할을 숨기지 않고 하나의 주제 클러스터로 설명하기 위한 것입니다.",
+          "sources": []
+        },
+        {
+          "text": "병원 홈페이지에서도 의료기관, 의료진, 진료 서비스, 위치, 작성 문서를 서로 연결해야 합니다. 동일한 의료진 이름이나 병원명이 페이지마다 다른 표기로 사용되지 않는지 정기적으로 확인하는 것이 좋습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/establish-business-details",
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "구조화 데이터와 AI 인용을 어떻게 구분해서 봐야 할까?",
+      "paragraphs": [
+        {
+          "text": "LocalBusiness·Organization·BlogPosting·BreadcrumbList 같은 구조화 데이터는 검색 시스템이 페이지 성격과 주체를 이해하도록 돕습니다. 그러나 올바르게 구현해도 검색 결과의 확장 노출이나 생성형 AI 인용이 보장되지는 않습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+            "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb"
+          ]
+        },
+        {
+          "text": "구조화 데이터는 화면에 보이는 정보와 일치시키고 Rich Results Test와 Schema Markup Validator로 확인해야 합니다. 동시에 robots.txt, noindex, canonical, sitemap과 실제 HTTP 응답을 함께 점검해야 합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+          ]
+        },
+        {
+          "text": "발행 후에는 동일한 질문 세트를 여러 플랫폼에서 반복 측정하고, 브랜드 언급과 공식 URL 인용을 구분해야 합니다. SUMMITFEED의 4개 플랫폼 측정 기준 글은 이 판정 과정을 별도로 설명합니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    }
+  ],
+  "conclusion": {
+    "heading": "결론",
+    "paragraphs": [
+      "피부과 GEO의 출발점은 시술 키워드 수가 아니라 병원, 의료진, 진료 주제와 위치 정보를 일관된 엔티티로 연결하는 것입니다.",
+      "진료별 독립 URL, 질문에 직접 답하는 원본 본문, 설명형 내부 링크, 화면과 일치하는 구조화 데이터, 발행 주체와 수정 이력이 함께 있어야 검색엔진과 AI가 문서 관계를 이해하기 쉬워집니다.",
+      "이 구조는 AI 인용을 보장하지 않습니다. 발행 후 색인 상태와 실제 4개 플랫폼 응답을 같은 질문 조건으로 반복 확인하고, 부족한 문서를 보강하는 운영이 필요합니다."
+    ]
+  },
+  "faqs": [
+    {
+      "question": "피부과 시술 페이지는 장비별로 모두 만들어야 하나요?",
+      "answer": "장비 수만큼 페이지를 만드는 것보다 사용자가 묻는 주제와 검색 의도가 다른 경우에 독립 페이지를 만드는 편이 좋습니다. 유사한 장비 설명을 반복하면 중복 문서가 늘 수 있으므로 리프팅·여드름·색소처럼 대표 주제를 중심으로 구성하고 세부 장비는 해당 문서 안에서 설명할 수 있습니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+      ]
+    },
+    {
+      "question": "MedicalClinic이나 Physician Schema를 넣으면 ChatGPT에 인용되나요?",
+      "answer": "구조화 데이터는 페이지 의미를 설명하는 보조 신호이며 ChatGPT나 Google의 노출을 보장하지 않습니다. 실제 화면의 병원·의료진 정보와 일치해야 하고, 크롤링 가능성, 원본 정보, 내부 링크와 최신성이 함께 필요합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+        "https://developers.google.com/search/docs/appearance/structured-data/local-business"
+      ]
+    },
+    {
+      "question": "피부과 홈페이지에 FAQ는 계속 필요한가요?",
+      "answer": "FAQ 리치 결과와 별개로 실제 환자 질문에 짧고 정확하게 답하는 본문은 유용합니다. 다만 FAQPage 마크업을 넣었다는 이유만으로 리치 결과나 AI 인용이 보장되지는 않습니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
+    },
+    {
+      "question": "시술 효과나 추천 표현은 어떻게 작성해야 하나요?",
+      "answer": "특정 결과를 보장하거나 다른 의료기관과의 우위를 단정하지 말고, 일반적인 정보와 상담 전 확인할 사항을 중심으로 작성하는 것이 안전합니다. 구체적인 의료광고 판단은 실제 문안과 매체에 따라 달라질 수 있으므로 전문가 검토가 필요할 수 있습니다.",
+      "sources": [
+        "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001788&lsJoLnkSeq=900350305&print=print"
+      ]
+    },
+    {
+      "question": "피부과 GEO 성과는 언제 확인해야 하나요?",
+      "answer": "발행 직후 색인 여부와 구조를 먼저 확인한 뒤, 동일 질문·플랫폼·판정 기준으로 반복 측정해야 합니다. 한 번의 답변만으로 성과를 단정하지 말고 브랜드 언급, 공식 출처 인용, 추천 문맥을 분리해 변화 추이를 봐야 합니다.",
+      "sources": []
+    }
+  ],
+  "tags": [
+    "피부과 GEO",
+    "피부과 홈페이지",
+    "병원 AI 검색",
+    "ChatGPT 인용",
+    "Gemini",
+    "Perplexity",
+    "Claude",
+    "MedicalClinic",
+    "Physician",
+    "LocalBusiness",
+    "구조화 데이터",
+    "E-E-A-T",
+    "의료광고",
+    "내부 링크",
+    "Clinic GEO",
+    "SUMMITFEED"
+  ],
+  "references": [
+    "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+    "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+    "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+    "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+    "https://developers.google.com/search/docs/appearance/establish-business-details",
+    "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb",
+    "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001788&lsJoLnkSeq=900350305&print=print"
+  ],
+  "caution_checklist": [
+    "AI 인용이나 검색 순위를 보장하는 표현을 사용하지 마세요.",
+    "의료진의 자격·경력·학회 정보는 병원이 확인한 사실만 표시하세요.",
+    "시술 결과를 단정하거나 다른 의료기관과 비교·비방하는 문구를 피하세요.",
+    "구조화 데이터에 화면에서 확인할 수 없는 의료진·서비스 정보를 추가하지 마세요.",
+    "유사한 시술 페이지를 대량 복제하지 말고 검색 의도별 대표 문서를 운영하세요.",
+    "발행 후 canonical, sitemap, robots, noindex와 실제 URL 응답을 확인하세요."
+  ],
+  "internal_links": [
+    {
+      "label": "병원 GEO 대행사 추천 TOP3",
+      "url": "/blog/hospital-geo-agency-top3-2026-clinicgeo",
+      "description": "Clinic GEO 병원 GEO 아티클"
+    },
+    {
+      "label": "AI 검색 노출을 위한 홈페이지 진단 25가지",
+      "url": "https://www.summitfeed.co.kr/geo/articles/ai-search-visibility-website-audit-25-checklist",
+      "description": "SUMMITFEED 기술 점검 기준"
+    },
+    {
+      "label": "4개 AI 플랫폼 인용률 측정 방법",
+      "url": "https://www.summitfeed.co.kr/geo/articles/ai-citation-rate-measurement-method-4-platforms",
+      "description": "SUMMITFEED 측정 방법론"
+    }
+  ],
+  "entity_connections": [
+    {
+      "entity": "써밋피드(SUMMITFEED)",
+      "type": "Organization",
+      "id": "https://www.summitfeed.co.kr/#organization",
+      "relationship": "publisher"
+    },
+    {
+      "entity": "Clinic GEO",
+      "type": "WebSite",
+      "id": "https://clinicgeo.co.kr/#website",
+      "relationship": "isPartOf"
+    },
+    {
+      "entity": "피부과 GEO",
+      "type": "Thing",
+      "id": "https://clinicgeo.co.kr/category/dermatology-geo",
+      "relationship": "about"
+    },
+    {
+      "entity": "피부과 홈페이지",
+      "type": "Thing",
+      "id": "https://clinicgeo.co.kr/blog/dermatology-geo-website-required-information#topic",
+      "relationship": "about"
+    },
+    {
+      "entity": "ChatGPT",
+      "type": "Thing",
+      "id": "https://chatgpt.com/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Gemini",
+      "type": "Thing",
+      "id": "https://gemini.google.com/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Perplexity",
+      "type": "Thing",
+      "id": "https://www.perplexity.ai/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Claude",
+      "type": "Thing",
+      "id": "https://claude.ai/",
+      "relationship": "mentions"
+    }
+  ],
+  "editorial": {
+    "author": "SUMMITFEED",
+    "publisher": "SUMMITFEED",
+    "site": "Clinic GEO",
+    "basis": "Google Search Central, OpenAI 공개 문서, 현행 의료법 공개 조문과 Clinic GEO의 기술 점검 기준",
+    "reviewedAt": "2026-07-31",
+    "disclosure": "Clinic GEO는 SUMMITFEED가 운영하는 병·의원 GEO 아티클 허브입니다.",
+    "limitations": "검색·AI 인용 결과는 질문, 시점, 모델, 검색 기능과 웹 색인 상태에 따라 달라질 수 있습니다."
+  },
+  "presentation": {
+    "summary_label": "핵심 요약",
+    "theme": "white-blue",
+    "compact_layout": true,
+    "show_table_of_contents": true
+  }
+}

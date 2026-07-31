@@ -124,24 +124,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       datePublished: article.publishedAt,
       dateModified: article.updatedAt ?? article.publishedAt,
       author: {
-        "@type": "Organization",
-        name: "Clinic GEO",
-        url: siteUrl,
+        "@id": "https://www.summitfeed.co.kr/#organization",
       },
       publisher: {
-        "@type": "Organization",
-        name: "Clinic GEO",
-        url: siteUrl,
+        "@id": "https://www.summitfeed.co.kr/#organization",
       },
       mainEntityOfPage: canonicalUrl,
       articleSection: article.categoryName,
       keywords: tags,
       inLanguage: "ko-KR",
       isPartOf: {
-        "@type": "WebSite",
-        name: "Clinic GEO",
-        url: siteUrl,
+        "@id":
+          article.entity_connections?.find(
+            (connection) => connection.relationship === "isPartOf",
+          )?.id ?? `${siteUrl}/#website`,
       },
+      about: article.entity_connections
+        ?.filter((connection) => connection.relationship === "about")
+        .map((connection) => ({
+          "@type": connection.type,
+          ...(connection.id ? { "@id": connection.id } : {}),
+          name: connection.entity,
+        })),
+      mentions: article.entity_connections
+        ?.filter((connection) => connection.relationship === "mentions")
+        .map((connection) => ({
+          "@type": connection.type,
+          ...(connection.id ? { "@id": connection.id } : {}),
+          name: connection.entity,
+        })),
     },
     {
       "@context": "https://schema.org",
