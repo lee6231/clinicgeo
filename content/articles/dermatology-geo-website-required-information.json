@@ -10,7 +10,7 @@
   "publishedAt": "2026-08-01",
   "updatedAt": "2026-08-01",
   "publishAt": "2026-08-01T14:00:00+09:00",
-  "published": false,
+  "published": true,
   "summary_label": "핵심 요약",
   "quick_answer": {
     "definition_sentence": "피부과 GEO는 병원명과 시술 키워드를 반복하는 작업이 아니라, 피부과의 운영 주체·의료진·진료 영역·위치·환자가 묻는 질문을 검색엔진과 AI가 일관된 하나의 엔티티로 이해하도록 정리하는 작업입니다.",
