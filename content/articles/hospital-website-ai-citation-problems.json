@@ -10,7 +10,7 @@
   "publishedAt": "2026-08-02",
   "updatedAt": "2026-08-02",
   "publishAt": "2026-08-02T09:00:00+09:00",
-  "published": false,
+  "published": true,
   "summary_label": "핵심 요약",
   "quick_answer": {
     "definition_sentence": "병원 홈페이지가 Google에 색인됐다는 사실과 ChatGPT·Gemini·Perplexity·Claude 답변에서 병원이 언급되거나 출처로 연결되는 것은 같은 결과가 아닙니다.",
