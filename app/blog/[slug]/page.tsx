@@ -124,10 +124,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       datePublished: article.publishedAt,
       dateModified: article.updatedAt ?? article.publishedAt,
       author: {
-        "@id": "https://www.summitfeed.co.kr/#organization",
+        "@id": `${siteUrl}/#organization`,
       },
       publisher: {
-        "@id": "https://www.summitfeed.co.kr/#organization",
+        "@id": `${siteUrl}/#organization`,
       },
       mainEntityOfPage: canonicalUrl,
       articleSection: article.categoryName,
