@@ -9,7 +9,7 @@ type PageFrameProps = {
 
 export function PageFrame({ children, tone = "soft" }: PageFrameProps) {
   return (
-    <div className={`min-h-screen text-slate-950 ${tone === "white" ? "bg-white" : "bg-[#f8faf9]"}`}>
+    <div className={`min-h-screen text-[#1f3a5f] ${tone === "white" ? "bg-white" : "bg-[#f6f9ff]"}`}>
       <Header />
       {children}
       <Footer />

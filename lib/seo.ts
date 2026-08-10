@@ -5,11 +5,11 @@ export const siteUrl = "https://clinicgeo.co.kr";
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Clinic GEO | 병원·치과 선택과 GEO 공식 자료",
+    default: "Clinic GEO | 진료과별 병원 정보와 병원 GEO 블로그",
     template: "%s | Clinic GEO",
   },
   description:
-    "Clinic GEO는 병원·치과 선택 기준과 검색엔진·AI 플랫폼의 GEO 공식 자료를 정리하는 편집형 정보 사이트입니다.",
+    "Clinic GEO는 진료과별 병원 정보와 병원 GEO 아티클을 연결하는 병원 정보 허브입니다.",
   alternates: {
     canonical: "/",
   },
@@ -17,9 +17,9 @@ export const baseMetadata: Metadata = {
     siteName: "Clinic GEO",
     locale: "ko_KR",
     type: "website",
-    title: "Clinic GEO | 병원·치과 선택과 GEO 공식 자료",
+    title: "Clinic GEO | 진료과별 병원 정보와 병원 GEO 블로그",
     description:
-      "병원·치과 선택 기준과 검색엔진·AI 플랫폼의 GEO 공식 자료를 한곳에서 확인하세요.",
+      "정형외과, 피부과, 치과, 성형외과, 내과의 병원 정보와 GEO 아티클을 한곳에서 확인하세요.",
     url: siteUrl,
   },
   twitter: {
@@ -33,11 +33,11 @@ export const baseMetadata: Metadata = {
 
 export function buildMetadata(pathname: string, title?: string, description?: string): Metadata {
   const url = new URL(pathname, siteUrl).toString();
-  const resolvedTitle = title ?? "병원·치과 선택과 GEO 공식 자료";
+  const resolvedTitle = title ?? "진료과별 병원 정보와 병원 GEO 블로그";
   const resolvedDescription =
     description ??
     baseMetadata.description ??
-    "Clinic GEO는 병원 선택 기준과 GEO 공식 자료를 정리하는 편집형 정보 사이트입니다.";
+    "Clinic GEO는 진료과별 병원 정보와 병원 GEO 아티클을 연결하는 정보 허브입니다.";
 
   return {
     ...baseMetadata,

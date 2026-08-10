@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { posts } from "@/lib/posts";
 import { siteUrl } from "@/lib/seo";
 import { isArticleListed, lastVerified } from "@/lib/editorial";
+import { getIndexableHospitalEntities } from "@/lib/hospitals";
+import { directorySpecialties, regions } from "@/lib/regions";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const publishedPosts = posts.filter((post) => post.published && isArticleListed(post.slug));
@@ -16,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/editorial-policy",
     "/advertising-disclosure",
     "/correction-request",
+    "/contact",
     "/category/hospital-geo",
     "/category/dental-geo",
     "/category/dermatology-geo",
@@ -32,5 +35,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: post.updatedAt ? new Date(post.updatedAt) : new Date(),
   }));
 
-  return [...staticRoutes, ...postRoutes];
+  const hospitalRoutes = getIndexableHospitalEntities().map((hospital) => ({
+    url: `${siteUrl}/hospitals/${hospital.slug}`,
+    lastModified: new Date(hospital.verifiedAt),
+  }));
+
+  const regionRoutes = directorySpecialties.flatMap((specialty) =>
+    regions.map((region) => ({
+      url: `${siteUrl}/category/${specialty.slug}/${region.slug}`,
+      lastModified: new Date(lastVerified),
+    })),
+  );
+
+  const districtRoutes = Array.from(
+    new Map(
+      getIndexableHospitalEntities().map((hospital) => {
+        const url = `${siteUrl}/category/${hospital.specialtySlug}/${hospital.regionSlug}/${hospital.districtSlug}`;
+        return [url, { url, lastModified: new Date(hospital.verifiedAt) }];
+      }),
+    ).values(),
+  );
+
+  return [...staticRoutes, ...regionRoutes, ...districtRoutes, ...hospitalRoutes, ...postRoutes];
 }
