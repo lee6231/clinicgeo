@@ -267,11 +267,11 @@ export default function Home() {
             <div>
               <p className="text-xs font-bold text-blue-700">06 · CONTACT</p>
               <h2 className="mt-4 break-keep text-3xl font-bold text-[#17365d] sm:text-4xl">
-                병원 정보 등록과
-                <br className="hidden lg:block" /> GEO 콘텐츠를 문의하세요
+                GEO와 네이버 마케팅을
+                <br className="hidden lg:block" /> 문의하세요
               </h2>
               <p className="mt-5 break-keep text-base leading-8 text-slate-600">
-                병원별 정보 등록, 엔티티 페이지, 진료과별 GEO 콘텐츠와 정보 수정 요청을 접수합니다. 남겨주신 내용은 SUMMITFEED 담당자가 확인합니다.
+                GEO, 네이버 SEO, 네이버 브랜딩 블로그와 플레이스 운영 문의를 접수합니다. 남겨주신 내용은 SUMMITFEED 담당자가 확인합니다.
               </p>
               <dl className="mt-8 border-t border-blue-200 text-sm">
                 <div className="border-b border-blue-200 py-4">
@@ -284,7 +284,7 @@ export default function Home() {
                 </div>
                 <div className="border-b border-blue-200 py-4">
                   <dt className="font-bold text-[#17365d]">문의 범위</dt>
-                  <dd className="mt-1 leading-6 text-slate-600">병원 정보 등록, GEO 콘텐츠, 정보 수정 요청</dd>
+                  <dd className="mt-1 leading-6 text-slate-600">GEO, 네이버 SEO, 네이버 브랜딩 블로그, 플레이스</dd>
                 </div>
               </dl>
             </div>

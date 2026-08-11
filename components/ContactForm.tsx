@@ -56,10 +56,10 @@ export function ContactForm() {
       <label className="grid gap-2 border-t border-slate-200 py-6 text-sm font-bold text-slate-800">
         문의 유형
         <select name="type" required className="h-12 border border-slate-300 bg-white px-3 font-normal outline-none focus:border-teal-700">
-          <option value="병원 정보 등록">병원 정보 등록</option>
-          <option value="병원 GEO 콘텐츠">병원 GEO 콘텐츠</option>
-          <option value="정보 수정 요청">정보 수정 요청</option>
-          <option value="기타 문의">기타 문의</option>
+          <option value="GEO 문의">GEO 문의</option>
+          <option value="네이버 SEO 문의">네이버 SEO 문의</option>
+          <option value="네이버 브랜딩 블로그">네이버 브랜딩 블로그</option>
+          <option value="플레이스 문의">플레이스 문의</option>
         </select>
       </label>
       <label className="grid gap-2 border-t border-slate-200 py-6 text-sm font-bold text-slate-800">
