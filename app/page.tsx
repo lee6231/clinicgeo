@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
@@ -257,6 +258,38 @@ export default function Home() {
                   <p className="max-w-3xl pb-6 pr-10 text-sm leading-7 text-slate-600">{faq.answer}</p>
                 </details>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="scroll-mt-16 border-b border-blue-100 bg-[#f4f8ff]">
+          <div className="mx-auto grid max-w-6xl gap-12 px-5 py-16 sm:px-6 lg:grid-cols-[0.62fr_1.38fr] lg:py-24">
+            <div>
+              <p className="text-xs font-bold text-blue-700">06 · CONTACT</p>
+              <h2 className="mt-4 break-keep text-3xl font-bold text-[#17365d] sm:text-4xl">
+                병원 정보 등록과
+                <br className="hidden lg:block" /> GEO 콘텐츠를 문의하세요
+              </h2>
+              <p className="mt-5 break-keep text-base leading-8 text-slate-600">
+                병원별 정보 등록, 엔티티 페이지, 진료과별 GEO 콘텐츠와 정보 수정 요청을 접수합니다. 남겨주신 내용은 SUMMITFEED 담당자가 확인합니다.
+              </p>
+              <dl className="mt-8 border-t border-blue-200 text-sm">
+                <div className="border-b border-blue-200 py-4">
+                  <dt className="font-bold text-[#17365d]">문의 이메일</dt>
+                  <dd className="mt-1">
+                    <a href="mailto:summit-ai@summitfeed.co.kr" className="font-semibold text-blue-700 underline underline-offset-4">
+                      summit-ai@summitfeed.co.kr
+                    </a>
+                  </dd>
+                </div>
+                <div className="border-b border-blue-200 py-4">
+                  <dt className="font-bold text-[#17365d]">문의 범위</dt>
+                  <dd className="mt-1 leading-6 text-slate-600">병원 정보 등록, GEO 콘텐츠, 정보 수정 요청</dd>
+                </div>
+              </dl>
+            </div>
+            <div className="bg-white p-6 shadow-[0_12px_36px_rgba(23,54,93,0.08)] sm:p-8">
+              <ContactForm />
             </div>
           </div>
         </section>
