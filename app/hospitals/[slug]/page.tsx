@@ -63,7 +63,7 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
     <PageFrame tone="white">
       <JsonLd jsonLd={jsonLd} />
       <main>
-        <section className="border-b border-blue-100 bg-[#f4f8ff]">
+        <section className="border-b border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-6xl px-5 py-12 sm:px-6 lg:py-16">
             <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-500" aria-label="현재 위치">
               <Link href={categoryPath} className="hover:text-blue-700">{hospital.specialtyName}</Link>
@@ -79,7 +79,7 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
               </div>
             )}
             <p className="mt-8 text-sm font-bold text-blue-700">{hospital.specialtyName} · {hospital.regionName} {hospital.districtName}</p>
-            <h1 className="mt-4 text-4xl font-bold text-[#17365d] sm:text-5xl">{hospital.name}</h1>
+            <h1 className="mt-4 text-4xl font-bold text-[#102a43] sm:text-5xl">{hospital.name}</h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">{hospital.summary}</p>
             <p className="mt-4 text-xs text-slate-500">정보 최종 확인 {hospital.verifiedAt}</p>
           </div>
@@ -87,7 +87,7 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
 
         <section className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1fr_0.7fr] lg:py-20">
           <div>
-            <h2 className="text-2xl font-bold text-[#17365d]">진료 정보</h2>
+            <h2 className="text-2xl font-bold text-[#102a43]">진료 정보</h2>
             <div className="mt-6 border-t border-slate-200">
               {hospital.medicalServices.map((service) => (
                 <p key={service} className="border-b border-slate-200 py-4 text-sm text-slate-700">{service}</p>
@@ -96,7 +96,7 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
 
             {hospital.hours && hospital.hours.length > 0 && (
               <div className="mt-10">
-                <h2 className="text-2xl font-bold text-[#17365d]">진료 시간</h2>
+                <h2 className="text-2xl font-bold text-[#102a43]">진료 시간</h2>
                 <div className="mt-5 border-t border-slate-200">
                   {hospital.hours.map((hour) => <p key={hour} className="border-b border-slate-200 py-4 text-sm text-slate-700">{hour}</p>)}
                 </div>
@@ -104,7 +104,7 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
             )}
           </div>
 
-          <aside className="border-t-2 border-[#17365d]">
+          <aside className="border-t-2 border-[#102a43]">
             <dl className="text-sm">
               <div className="border-b border-slate-200 py-4"><dt className="font-bold">주소</dt><dd className="mt-1 text-slate-600">{hospital.address}</dd></div>
               {hospital.phone && <div className="border-b border-slate-200 py-4"><dt className="font-bold">전화</dt><dd className="mt-1 text-slate-600">{hospital.phone}</dd></div>}
@@ -120,9 +120,9 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
         </section>
 
         {relatedArticles.length > 0 && (
-          <section className="border-y border-blue-100 bg-[#f7faff]">
+          <section className="border-y border-blue-100 bg-[#eff3f6]">
             <div className="mx-auto max-w-6xl px-5 py-14 sm:px-6">
-              <h2 className="text-2xl font-bold text-[#17365d]">관련 병원 GEO 아티클</h2>
+              <h2 className="text-2xl font-bold text-[#102a43]">관련 병원 GEO 아티클</h2>
               <div className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
                 {relatedArticles.map((article) => article && <Link key={article.slug} href={`/blog/${article.slug}`} className="block py-5 font-bold hover:text-blue-700">{article.title}</Link>)}
               </div>

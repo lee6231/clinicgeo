@@ -9,7 +9,7 @@ type PageFrameProps = {
 
 export function PageFrame({ children, tone = "soft" }: PageFrameProps) {
   return (
-    <div className={`min-h-screen text-[#1f3a5f] ${tone === "white" ? "bg-white" : "bg-[#f6f9ff]"}`}>
+    <div className={`min-h-screen text-[#172638] ${tone === "white" ? "bg-[#fbfaf7]" : "bg-[#f7f6f2]"}`}>
       <Header />
       {children}
       <Footer />
@@ -25,7 +25,7 @@ type PageIntroProps = {
 
 export function PageIntro({ eyebrow, title, description, children }: PageIntroProps) {
   return (
-    <section className="border-b border-slate-200 bg-white">
+    <section className="border-b border-blue-100 bg-[#eff3f6]">
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 sm:py-18">
         <p className="text-sm font-bold text-teal-800">{eyebrow}</p>
         <h1 className="mt-4 max-w-4xl break-keep text-4xl font-bold leading-tight sm:text-5xl">{title}</h1>

@@ -5,7 +5,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "Clinic GEO | 진료과별 병원 정보와 병원 GEO 블로그",
+  title: "Clinic GEO | 병원별 GEO와 GEO 인사이트",
   description:
     "Clinic GEO는 정형외과, 피부과, 치과, 성형외과, 내과의 병원 정보와 관련 GEO 아티클을 연결하는 정보 허브입니다.",
   icons: {
@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko" className="h-full antialiased">
+    <html lang="ko" className="h-full antialiased" data-scroll-behavior="smooth">
       <body className="min-h-full flex flex-col">
         <JsonLd
           jsonLd={[
@@ -38,9 +38,20 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "@id": `${siteUrl}/#organization`,
-              name: "Clinic GEO",
-              url: siteUrl,
-              logo: `${siteUrl}/icon.png`,
+              name: "SUMMITFEED",
+              alternateName: "Clinic GEO 운영사",
+              url: "https://www.summitfeed.co.kr",
+              founder: {
+                "@type": "Person",
+                name: "이승찬",
+              },
+              taxID: "884-73-00630",
+              brand: {
+                "@type": "Brand",
+                name: "Clinic GEO",
+                url: siteUrl,
+                logo: `${siteUrl}/icon.png`,
+              },
             },
             {
               "@context": "https://schema.org",
@@ -49,7 +60,7 @@ export default function RootLayout({
               name: "Clinic GEO",
               url: siteUrl,
               inLanguage: "ko-KR",
-              about: "진료과별 병원 정보와 병원 GEO 아티클",
+              about: "병원별 GEO 정보와 GEO 인사이트",
               publisher: {
                 "@id": `${siteUrl}/#organization`,
               },

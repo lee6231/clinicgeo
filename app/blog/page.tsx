@@ -8,8 +8,8 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildMetadata(
   "/blog",
-  "병원 GEO 블로그",
-  "기존에 발행한 병원 GEO 아티클을 병원 공통, 정형외과, 피부과, 치과, 성형외과, 내과별로 모아 제공합니다.",
+  "GEO 인사이트",
+  "병원 GEO와 AI 검색 인용에 관한 기존 원고를 병원 공통, 정형외과, 피부과, 치과, 성형외과, 내과별로 모아 제공합니다.",
 );
 
 export default function BlogPage() {
@@ -20,18 +20,18 @@ export default function BlogPage() {
   return (
     <PageFrame tone="white">
       <main>
-        <section className="border-b border-blue-100 bg-[#f4f8ff]">
+        <section className="border-b border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
-            <p className="text-xs font-bold text-teal-700">HOSPITAL GEO BLOG</p>
-            <h1 className="mt-4 text-4xl font-bold text-[#17365d] sm:text-5xl">병원 GEO 블로그</h1>
+            <p className="text-xs font-bold text-teal-700">GEO INSIGHTS</p>
+            <h1 className="mt-4 text-4xl font-bold text-[#102a43] sm:text-5xl">GEO 인사이트</h1>
             <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-slate-600 sm:text-lg">
-              병원 공통 전략과 진료과별 AI 검색·인용 최적화 아티클을 분류해 제공합니다.
+              기존에 발행한 병원 GEO 원고와 진료과별 AI 검색·인용 최적화 아티클을 모두 이곳에서 확인할 수 있습니다.
             </p>
           </div>
         </section>
 
-        <section className="border-b border-slate-200 bg-white">
-          <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 py-5 sm:px-6" aria-label="GEO 블로그 진료과 분류">
+        <section className="border-b border-blue-100 bg-[#fbfaf7]">
+          <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 py-5 sm:px-6" aria-label="GEO 인사이트 진료과 분류">
             {categories.map((category) => (
               <Link key={category.slug} href={`/category/${category.slug}`} className="shrink-0 rounded-md border border-slate-300 px-4 py-2 text-sm font-bold text-slate-700 hover:border-teal-700 hover:text-teal-800">
                 {category.name}
@@ -42,7 +42,7 @@ export default function BlogPage() {
 
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
           <div className="flex items-end justify-between gap-4">
-            <h2 className="text-2xl font-bold text-[#17365d]">전체 아티클</h2>
+            <h2 className="text-2xl font-bold text-[#102a43]">전체 인사이트</h2>
             <p className="text-sm text-slate-500">{publishedPosts.length}개 콘텐츠</p>
           </div>
           {publishedPosts.length === 0 ? (

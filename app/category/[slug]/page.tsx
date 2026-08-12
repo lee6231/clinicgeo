@@ -48,7 +48,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     return (
       <PageFrame tone="white">
         <main className="mx-auto max-w-6xl px-5 py-16 sm:px-6">
-          <p className="text-sm font-bold text-blue-700">병원 GEO 블로그</p>
+          <p className="text-sm font-bold text-blue-700">GEO 인사이트</p>
           <h1 className="mt-3 text-3xl font-semibold sm:text-4xl">{category.name}</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-600">{category.description}</p>
           {categoryPosts.length > 0 ? (
@@ -84,7 +84,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "병원 찾기", item: `${siteUrl}/hospitals` },
+        { "@type": "ListItem", position: 2, name: "병원별 GEO", item: `${siteUrl}/hospitals` },
         { "@type": "ListItem", position: 3, name: specialty.name, item: `${siteUrl}/category/${specialty.slug}` },
       ],
     },
@@ -94,15 +94,15 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
     <PageFrame tone="white">
       <JsonLd jsonLd={jsonLd} />
       <main>
-        <section className="border-b border-blue-100 bg-[#f4f8ff]">
+        <section className="border-b border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-18">
             <nav className="text-sm text-slate-500" aria-label="현재 위치">
-              <Link href="/hospitals" className="hover:text-blue-700">병원 찾기</Link>
+              <Link href="/hospitals" className="hover:text-blue-700">병원별 GEO</Link>
               <span className="mx-2">/</span>
               <span>{specialty.name}</span>
             </nav>
             <p className="mt-8 text-xs font-bold text-blue-700">SPECIALTY DIRECTORY</p>
-            <h1 className="mt-3 break-keep text-4xl font-bold text-[#17365d] sm:text-5xl">{specialty.name} 병원 정보</h1>
+            <h1 className="mt-3 break-keep text-4xl font-bold text-[#102a43] sm:text-5xl">{specialty.name} 병원 정보</h1>
             <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-slate-600 sm:text-lg">
               먼저 지역을 선택한 뒤 구 단위로 좁혀 보세요. 병원별 기본 정보와 진료 범위, 이용 정보를 한 자리씩 확인할 수 있습니다.
             </p>
@@ -113,7 +113,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-bold text-blue-700">STEP 01</p>
-              <h2 className="mt-3 text-3xl font-bold text-[#17365d]">지역을 선택하세요</h2>
+              <h2 className="mt-3 text-3xl font-bold text-[#102a43]">지역을 선택하세요</h2>
             </div>
             <p className="text-sm text-slate-500">서울 및 주요 광역시부터 순차 확대합니다</p>
           </div>
@@ -124,10 +124,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                 <Link
                   key={region.slug}
                   href={`/category/${specialty.slug}/${region.slug}`}
-                  className="group min-h-48 rounded-lg border border-blue-100 bg-white p-6 transition hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-[0_12px_30px_rgba(37,99,235,0.10)]"
+                  className="group min-h-48 rounded-lg border border-blue-100 bg-[#f7f6f2] p-6 transition hover:-translate-y-0.5 hover:border-blue-400 hover:shadow-[0_12px_30px_rgba(16,42,67,0.09)]"
                 >
                   <span className="text-xs font-bold text-blue-600">{String(region.districts.length).padStart(2, "0")} AREAS</span>
-                  <h3 className="mt-8 text-2xl font-bold text-[#17365d] group-hover:text-blue-700">{region.name}</h3>
+                  <h3 className="mt-8 text-2xl font-bold text-[#102a43] group-hover:text-blue-700">{region.name}</h3>
                   <p className="mt-2 text-sm text-slate-500">{region.description}</p>
                   <p className="mt-5 text-xs font-semibold text-blue-700">등록 정보 {count}곳 →</p>
                 </Link>
@@ -136,13 +136,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
 
-        <section className="border-y border-blue-100 bg-[#f7faff]">
+        <section className="border-y border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6">
             <div className="grid gap-8 md:grid-cols-3">
               {["진료과 선택", "광역 지역·구 선택", "업체 정보 확인"].map((item, index) => (
                 <div key={item} className="border-l-2 border-blue-500 pl-5">
                   <p className="text-xs font-bold text-blue-600">0{index + 1}</p>
-                  <h3 className="mt-2 font-bold text-[#17365d]">{item}</h3>
+                  <h3 className="mt-2 font-bold text-[#102a43]">{item}</h3>
                 </div>
               ))}
             </div>
@@ -153,8 +153,8 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
             <div className="flex items-end justify-between gap-4">
               <div>
-                <p className="text-xs font-bold text-blue-700">GEO BLOG</p>
-                <h2 className="mt-3 text-2xl font-bold text-[#17365d]">관련 {specialty.name} 아티클</h2>
+                <p className="text-xs font-bold text-blue-700">GEO INSIGHTS</p>
+                <h2 className="mt-3 text-2xl font-bold text-[#102a43]">관련 {specialty.name} 아티클</h2>
               </div>
               <Link href="/blog" className="text-sm font-bold text-blue-700 hover:underline">전체 보기</Link>
             </div>
