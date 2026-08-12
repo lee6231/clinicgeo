@@ -23,10 +23,10 @@ export function ArticleCard({ post }: { post: Post }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group flex overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:border-teal-300 hover:shadow-lg"
+      className="group flex overflow-hidden rounded-lg border border-blue-100 bg-[#fbfaf7] shadow-[0_10px_30px_rgba(16,42,67,0.05)] transition hover:border-blue-300 hover:shadow-[0_18px_42px_rgba(16,42,67,0.1)]"
     >
       <article className="flex min-h-[360px] w-full flex-col">
-        <div className={`relative aspect-[16/9] overflow-hidden border-l-4 bg-slate-950 p-5 text-white ${accent}`}>
+        <div className={`relative aspect-[16/9] overflow-hidden border-l-4 bg-[#0e2438] p-5 text-white ${accent}`}>
           <div className="flex items-center justify-between border-b border-slate-700 pb-3">
             <p className="text-[10px] font-bold text-teal-300">Clinic GEO 편집 노트</p>
             <p className="text-[10px] font-semibold text-slate-500">{post.categoryName}</p>
@@ -52,7 +52,7 @@ export function ArticleCard({ post }: { post: Post }) {
             <span className="h-1 w-1 rounded-full bg-slate-300" />
             <span>{post.categoryName}</span>
           </div>
-          <h3 className="mt-3 line-clamp-2 text-lg font-semibold leading-7 text-slate-950 group-hover:text-teal-800">
+          <h3 className="mt-3 line-clamp-2 text-lg font-semibold leading-7 text-[#102a43] group-hover:text-blue-700">
             {post.title}
           </h3>
           <p className="mt-3 line-clamp-3 flex-1 text-sm leading-6 text-slate-600">{post.description}</p>

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-white px-6 py-24 text-slate-950">
+    <main className="flex min-h-screen items-center justify-center bg-[#f7f6f2] px-6 py-24 text-[#172638]">
       <div className="max-w-xl text-center">
         <p className="text-sm font-bold text-teal-800">404</p>
         <h1 className="mt-3 text-3xl font-semibold">찾는 페이지가 없습니다.</h1>

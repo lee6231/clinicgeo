@@ -63,7 +63,7 @@ export default async function RegionPage({ params }: { params: PageParams }) {
     <PageFrame tone="white">
       <JsonLd jsonLd={jsonLd} />
       <main>
-        <section className="border-b border-blue-100 bg-[#f4f8ff]">
+        <section className="border-b border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
             <nav className="text-sm text-slate-500" aria-label="현재 위치">
               <Link href={`/category/${specialty.slug}`} className="hover:text-blue-700">{specialty.name}</Link>
@@ -71,7 +71,7 @@ export default async function RegionPage({ params }: { params: PageParams }) {
               <span>{region.name}</span>
             </nav>
             <p className="mt-8 text-xs font-bold text-blue-700">STEP 02 · DISTRICT</p>
-            <h1 className="mt-3 text-4xl font-bold text-[#17365d] sm:text-5xl">{region.name} {specialty.name}</h1>
+            <h1 className="mt-3 text-4xl font-bold text-[#102a43] sm:text-5xl">{region.name} {specialty.name}</h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
               원하는 구·군을 선택하면 해당 지역에 등록된 병원 정보를 업체별로 확인할 수 있습니다.
             </p>
@@ -88,10 +88,10 @@ export default async function RegionPage({ params }: { params: PageParams }) {
                 <Link
                   key={district.slug}
                   href={`/category/${specialty.slug}/${region.slug}/${district.slug}`}
-                  className="group min-h-32 rounded-lg border border-blue-100 bg-white p-5 transition hover:border-blue-400 hover:bg-blue-50"
+                  className="group min-h-32 rounded-lg border border-blue-100 bg-[#f7f6f2] p-5 transition hover:border-blue-400 hover:bg-blue-50"
                 >
                   <div className="flex items-start justify-between gap-3">
-                    <h2 className="text-lg font-bold text-[#17365d] group-hover:text-blue-700">{district.name}</h2>
+                    <h2 className="text-lg font-bold text-[#102a43] group-hover:text-blue-700">{district.name}</h2>
                     <span aria-hidden="true" className="text-blue-500">→</span>
                   </div>
                   <p className="mt-8 text-xs font-semibold text-slate-500">
@@ -103,13 +103,13 @@ export default async function RegionPage({ params }: { params: PageParams }) {
           </div>
         </section>
 
-        <section className="border-t border-blue-100 bg-[#f7faff]">
+        <section className="border-t border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-xl font-bold text-[#17365d]">병원 정보를 등록하시나요?</h2>
+              <h2 className="text-xl font-bold text-[#102a43]">병원 정보를 등록하시나요?</h2>
               <p className="mt-2 text-sm text-slate-600">공식 정보와 확인 가능한 출처를 바탕으로 지역별 업체 페이지를 구성합니다.</p>
             </div>
-            <Link href="/contact" className="w-fit rounded-md bg-[#17365d] px-5 py-3 text-sm font-bold text-white hover:bg-blue-700">업체 정보 등록 문의</Link>
+            <Link href="/contact" className="w-fit rounded-md bg-[#102a43] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800">업체 정보 등록 문의</Link>
           </div>
         </section>
       </main>

@@ -88,7 +88,7 @@ export default async function DistrictPage({ params }: { params: PageParams }) {
     <PageFrame tone="white">
       <JsonLd jsonLd={jsonLd} />
       <main>
-        <section className="border-b border-blue-100 bg-[#f4f8ff]">
+        <section className="border-b border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 lg:py-16">
             <nav className="flex flex-wrap items-center gap-2 text-sm text-slate-500" aria-label="현재 위치">
               <Link href={`/category/${specialty.slug}`} className="hover:text-blue-700">{specialty.name}</Link>
@@ -98,7 +98,7 @@ export default async function DistrictPage({ params }: { params: PageParams }) {
               <span>{district.name}</span>
             </nav>
             <p className="mt-8 text-xs font-bold text-blue-700">STEP 03 · HOSPITALS</p>
-            <h1 className="mt-3 break-keep text-4xl font-bold text-[#17365d] sm:text-5xl">{region.name} {district.name} {specialty.name}</h1>
+            <h1 className="mt-3 break-keep text-4xl font-bold text-[#102a43] sm:text-5xl">{region.name} {district.name} {specialty.name}</h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
               업체별로 확인된 기본 정보와 진료 범위, 이용 정보를 한 곳씩 살펴볼 수 있습니다.
             </p>
@@ -107,7 +107,7 @@ export default async function DistrictPage({ params }: { params: PageParams }) {
 
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-20">
           <div className="flex items-end justify-between gap-4 border-b border-slate-200 pb-5">
-            <h2 className="text-2xl font-bold text-[#17365d]">등록된 업체</h2>
+            <h2 className="text-2xl font-bold text-[#102a43]">등록된 업체</h2>
             <p className="text-sm text-slate-500">{entities.length}곳</p>
           </div>
 
@@ -119,7 +119,7 @@ export default async function DistrictPage({ params }: { params: PageParams }) {
                     <p className="text-xs font-bold text-blue-700">
                       {hospital.isExample ? "예시 업체 · 배포 시 비공개" : `${hospital.specialtyName} · 정보 확인 완료`}
                     </p>
-                    <h3 className="mt-3 text-2xl font-bold text-[#17365d]">{hospital.name}</h3>
+                    <h3 className="mt-3 text-2xl font-bold text-[#102a43]">{hospital.name}</h3>
                     <p className="mt-4 max-w-2xl break-keep text-sm leading-7 text-slate-600">{hospital.summary}</p>
                   </div>
                   <dl className="text-sm">
@@ -136,7 +136,7 @@ export default async function DistrictPage({ params }: { params: PageParams }) {
                   </dl>
                   <Link
                     href={`/hospitals/${hospital.slug}`}
-                    className="w-fit rounded-md bg-[#17365d] px-5 py-3 text-sm font-bold text-white hover:bg-blue-700"
+                    className="w-fit rounded-md bg-[#102a43] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800"
                   >
                     상세 정보 보기
                   </Link>
@@ -145,16 +145,16 @@ export default async function DistrictPage({ params }: { params: PageParams }) {
             </div>
           ) : (
             <div className="py-16 text-center">
-              <h3 className="text-xl font-bold text-[#17365d]">현재 등록된 병원 정보가 없습니다</h3>
+              <h3 className="text-xl font-bold text-[#102a43]">현재 등록된 병원 정보가 없습니다</h3>
               <p className="mt-3 text-sm leading-7 text-slate-600">공식 출처 확인이 끝난 업체부터 한 곳씩 공개합니다.</p>
             </div>
           )}
         </section>
 
-        <section className="border-t border-blue-100 bg-[#f7faff]">
+        <section className="border-t border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-xl font-bold text-[#17365d]">{region.name} {district.name} 업체 등록 문의</h2>
+              <h2 className="text-xl font-bold text-[#102a43]">{region.name} {district.name} 업체 등록 문의</h2>
               <p className="mt-2 text-sm text-slate-600">공식 홈페이지와 확인 자료를 보내주시면 정보성 페이지 등록을 검토합니다.</p>
             </div>
             <Link href="/contact" className="w-fit rounded-md border border-blue-300 bg-white px-5 py-3 text-sm font-bold text-blue-800 hover:bg-blue-50">문의하기</Link>

@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #172022;
+  --background: #f7f6f2;
+  --foreground: #172638;
 }
 
 @theme inline {
@@ -10,17 +10,28 @@
   --color-foreground: var(--foreground);
   --font-sans: Arial, Helvetica, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
-  --color-teal-50: #eff6ff;
-  --color-teal-100: #dbeafe;
-  --color-teal-200: #bfdbfe;
-  --color-teal-300: #93c5fd;
-  --color-teal-400: #60a5fa;
-  --color-teal-500: #3b82f6;
-  --color-teal-600: #2563eb;
-  --color-teal-700: #1d4ed8;
-  --color-teal-800: #1e40af;
-  --color-teal-900: #1e3a8a;
-  --color-teal-950: #172554;
+  --color-blue-50: #f3f6f8;
+  --color-blue-100: #e2e8ee;
+  --color-blue-200: #cbd6e0;
+  --color-blue-300: #a9bacb;
+  --color-blue-400: #7892aa;
+  --color-blue-500: #52759b;
+  --color-blue-600: #35618f;
+  --color-blue-700: #244b76;
+  --color-blue-800: #183b61;
+  --color-blue-900: #102a43;
+  --color-blue-950: #081521;
+  --color-teal-50: #f3f6f8;
+  --color-teal-100: #e2e8ee;
+  --color-teal-200: #cbd6e0;
+  --color-teal-300: #a9bacb;
+  --color-teal-400: #7892aa;
+  --color-teal-500: #52759b;
+  --color-teal-600: #35618f;
+  --color-teal-700: #244b76;
+  --color-teal-800: #183b61;
+  --color-teal-900: #102a43;
+  --color-teal-950: #081521;
 }
 
 body {
@@ -31,19 +42,231 @@ body {
 }
 
 html {
+  background: var(--background);
   scroll-behavior: smooth;
 }
 
 ::selection {
-  background: #bfdbfe;
-  color: #172554;
+  background: #cbd6e0;
+  color: #102a43;
 }
 
 :focus-visible {
-  outline: 3px solid #f59e0b;
+  outline: 3px solid #52759b;
   outline-offset: 3px;
 }
 
 summary::-webkit-details-marker {
   display: none;
+}
+
+@keyframes ai-logo-cycle {
+  0%,
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  25%,
+  95% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  96% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ai-logo-rotator-item {
+  opacity: 0;
+  animation: ai-logo-cycle 12s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-logo-rotator-item {
+    animation: none;
+  }
+
+  .ai-logo-rotator-item:first-child {
+    opacity: 1;
+  }
+}
+
+.service-reveal-card {
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 250ms ease;
+}
+
+.service-series.is-ready .service-reveal-card {
+  opacity: 0;
+  transform: translateY(42px);
+}
+
+.service-series.is-ready .service-reveal-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-reveal-card:hover {
+  box-shadow: 0 22px 60px rgba(16, 42, 67, 0.13);
+}
+
+.geo-shift-seo,
+.geo-shift-geo,
+.geo-shift-result {
+  transition-duration: 900ms;
+  transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.geo-shift-seo,
+.geo-shift-geo {
+  transition-property: color, opacity, transform, filter, text-shadow;
+}
+
+.geo-shift-result {
+  opacity: 1;
+  transform: translateY(0);
+  transition-property: opacity, transform;
+}
+
+.geo-shift-section.is-ready:not(.is-active) .geo-shift-seo {
+  color: #102a43;
+  opacity: 1;
+  filter: blur(0) grayscale(0);
+  transform: translateX(1.25rem) translateY(0) scale(1.06);
+}
+
+.geo-shift-section.is-ready:not(.is-active) .geo-shift-geo {
+  color: #a9bacb;
+  opacity: 0.1;
+  filter: blur(2.5px);
+  text-shadow: none;
+  transform: translateX(2rem) translateY(1rem) scale(0.78);
+}
+
+.geo-shift-section.is-ready:not(.is-active) .geo-shift-result {
+  opacity: 0;
+  transform: translateY(1rem);
+}
+
+.geo-shift-section.is-active .geo-shift-seo {
+  color: #94a3b8;
+  opacity: 0.12;
+  filter: blur(1.4px) grayscale(1);
+  transform: translateX(-1.5rem) translateY(0.75rem) scale(0.82);
+}
+
+.geo-shift-section.is-active .geo-shift-geo {
+  color: #244b76;
+  opacity: 1;
+  filter: blur(0);
+  text-shadow: 0 12px 32px rgba(16, 42, 67, 0.16);
+  transform: translateX(0) translateY(0) scale(1.08);
+  transition-delay: 700ms;
+}
+
+.geo-shift-chevrons span {
+  color: #cbd6e0;
+  opacity: 0.25;
+  transform: translateX(-0.6rem) scale(0.8);
+  transition: color 300ms ease, opacity 300ms ease, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.geo-shift-section.is-active .geo-shift-chevrons span {
+  color: #35618f;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.geo-shift-section.is-active .geo-shift-chevrons span:nth-child(1) {
+  transition-delay: 220ms;
+}
+
+.geo-shift-section.is-active .geo-shift-chevrons span:nth-child(2) {
+  transition-delay: 380ms;
+}
+
+.geo-shift-section.is-active .geo-shift-chevrons span:nth-child(3) {
+  transition-delay: 540ms;
+}
+
+.geo-shift-beam {
+  opacity: 0;
+  transform: translateX(-110%);
+}
+
+.geo-shift-section.is-active .geo-shift-beam {
+  animation: geo-shift-beam 1.25s 220ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.geo-shift-section.is-active .geo-shift-result {
+  transition-delay: 1100ms;
+}
+
+@keyframes geo-shift-beam {
+  0% {
+    opacity: 0;
+    transform: translateX(-110%);
+  }
+  18%, 82% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(300%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-series.is-ready .service-reveal-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .geo-shift-seo,
+  .geo-shift-geo,
+  .geo-shift-result,
+  .geo-shift-chevrons span {
+    transition: none;
+  }
+
+  .geo-shift-section.is-active .geo-shift-beam {
+    animation: none;
+  }
+}
+
+.geo-process-step {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 460ms ease, transform 460ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.geo-process-section.is-ready:not(.is-active) .geo-process-step {
+  opacity: 0;
+  transform: translateY(2rem);
+}
+
+.ai-question-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 250ms ease;
+}
+
+.ai-question-section.is-ready:not(.is-active) .ai-question-card {
+  opacity: 0;
+  transform: translateY(2.25rem);
+}
+
+.ai-question-card:hover {
+  box-shadow: 0 24px 62px rgba(16, 42, 67, 0.13);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .geo-process-step,
+  .ai-question-card {
+    transition: none;
+  }
 }

@@ -74,7 +74,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   if (isHiddenCandidate) {
     return (
-      <div className="min-h-screen bg-white text-slate-950">
+      <div className="min-h-screen bg-[#fbfaf7] text-[#172638]">
         <Header />
         <JsonLd
           jsonLd={{
@@ -206,7 +206,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   ];
 
   return (
-    <div className="min-h-screen bg-white text-slate-950">
+    <div className="min-h-screen bg-[#fbfaf7] text-[#172638]">
       <Header />
       <JsonLd jsonLd={jsonLd} />
       <main className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-16 sm:px-8 lg:px-10">
