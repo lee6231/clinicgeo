@@ -9,13 +9,22 @@ import { GeoShiftSection } from "@/components/GeoShiftSection";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { ServiceSeries } from "@/components/ServiceSeries";
-import { buildMetadata, siteUrl } from "@/lib/seo";
+import { buildMetadata, siteDescription, siteUrl, websiteId } from "@/lib/seo";
 
-export const metadata: Metadata = buildMetadata(
-  "/",
-  "병원별 GEO와 GEO 인사이트",
-  "Clinic GEO는 진료과별 병원 정보와 병원 GEO 인사이트를 연결하는 정보 허브입니다.",
-);
+export const metadata: Metadata = {
+  ...buildMetadata("/", "병의원 GEO 서비스와 인사이트", siteDescription),
+  title: {
+    absolute: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+  },
+  openGraph: {
+    ...buildMetadata("/", "병의원 GEO 서비스와 인사이트", siteDescription).openGraph,
+    title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+  },
+  twitter: {
+    ...buildMetadata("/", "병의원 GEO 서비스와 인사이트", siteDescription).twitter,
+    title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+  },
+};
 
 const inHouseSteps = [
   {
@@ -54,15 +63,11 @@ const faqs = [
   },
   {
     question: "GEO 작업 후 AI 인용까지 얼마나 걸리나요?",
-    answer: "공개된 병원 정보가 수집되고 AI 답변에 반영되는 과정은 홈페이지 상태, 검색엔진 색인과 경쟁 환경에 따라 달라집니다. 일반적으로 4~8주의 관찰 기간을 두고 인용 여부를 확인하며, 그동안 부족한 질문과 페이지를 지속적으로 보완합니다. 특정 시점의 노출이나 인용을 보장하지는 않습니다.",
+    answer: "공개된 병원 정보가 AI 답변에 반영되도록 홈페이지 상태와 검색엔진 색인을 정리합니다. 일반적으로 4~8주의 관찰 기간을 두고 인용 여부를 확인하며, 그동안 부족한 질문과 페이지를 지속적으로 보완합니다.",
   },
   {
     question: "AI 노출과 인용 여부는 어떻게 확인하나요?",
     answer: "ChatGPT, Gemini, Perplexity, Claude 4개 AI 플랫폼의 API를 활용해 병원별로 선정한 20개 질문을 측정합니다. 질문별 병원명 언급, 홈페이지 출처 인용과 추천 포함 여부를 누적하고, 1·2·3개월차 인용률(%) 변화와 질문별 결과를 월간 리포트로 제공합니다.",
-  },
-  {
-    question: "의료광고 관련 기준도 함께 고려하나요?",
-    answer: "콘텐츠 생성 전 진료 정보, 표현과 근거에 대해 의료법 및 의료광고 기준에 따른 1차 검수를 진행합니다. 생성 후에는 과장 표현, 치료 결과 보장과 비교 우위 표현 등을 다시 확인하는 2차 검수를 거쳐 기준에 맞는 정보성 콘텐츠만 발행합니다.",
   },
 ];
 
@@ -99,9 +104,9 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "WebPage",
             name: "Clinic GEO",
-            description: "진료과별 병원 정보와 GEO 인사이트를 연결하는 병원 정보 허브",
+            description: siteDescription,
             url: siteUrl,
-            isPartOf: { "@type": "WebSite", name: "Clinic GEO", url: siteUrl },
+            isPartOf: { "@id": websiteId },
           },
           {
             "@context": "https://schema.org",
@@ -142,11 +147,11 @@ export default function Home() {
               어떻게 추천될까
             </h1>
             <p className="mx-auto mt-7 max-w-2xl break-keep text-base font-bold leading-8 text-white sm:text-lg">
-              Clinic GEO는 병원 GEO의 기준과 변화를 기록합니다.
+              Clinic GEO는 써밋피드(SUMMITFEED)가 직접 운영하는 병의원 GEO 전문 사이트입니다.
             </p>
             <p className="mx-auto mt-2 max-w-2xl break-keep text-sm leading-7 text-slate-400 sm:text-base">
-              생성형 AI가 병원 정보를 찾고 인용하는 방식부터 홈페이지와 콘텐츠에서 확인할 항목까지,
-              과장 없이 근거 중심으로 정리합니다.
+              병원 홈페이지 구조화, 진료별 질문 콘텐츠, 정보성 엔티티 발행, ChatGPT·Gemini·Perplexity·Claude
+              인용 측정, 네이버 채널 운영과 월간 보강을 하나의 흐름으로 연결합니다.
             </p>
             <Link href="/blog" className="mt-9 inline-flex items-center gap-3 border-b border-white pb-1 text-sm font-bold text-white transition hover:border-blue-300 hover:text-blue-300">
               GEO 인사이트 보기 <span aria-hidden="true">→</span>

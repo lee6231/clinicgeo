@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: { params: PageParams }): Prom
   return buildMetadata(
     `/category/${slug}/${regionSlug}`,
     `${region.name} ${specialty.name} 병원 정보`,
-    `${region.name}의 구·군을 선택해 ${specialty.name} 기본 정보와 진료 범위를 확인하세요.`,
+    `써밋피드가 운영하는 Clinic GEO에서 ${region.name} ${specialty.name} 공식 정보와 진료별 GEO 기준을 확인하세요.`,
   );
 }
 
@@ -73,7 +73,7 @@ export default async function RegionPage({ params }: { params: PageParams }) {
             <p className="mt-8 text-xs font-bold text-blue-700">STEP 02 · DISTRICT</p>
             <h1 className="mt-3 text-4xl font-bold text-[#102a43] sm:text-5xl">{region.name} {specialty.name}</h1>
             <p className="mt-5 max-w-3xl text-base leading-8 text-slate-600">
-              원하는 구·군을 선택하면 해당 지역에 등록된 병원 정보를 업체별로 확인할 수 있습니다.
+              원하는 구·군을 선택하면 공개 출처로 확인한 병원 기본 정보와 진료 범위를 살펴볼 수 있습니다.
             </p>
             <p className="mt-4 text-sm font-semibold text-blue-700">현재 {regionEntities.length}곳 · {region.districts.length}개 지역</p>
           </div>
@@ -95,7 +95,7 @@ export default async function RegionPage({ params }: { params: PageParams }) {
                     <span aria-hidden="true" className="text-blue-500">→</span>
                   </div>
                   <p className="mt-8 text-xs font-semibold text-slate-500">
-                    {hasExample ? `예시 포함 ${entities.length}곳` : `등록된 업체 ${entities.length}곳`}
+                    {hasExample ? `예시 포함 ${entities.length}곳` : `확인 정보 ${entities.length}곳`}
                   </p>
                 </Link>
               );
@@ -106,10 +106,10 @@ export default async function RegionPage({ params }: { params: PageParams }) {
         <section className="border-t border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-10 sm:px-6 md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-xl font-bold text-[#102a43]">병원 정보를 등록하시나요?</h2>
-              <p className="mt-2 text-sm text-slate-600">공식 정보와 확인 가능한 출처를 바탕으로 지역별 업체 페이지를 구성합니다.</p>
+              <h2 className="text-xl font-bold text-[#102a43]">병의원 GEO 운영이 필요하신가요?</h2>
+              <p className="mt-2 text-sm text-slate-600">홈페이지 구조화, 진료별 질문 콘텐츠와 AI 인용 측정 범위를 함께 확인합니다.</p>
             </div>
-            <Link href="/contact" className="w-fit rounded-md bg-[#102a43] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800">업체 정보 등록 문의</Link>
+            <Link href="/contact" className="w-fit rounded-md bg-[#102a43] px-5 py-3 text-sm font-bold text-white hover:bg-blue-800">병의원 GEO 문의</Link>
           </div>
         </section>
       </main>

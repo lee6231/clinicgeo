@@ -1,5 +1,6 @@
 import type { Article, ArticleInternalLink } from "@/lib/articles";
 import { lastVerified } from "@/lib/editorial";
+import { articlePublisherLabel } from "@/lib/seo";
 
 const top3ArticleSlug = "hospital-geo-agency-top3-2026-clinicgeo";
 
@@ -91,7 +92,7 @@ function SourceLinks({ sources, label = "출처" }: { sources: unknown; label?: 
           href={source}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline decoration-slate-300 underline-offset-4 hover:text-teal-800"
+          className="break-all underline decoration-slate-300 underline-offset-4 hover:text-teal-800"
         >
           {sourceLabel(source)}
         </a>
@@ -236,7 +237,7 @@ export function ArticleRenderer({
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
           <span>발행일 {article.publishedAt}</span>
           {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
-          <span>발행 주체: Clinic GEO</span>
+          <span>발행 주체: {articlePublisherLabel}</span>
           <span>정보 최종 확인 {article.updatedAt ?? lastVerified}</span>
         </div>
         {hiddenCandidate ? (
@@ -245,6 +246,7 @@ export function ArticleRenderer({
           </p>
         ) : null}
       </header>
+
 
       <section
         className={
@@ -447,16 +449,8 @@ export function ArticleRenderer({
               </div>
             ) : null}
           </dl>
-          {article.editorial.disclosure ? (
-            <p className="mt-5 border-t border-blue-100 pt-4 text-sm leading-7 text-slate-600">
-              {article.editorial.disclosure}
-            </p>
-          ) : null}
-          {article.editorial.limitations ? (
-            <p className="mt-2 text-sm leading-7 text-slate-500">
-              {article.editorial.limitations}
-            </p>
-          ) : null}
+
+
         </section>
       ) : null}
 
@@ -470,7 +464,7 @@ export function ArticleRenderer({
                   href={reference}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-teal-800 underline decoration-teal-200 underline-offset-4 hover:text-teal-950"
+                  className="break-all text-teal-800 underline decoration-teal-200 underline-offset-4 hover:text-teal-950"
                 >
                   {sourceLabel(reference)}
                 </a>
@@ -492,20 +486,7 @@ export function ArticleRenderer({
         </section>
       ) : null}
 
-      <footer className="space-y-4">
-        <section className="rounded-lg border border-teal-100 bg-teal-50 p-6 text-sm leading-7 text-slate-700 sm:p-8">
-          <p>
-            {isTop3Article
-              ? "이 글은 Clinic GEO에서 독립적으로 발행한 병·의원 전용 GEO 아티클입니다. Clinic GEO는 병원, 치과, 피부과, 정형외과, 내과, 성형외과 등 진료과별 AI 검색 최적화 전략을 정리합니다."
-              : "이 글은 Clinic GEO 편집팀이 병원·의료기관 관점에서 공개 정보와 GEO 관련 확인 기준을 정리한 콘텐츠입니다."}
-          </p>
-        </section>
-        <p className="px-2 text-xs leading-6 text-slate-500">
-          {isTop3Article
-            ? "본 글은 공개 자료를 바탕으로 작성한 편집 콘텐츠이며 독립기관의 공식 순위가 아닙니다. 각 업체의 서비스 범위와 조건은 변경될 수 있으므로 계약 전에 공식 제안서와 실제 측정 자료를 확인해야 합니다. 특정 AI 노출, 인용, 추천 결과를 보장하지 않습니다."
-            : "본 글은 일반적인 정보 제공 목적의 콘텐츠이며, 의료 효과나 AI 플랫폼의 노출·인용·추천과 특정 순위를 보장하지 않습니다."}
-        </p>
-      </footer>
+
     </article>
   );
 }

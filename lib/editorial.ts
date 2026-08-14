@@ -61,7 +61,7 @@ export const hospitalGuides = [
     id: "dermatology",
     specialty: "피부과",
     title: "피부과 선택 시 비교할 6가지",
-    summary: "시술 효과를 단정하는 광고보다 상담 주체, 사용 장비 안내, 비용 범위, 부작용 안내와 사후 확인 절차를 봅니다.",
+    summary: "상담 주체, 사용 장비 안내, 비용 범위, 부작용 안내와 사후 확인 절차를 살펴봅니다.",
     criteriaCount: 6,
     linkLabel: "피부과 비교 항목 살펴보기",
   },

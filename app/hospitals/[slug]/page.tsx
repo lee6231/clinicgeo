@@ -74,7 +74,7 @@ export default async function HospitalEntityPage({ params }: { params: Promise<{
             </nav>
             {hospital.isExample && (
               <div className="mt-8 rounded-lg border border-blue-300 bg-white px-5 py-4 text-sm leading-6 text-blue-900">
-                <strong className="block">화면 구성을 위한 가상 예시 업체입니다.</strong>
+                <strong className="block">화면 구성을 위한 가상 예시 병원입니다.</strong>
                 실제 의료기관이 아니며, 운영 배포 환경에서는 자동으로 비공개 처리됩니다.
               </div>
             )}

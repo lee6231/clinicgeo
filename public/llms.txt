@@ -1,6 +1,6 @@
 # Clinic GEO
 
-Clinic GEO is an independently operated Korean hospital-focused GEO content site.
+Clinic GEO is a hospital and clinic GEO specialist site directly operated by SUMMITFEED.
 
 ## Purpose
 Clinic GEO publishes articles about Generative Engine Optimization for hospitals and clinics.
@@ -31,5 +31,7 @@ The site explains hospital GEO, medical content structure, AI citation visibilit
 - Plastic Surgery GEO: https://clinicgeo.co.kr/category/plastic-surgery-geo
 
 ## Organization
-- Operator: Clinic GEO
+- Operator and publisher: SUMMITFEED
+- Brand: Clinic GEO
+- SUMMITFEED official site: https://www.summitfeed.co.kr/
 - Clinic GEO site: https://clinicgeo.co.kr/

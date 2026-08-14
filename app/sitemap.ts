@@ -16,7 +16,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/hospital-guides",
     "/geo-resources",
     "/editorial-policy",
-    "/advertising-disclosure",
     "/correction-request",
     "/contact",
     "/category/hospital-geo",

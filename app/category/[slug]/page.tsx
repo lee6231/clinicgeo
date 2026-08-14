@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     return buildMetadata(
       `/category/${slug}`,
       `${specialty.name} 병원 정보`,
-      `서울, 대전, 대구, 부산, 광주의 ${specialty.name} 정보를 지역과 구 단위로 찾아보세요.`,
+      `써밋피드가 운영하는 Clinic GEO에서 ${specialty.name} 공식 정보와 진료별 GEO 실무 기준을 지역 단위로 확인하세요.`,
     );
   }
 
@@ -104,7 +104,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <p className="mt-8 text-xs font-bold text-blue-700">SPECIALTY DIRECTORY</p>
             <h1 className="mt-3 break-keep text-4xl font-bold text-[#102a43] sm:text-5xl">{specialty.name} 병원 정보</h1>
             <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-slate-600 sm:text-lg">
-              먼저 지역을 선택한 뒤 구 단위로 좁혀 보세요. 병원별 기본 정보와 진료 범위, 이용 정보를 한 자리씩 확인할 수 있습니다.
+              써밋피드가 운영하는 Clinic GEO에서 공개 출처로 확인한 병원 기본 정보와 진료 범위, 관련 GEO 실무 기준을 지역별로 살펴볼 수 있습니다.
             </p>
           </div>
         </section>
@@ -129,7 +129,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
                   <span className="text-xs font-bold text-blue-600">{String(region.districts.length).padStart(2, "0")} AREAS</span>
                   <h3 className="mt-8 text-2xl font-bold text-[#102a43] group-hover:text-blue-700">{region.name}</h3>
                   <p className="mt-2 text-sm text-slate-500">{region.description}</p>
-                  <p className="mt-5 text-xs font-semibold text-blue-700">등록 정보 {count}곳 →</p>
+                  <p className="mt-5 text-xs font-semibold text-blue-700">확인 정보 {count}곳 →</p>
                 </Link>
               );
             })}
@@ -139,7 +139,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <section className="border-y border-blue-100 bg-[#eff3f6]">
           <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6">
             <div className="grid gap-8 md:grid-cols-3">
-              {["진료과 선택", "광역 지역·구 선택", "업체 정보 확인"].map((item, index) => (
+              {["진료과 선택", "광역 지역·구 선택", "병원 정보 확인"].map((item, index) => (
                 <div key={item} className="border-l-2 border-blue-500 pl-5">
                   <p className="text-xs font-bold text-blue-600">0{index + 1}</p>
                   <h3 className="mt-2 font-bold text-[#102a43]">{item}</h3>

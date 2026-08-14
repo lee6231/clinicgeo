@@ -311,7 +311,7 @@
     },
     {
       "question": "JSON-LD를 추가하면 병원이 AI에 바로 나오나요?",
-      "answer": "JSON-LD는 페이지 의미를 보조하지만 검색 노출이나 AI 인용을 보장하지 않습니다. 화면 본문과 일치해야 하며 canonical, sitemap, 내부 링크, 원본 정보와 함께 점검해야 합니다.",
+      "answer": "JSON-LD는 검색 시스템이 페이지 의미를 이해하도록 돕습니다. 화면 본문과 일치시키고 canonical, sitemap, 내부 링크, 원본 정보와 함께 점검해야 합니다.",
       "sources": [
         "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
       ]
@@ -354,7 +354,6 @@
   "caution_checklist": [
     "Google 색인 완료를 AI 인용 완료로 표현하지 마세요.",
     "브랜드 언급과 공식 출처 인용을 같은 지표로 합치지 마세요.",
-    "AI 인용 또는 환자 증가를 보장하지 마세요.",
     "의료진·진료 정보는 병원이 확인한 사실만 사용하세요.",
     "유사 글을 짧은 기간에 대량 발행하지 마세요.",
     "구조화 데이터와 화면 본문이 일치하는지 확인하세요.",
@@ -432,9 +431,7 @@
     "publisher": "SUMMITFEED",
     "site": "Clinic GEO",
     "basis": "Google Search Central과 OpenAI 공개 문서, Clinic GEO의 병·의원 사이트 점검 기준",
-    "reviewedAt": "2026-07-31",
-    "disclosure": "Clinic GEO는 SUMMITFEED가 운영하는 병·의원 GEO 아티클 허브입니다.",
-    "limitations": "AI 응답과 인용은 플랫폼·질문·시점·검색 기능에 따라 달라지며 특정 결과를 보장하지 않습니다."
+    "reviewedAt": "2026-07-31"
   },
   "presentation": {
     "summary_label": "핵심 요약",

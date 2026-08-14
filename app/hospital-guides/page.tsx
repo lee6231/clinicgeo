@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { PageFrame, PageIntro } from "@/components/PageFrame";
 import { hospitalGuides, lastVerified } from "@/lib/editorial";
@@ -136,30 +135,6 @@ export default function HospitalGuidesPage() {
           </div>
         </section>
 
-        <section className="mx-auto max-w-5xl px-5 py-14 sm:px-6">
-          <div className="border border-slate-200 bg-slate-50 p-6">
-            <h2 className="text-xl font-bold">의료 정보 고지</h2>
-            <p className="mt-3 text-sm leading-7 text-slate-600">
-              Clinic GEO는 공개된 정보를 바탕으로 병원 선택 시 확인할 항목을 정리합니다. 본 콘텐츠는
-              진단·치료·의학적 판단을 대신하지 않으며, 실제 진료 내용·비용·예약 가능 여부는 해당 의료기관에
-              직접 확인해야 합니다.
-            </p>
-            <div className="mt-5 flex flex-wrap gap-3">
-              <Link
-                href="/hospitals"
-                className="rounded-md bg-teal-800 px-5 py-3 text-sm font-bold text-white hover:bg-teal-900"
-              >
-                병원·치과 찾기 기준 보기
-              </Link>
-              <Link
-                href="/correction-request"
-                className="rounded-md border border-slate-300 bg-white px-5 py-3 text-sm font-bold text-slate-800 hover:border-teal-700"
-              >
-                정보 수정 원칙 보기
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
     </PageFrame>
   );

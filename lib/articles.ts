@@ -80,8 +80,6 @@ export type Article = {
     site?: string;
     basis?: string;
     reviewedAt?: string;
-    disclosure?: string;
-    limitations?: string;
   };
   data_cards: ArticleDataCard[];
   sections: ArticleSection[];

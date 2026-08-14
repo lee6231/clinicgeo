@@ -25,7 +25,7 @@ export function Footer() {
         <div>
           <p className="text-lg font-bold text-white">Clinic GEO</p>
           <p className="mt-3 max-w-lg text-sm leading-7 text-blue-200/75">
-            Clinic GEO는 SUMMITFEED가 운영하는 병원 GEO 전문 사이트입니다. 병원 홈페이지 구조화, 정보성 엔티티 발행, AI 인용률 측정과 네이버 채널 운영을 하나의 흐름으로 연결합니다.
+            Clinic GEO는 써밋피드(SUMMITFEED)가 직접 운영하는 병의원 GEO 전문 사이트입니다. 병원 홈페이지 구조화, 정보성 엔티티 발행, AI 인용률 측정과 네이버 채널 운영을 하나의 흐름으로 연결합니다.
           </p>
           <a href="mailto:summit-ai@summitfeed.co.kr" className="mt-4 inline-block text-sm font-semibold text-blue-300">
             summit-ai@summitfeed.co.kr

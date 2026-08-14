@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata(
   "/blog",
   "GEO 인사이트",
-  "병원 GEO와 AI 검색 인용에 관한 기존 원고를 병원 공통, 정형외과, 피부과, 치과, 성형외과, 내과별로 모아 제공합니다.",
+  "써밋피드가 운영하는 병의원 GEO 전문 콘텐츠와 진료별 실무 기준을 제공합니다.",
 );
 
 export default function BlogPage() {
@@ -25,7 +25,7 @@ export default function BlogPage() {
             <p className="text-xs font-bold text-teal-700">GEO INSIGHTS</p>
             <h1 className="mt-4 text-4xl font-bold text-[#102a43] sm:text-5xl">GEO 인사이트</h1>
             <p className="mt-5 max-w-3xl break-keep text-base leading-8 text-slate-600 sm:text-lg">
-              기존에 발행한 병원 GEO 원고와 진료과별 AI 검색·인용 최적화 아티클을 모두 이곳에서 확인할 수 있습니다.
+              써밋피드가 운영하는 병의원 GEO 전문 콘텐츠와 진료별 홈페이지 구조화, 질문 콘텐츠, AI 인용 측정 실무 기준을 확인할 수 있습니다.
             </p>
           </div>
         </section>

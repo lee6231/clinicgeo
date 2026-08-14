@@ -2,14 +2,23 @@ import type { Metadata } from "next";
 import { categories } from "@/lib/posts";
 
 export const siteUrl = "https://clinicgeo.co.kr";
+export const summitfeedUrl = "https://www.summitfeed.co.kr/";
+export const summitfeedOrganizationId = `${summitfeedUrl}#organization`;
+export const websiteId = `${siteUrl}/#website`;
+export const publisherName = "써밋피드(SUMMITFEED)";
+export const articlePublisherLabel = "써밋피드(SUMMITFEED) · Clinic GEO 운영팀";
+export const siteDescription =
+  "Clinic GEO는 써밋피드(SUMMITFEED)가 직접 운영하는 병의원 GEO 전문 사이트입니다. 병원 홈페이지 구조화, 정보성 콘텐츠와 엔티티 발행, 4개 AI 플랫폼 인용 측정, 네이버 채널 운영 기준을 제공합니다.";
+export const shortSiteDescription =
+  "써밋피드가 운영하는 병의원 GEO 전문 사이트. 홈페이지 구조화, 정보성 콘텐츠, AI 인용 측정과 네이버 채널 운영을 연결합니다.";
+
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Clinic GEO | 병원별 GEO와 GEO 인사이트",
-    template: "%s | Clinic GEO",
+    default: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+    template: "%s | Clinic GEO by SUMMITFEED",
   },
-  description:
-    "Clinic GEO는 병원별 GEO 정보와 AI 검색 인사이트를 연결하는 병원 정보 허브입니다.",
+  description: siteDescription,
   alternates: {
     canonical: "/",
   },
@@ -17,13 +26,14 @@ export const baseMetadata: Metadata = {
     siteName: "Clinic GEO",
     locale: "ko_KR",
     type: "website",
-    title: "Clinic GEO | 병원별 GEO와 GEO 인사이트",
-    description:
-      "정형외과, 피부과, 치과, 성형외과, 내과의 병원 정보와 GEO 아티클을 한곳에서 확인하세요.",
+    title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+    description: siteDescription,
     url: siteUrl,
   },
   twitter: {
     card: "summary",
+    title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+    description: siteDescription,
   },
   robots: {
     index: true,
@@ -37,7 +47,7 @@ export function buildMetadata(pathname: string, title?: string, description?: st
   const resolvedDescription =
     description ??
     baseMetadata.description ??
-    "Clinic GEO는 병원별 GEO 정보와 AI 검색 인사이트를 연결하는 병원 정보 허브입니다.";
+    siteDescription;
 
   return {
     ...baseMetadata,

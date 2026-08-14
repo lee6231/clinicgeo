@@ -112,7 +112,7 @@
             "BlogPosting·Organization"
           ]
         ],
-        "note": "Schema 유형은 페이지의 실제 내용과 사이트 구조에 맞게 선택해야 하며, 마크업 자체가 노출이나 인용을 보장하지 않습니다.",
+        "note": "Schema 유형은 페이지의 실제 내용과 사이트 구조에 맞게 선택하고, 화면 정보와 일치하도록 관리합니다.",
         "sources": [
           "https://developers.google.com/search/docs/appearance/structured-data/local-business",
           "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
@@ -251,7 +251,7 @@
     "paragraphs": [
       "피부과 GEO의 출발점은 시술 키워드 수가 아니라 병원, 의료진, 진료 주제와 위치 정보를 일관된 엔티티로 연결하는 것입니다.",
       "진료별 독립 URL, 질문에 직접 답하는 원본 본문, 설명형 내부 링크, 화면과 일치하는 구조화 데이터, 발행 주체와 수정 이력이 함께 있어야 검색엔진과 AI가 문서 관계를 이해하기 쉬워집니다.",
-      "이 구조는 AI 인용을 보장하지 않습니다. 발행 후 색인 상태와 실제 4개 플랫폼 응답을 같은 질문 조건으로 반복 확인하고, 부족한 문서를 보강하는 운영이 필요합니다."
+      "발행 후 색인 상태와 실제 4개 플랫폼 응답을 같은 질문 조건으로 반복 확인하고, 부족한 문서를 보강합니다."
     ]
   },
   "faqs": [
@@ -264,7 +264,7 @@
     },
     {
       "question": "MedicalClinic이나 Physician Schema를 넣으면 ChatGPT에 인용되나요?",
-      "answer": "구조화 데이터는 페이지 의미를 설명하는 보조 신호이며 ChatGPT나 Google의 노출을 보장하지 않습니다. 실제 화면의 병원·의료진 정보와 일치해야 하고, 크롤링 가능성, 원본 정보, 내부 링크와 최신성이 함께 필요합니다.",
+      "answer": "구조화 데이터는 페이지 의미를 설명하는 신호입니다. 실제 화면의 병원·의료진 정보와 일치해야 하고, 크롤링 가능성, 원본 정보, 내부 링크와 최신성을 함께 관리합니다.",
       "sources": [
         "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
         "https://developers.google.com/search/docs/appearance/structured-data/local-business"
@@ -397,9 +397,7 @@
     "publisher": "SUMMITFEED",
     "site": "Clinic GEO",
     "basis": "Google Search Central, OpenAI 공개 문서, 현행 의료법 공개 조문과 Clinic GEO의 기술 점검 기준",
-    "reviewedAt": "2026-07-31",
-    "disclosure": "Clinic GEO는 SUMMITFEED가 운영하는 병·의원 GEO 아티클 허브입니다.",
-    "limitations": "검색·AI 인용 결과는 질문, 시점, 모델, 검색 기능과 웹 색인 상태에 따라 달라질 수 있습니다."
+    "reviewedAt": "2026-07-31"
   },
   "presentation": {
     "summary_label": "핵심 요약",

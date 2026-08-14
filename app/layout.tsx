@@ -1,13 +1,19 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
-import { baseMetadata, siteUrl } from "@/lib/seo";
+import {
+  baseMetadata,
+  publisherName,
+  shortSiteDescription,
+  siteUrl,
+  summitfeedOrganizationId,
+  summitfeedUrl,
+  websiteId,
+} from "@/lib/seo";
 import "./globals.css";
 
 export const metadata: Metadata = {
   ...baseMetadata,
-  title: "Clinic GEO | 병원별 GEO와 GEO 인사이트",
-  description:
-    "Clinic GEO는 정형외과, 피부과, 치과, 성형외과, 내과의 병원 정보와 관련 GEO 아티클을 연결하는 정보 허브입니다.",
+  manifest: "/manifest.webmanifest",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -37,10 +43,10 @@ export default function RootLayout({
             {
               "@context": "https://schema.org",
               "@type": "Organization",
-              "@id": `${siteUrl}/#organization`,
-              name: "SUMMITFEED",
-              alternateName: "Clinic GEO 운영사",
-              url: "https://www.summitfeed.co.kr",
+              "@id": summitfeedOrganizationId,
+              name: publisherName,
+              alternateName: "SUMMITFEED",
+              url: summitfeedUrl,
               founder: {
                 "@type": "Person",
                 name: "이승찬",
@@ -56,13 +62,20 @@ export default function RootLayout({
             {
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "@id": `${siteUrl}/#website`,
+              "@id": websiteId,
               name: "Clinic GEO",
               url: siteUrl,
               inLanguage: "ko-KR",
-              about: "병원별 GEO 정보와 GEO 인사이트",
+              description: shortSiteDescription,
+              about: "병의원 GEO 서비스와 진료별 실무 기준",
               publisher: {
-                "@id": `${siteUrl}/#organization`,
+                "@id": summitfeedOrganizationId,
+              },
+              creator: {
+                "@id": summitfeedOrganizationId,
+              },
+              copyrightHolder: {
+                "@id": summitfeedOrganizationId,
               },
             },
           ]}

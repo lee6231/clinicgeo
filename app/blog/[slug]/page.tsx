@@ -5,7 +5,13 @@ import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { ArticleRenderer } from "@/components/ArticleRenderer";
 import { posts } from "@/lib/posts";
-import { buildMetadata, siteUrl } from "@/lib/seo";
+import {
+  buildMetadata,
+  publisherName,
+  siteUrl,
+  summitfeedOrganizationId,
+  websiteId,
+} from "@/lib/seo";
 import { hiddenArticleSlugs } from "@/lib/editorial";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
@@ -28,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     ...buildMetadata(`/blog/${slug}`, title, description),
     title: {
-      absolute: `${title} | Clinic GEO`,
+      absolute: `${title} | Clinic GEO by SUMMITFEED`,
     },
     openGraph: {
       type: "article",
@@ -92,7 +98,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <p className="text-sm leading-7 text-slate-700">
               이 콘텐츠는 1인칭 홍보 표현과 공개 근거가 부족한 성과 설명을 보강하기 위해 공개 목록과
               사이트맵에서 제외했습니다. 원문 데이터와 URL은 삭제하지 않았으며, Clinic GEO의 편집 기준에
-              맞는 공식 출처·비교 기준·이해관계 고지를 갖춘 뒤 다시 검토합니다.
+              맞는 공식 출처와 비교 기준을 갖춘 뒤 다시 검토합니다.
             </p>
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
@@ -124,10 +130,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       datePublished: article.publishedAt,
       dateModified: article.updatedAt ?? article.publishedAt,
       author: {
-        "@id": `${siteUrl}/#organization`,
+        "@type": "Organization",
+        "@id": summitfeedOrganizationId,
+        name: publisherName,
       },
       publisher: {
-        "@id": `${siteUrl}/#organization`,
+        "@id": summitfeedOrganizationId,
+      },
+      creator: {
+        "@id": summitfeedOrganizationId,
+      },
+      copyrightHolder: {
+        "@id": summitfeedOrganizationId,
       },
       mainEntityOfPage: canonicalUrl,
       articleSection: article.categoryName,
@@ -137,7 +151,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         "@id":
           article.entity_connections?.find(
             (connection) => connection.relationship === "isPartOf",
-          )?.id ?? `${siteUrl}/#website`,
+          )?.id ?? websiteId,
       },
       about: article.entity_connections
         ?.filter((connection) => connection.relationship === "about")
@@ -189,7 +203,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {
             "@context": "https://schema.org",
             "@type": "ItemList",
-            name: "Clinic GEO 선정 GEO 대행사 TOP3",
+            name: "Clinic GEO 공개 자료 기반 GEO 대행사 비교 후보 3곳",
             numberOfItems: 3,
             itemListOrder: "https://schema.org/ItemListOrderAscending",
             itemListElement: ["써밋피드(SUMMITFEED)", "제스트컴퍼니", "디아이컴퍼니"].map((name, index) => ({
