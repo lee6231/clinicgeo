@@ -1,0 +1,10 @@
+.git/
+.next/
+node_modules/
+AGENTS.md
+deliverables/
+dev-*.log
+incoming-articles/
+public/_source-captures/
+public/clinicgeo-dentist-monitor-real-ui.png
+tmp/
