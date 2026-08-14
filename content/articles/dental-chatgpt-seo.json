@@ -1,0 +1,901 @@
+{
+  "mode": "authority",
+  "site": "clinicgeo.co.kr",
+  "slug": "dental-chatgpt-seo",
+  "title": "치과가 ChatGPT에 노출되려면? 홈페이지 7곳을 직접 확인했습니다",
+  "categorySlug": "dental-geo",
+  "categoryName": "치과 GEO",
+  "focus_keyword": "치과 ChatGPT 노출",
+  "meta_description": "실제 운영 중인 치과 홈페이지 7곳의 robots.txt와 초기 HTML을 확인했습니다. AI 크롤러보다 먼저 발견된 대표 URL, 진료시간, 공개 게시판 문제와 의료광고 점검 순서를 정리합니다.",
+  "publishedAt": "2026-08-14",
+  "updatedAt": "2026-08-14",
+  "publishAt": "2026-08-14T21:00:00+09:00",
+  "published": true,
+  "summary_label": "7곳을 확인한 결과",
+  "quick_answer": {
+    "definition_sentence": "처음에는 AI 봇을 막아둔 치과가 많을 거라고 예상했습니다. 2026년 8월 14일 실제 운영 중인 치과 홈페이지 7곳을 열어보니 결과는 달랐습니다. AI 검색용 크롤러보다 대표 URL, 초기 HTML, 공개 콘텐츠 경로에서 먼저 문제가 드러났습니다.",
+    "framing_sentence": "AI 크롤러 이름이 robots.txt에 적힌 곳은 0곳이었습니다. 그러나 canonical이 실제 서빙 URL과 일치한 곳은 1곳이었고, 진료시간이 홈 초기 HTML에 텍스트로 들어 있던 곳은 2곳이었습니다.",
+    "selection_criteria": "robots.txt 응답만 보지 않고 공개 콘텐츠 경로, canonical과 og:url, 초기 HTML의 진료정보, 의료진 정보의 일관성, 의료광고 적용 여부를 차례로 확인합니다.",
+    "conclusion_sentence": "이 결과를 치과 업계 전체 비율로 확대할 수는 없습니다. 표본 7곳에서 확인한 패턴을 기술 점검 사례로 사용합니다. 특정 병원이나 진료를 홍보하는 콘텐츠에 적용할 때는 의료광고 주체·표현·사전심의 여부를 별도로 검토해야 합니다.",
+    "sources": [
+      "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723",
+      "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875",
+      "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032064487"
+    ]
+  },
+  "data_cards": [],
+  "sections": [
+    {
+      "heading": "조사 범위와 증빙 기준",
+      "paragraphs": [
+        {
+          "text": "조사 대상은 실제 운영 중인 치과 홈페이지 7곳입니다. 실명과 URL은 내부 조사 기록에서 관리하고, 공개 원고에서는 A~G로 익명 처리합니다. 특정 병원에 대한 공개 평가가 아니라 반복해서 나타난 기술 유형을 설명하기 위한 조사입니다.",
+          "sources": []
+        },
+        {
+          "text": "각 도메인의 robots.txt와 대표 URL 초기 HTML을 자동 요청으로 1회 확인했습니다. 렌더링 후 DOM, 구조화 데이터, 하위 페이지 전체, 서버 로그는 조사 범위에 포함하지 않았습니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "조사 범위와 증빙 기준",
+        "columns": [
+          "구분",
+          "기록 항목"
+        ],
+        "rows": [
+          [
+            "대상 식별",
+            "내부 병원명, 공개 코드 A~G, 도메인"
+          ],
+          [
+            "요청 기록",
+            "요청 시각, 사용한 user-agent, 최종 URL, HTTP 상태"
+          ],
+          [
+            "robots.txt",
+            "응답 원문, Content-Type, 원문 해시"
+          ],
+          [
+            "초기 HTML",
+            "title·meta·og·canonical·본문 텍스트, 원문 해시"
+          ],
+          [
+            "공개 원칙",
+            "병원명·URL 비공개, 개수와 유형만 공개"
+          ]
+        ],
+        "note": "내부 증빙 묶음이 감사자에게 제공되지 않으면 자체 실측 수치는 독립 검증 완료로 판정할 수 없습니다. 발행 책임자는 원고의 숫자와 내부 원본을 최종 대조해야 합니다.",
+        "sources": []
+      }
+    },
+    {
+      "heading": "7곳의 robots.txt는 이렇게 응답했습니다",
+      "paragraphs": [
+        {
+          "text": "OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot이 robots.txt에 적힌 곳은 0곳이었습니다. Sitemap 지시문이 들어간 곳도 0곳이었습니다.",
+          "sources": []
+        },
+        {
+          "text": "Google은 404를 포함한 대부분의 4xx 응답을 유효한 robots.txt가 없는 상태로 처리합니다. 다른 사업자의 오류 처리 방식까지 같다고 단정하지 않고 각 사 문서를 따로 확인해야 합니다.",
+          "sources": [
+            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "7곳의 robots.txt는 이렇게 응답했습니다",
+        "columns": [
+          "응답",
+          "곳 수",
+          "해석 범위"
+        ],
+        "rows": [
+          [
+            "유효한 robots.txt 반환",
+            "4곳",
+            "반환된 유효 규칙을 적용"
+          ],
+          [
+            "404",
+            "2곳",
+            "Googlebot은 크롤 제한이 없는 것으로 처리"
+          ],
+          [
+            "200이지만 유효 지시문이 없는 HTML",
+            "1곳",
+            "Google은 유효한 규칙만 추출하고 나머지를 무시"
+          ]
+        ],
+        "sources": [
+          "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+        ]
+      }
+    },
+    {
+      "heading": "Googlebot 이름을 따로 적을 때 생긴 일",
+      "paragraphs": [
+        {
+          "text": "한 곳에는 User-agent: * 아래 관리 경로 14개가 차단돼 있었고, 별도의 Googlebot 그룹에는 Crawl-delay: 300과 Disallow: /*.save$만 있었습니다.",
+          "sources": []
+        },
+        {
+          "text": "Google은 crawl-delay를 지원하지 않습니다. 또한 Googlebot처럼 구체적인 그룹이 있으면 그 그룹과 * 그룹을 합치지 않습니다. 이 사례에서 Googlebot이 적용받는 크롤 제외 규칙은 /*.save$뿐이고, * 그룹에 있던 관리 경로 14개는 Googlebot 규칙에 포함되지 않습니다.",
+          "sources": [
+            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+            "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt"
+          ]
+        },
+        {
+          "text": "이 상태를 보안상 “관리 화면이 공개됐다”고 표현해서는 안 됩니다. robots.txt는 크롤링 지시일 뿐 인증 장치가 아닙니다. 비공개 경로는 로그인과 접근권한으로 보호하고, robots.txt에는 검색 시스템이 불필요한 경로를 크롤링하지 않도록 규칙을 둡니다.",
+          "sources": [
+            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "OAI-SearchBot을 따로 적어야 할까",
+      "paragraphs": [
+        {
+          "text": "OpenAI는 ChatGPT 검색에 표시될 가능성을 유지하려면 OAI-SearchBot을 차단하지 않도록 안내합니다. 다만 OpenAI 공식 문서는 OAI-SearchBot의 구체적 그룹과 * 그룹이 어떤 방식으로 병합되는지 설명하지 않습니다.",
+          "sources": [
+            "https://developers.openai.com/api/docs/bots",
+            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+          ]
+        },
+        {
+          "text": "따라서 Googlebot의 파서 규칙을 모든 AI 크롤러에 그대로 적용해 단정하지 않습니다. 이름 지정 그룹이 필요한 경우에는 해당 봇이 지켜야 할 공통 차단 규칙도 같은 그룹에 반복하는 보수적 구성을 사용합니다.",
+          "sources": []
+        },
+        {
+          "text": "표준 robots.txt는 접근 권한을 강제하지 않습니다. 관리 화면과 개인정보는 인증으로 보호하고, 실제 봇 도달 여부는 공식 IP 범위와 서버 로그로 확인합니다.",
+          "sources": [
+            "https://developers.openai.com/api/docs/bots",
+            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "OAI-SearchBot을 따로 적어야 할까",
+        "columns": [
+          "그룹",
+          "필요한 지시문"
+        ],
+        "rows": [
+          [
+            "User-agent: *",
+            "/admin/, /member/처럼 크롤링에서 제외할 경로"
+          ],
+          [
+            "User-agent: OAI-SearchBot",
+            "Allow: /와 함께 공통 제외 경로를 반복"
+          ],
+          [
+            "User-agent: GPTBot",
+            "학습용 수집을 원하지 않으면 Disallow: /"
+          ],
+          [
+            "파일 마지막",
+            "실제 도메인의 Sitemap URL"
+          ]
+        ],
+        "sources": [
+          "https://developers.openai.com/api/docs/bots",
+          "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+          "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+        ]
+      }
+    },
+    {
+      "heading": "칼럼까지 함께 막힌 치과가 있었습니다",
+      "paragraphs": [
+        {
+          "text": "한 곳은 User-agent: *에 Disallow: /bbs를 사용했습니다. 이 사이트의 원장 칼럼과 공개 게시판 URL도 /bbs/board.php?... 아래에 있어 같은 규칙의 영향을 받았습니다.",
+          "sources": []
+        },
+        {
+          "text": "공개 콘텐츠와 관리 기능이 같은 상위 경로를 사용한다면 폴더 전체를 막기 전에 실제 공개 URL을 대조해야 합니다. 관리 화면만 제외하려면 사이트 구조에 맞춰 경로를 좁혀야 합니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "칼럼까지 함께 막힌 치과가 있었습니다",
+        "columns": [
+          "확인 항목",
+          "점검 방법",
+          "통과 기준"
+        ],
+        "rows": [
+          [
+            "공개 콘텐츠 경로",
+            "Disallow와 칼럼·FAQ URL 대조",
+            "공개 페이지가 차단 규칙에 포함되지 않음"
+          ],
+          [
+            "관리 기능",
+            "실제 로그인·권한 확인",
+            "robots.txt와 무관하게 인증 적용"
+          ],
+          [
+            "이름 지정 그룹",
+            "각 그룹의 Allow·Disallow 대조",
+            "필요한 공통 규칙이 빠지지 않음"
+          ],
+          [
+            "Sitemap",
+            "robots.txt 또는 검색도구에서 확인",
+            "공개 대표 URL을 담은 사이트맵 제출"
+          ]
+        ],
+        "sources": []
+      }
+    },
+    {
+      "heading": "OAI-SearchBot과 GPTBot은 역할이 다릅니다",
+      "paragraphs": [
+        {
+          "text": "OAI-SearchBot은 ChatGPT 검색 기능에 사이트를 표시하기 위한 크롤러이고, GPTBot은 모델 학습에 사용될 수 있는 콘텐츠 수집과 관련됩니다. 두 설정은 독립적입니다.",
+          "sources": [
+            "https://developers.openai.com/api/docs/bots"
+          ]
+        },
+        {
+          "text": "OAI-SearchBot을 차단한 사이트는 ChatGPT 검색 답변의 요약·인용 대상에서 제외될 수 있습니다. 다만 다른 경로에서 URL이 확인되면 링크와 제목만 탐색용으로 나타날 수 있습니다. GPTBot을 차단하면서 OAI-SearchBot의 검색 접근을 유지하는 설정도 가능합니다. 실제 노출과 인용은 보장되지 않습니다.",
+          "sources": [
+            "https://developers.openai.com/api/docs/bots",
+            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "OAI-SearchBot과 GPTBot은 역할이 다릅니다",
+        "columns": [
+          "크롤러",
+          "역할",
+          "차단 시 공식 안내 범위"
+        ],
+        "rows": [
+          [
+            "Googlebot",
+            "Google 검색 크롤링·색인",
+            "크롤링·렌더링이 제한될 수 있음"
+          ],
+          [
+            "OAI-SearchBot",
+            "ChatGPT 검색",
+            "검색 답변 표시 대상에서 제외될 수 있음"
+          ],
+          [
+            "GPTBot",
+            "OpenAI 모델 학습용 수집",
+            "향후 학습용 수집 제외 의사 표시"
+          ],
+          [
+            "Claude-SearchBot",
+            "Claude 검색",
+            "검색 가시성과 정확도에 영향을 줄 수 있음"
+          ],
+          [
+            "ClaudeBot",
+            "Anthropic 모델 학습용 수집",
+            "학습용 수집 제외 의사 표시"
+          ],
+          [
+            "PerplexityBot",
+            "Perplexity 검색",
+            "검색 결과의 사이트 발견·연결에 영향을 줄 수 있음"
+          ]
+        ],
+        "sources": [
+          "https://developers.openai.com/api/docs/bots",
+          "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+        ]
+      }
+    },
+    {
+      "heading": "차단했는데도 링크가 보일 수 있습니다",
+      "paragraphs": [
+        {
+          "text": "사용자가 특정 병원이나 URL을 직접 요청하면 ChatGPT-User 같은 사용자 요청형 에이전트가 접근할 수 있습니다. 모든 요청에서 반드시 방문하는 것은 아니며, robots.txt 적용 방식도 사업자마다 다릅니다. 공개하면 안 되는 정보는 로그인과 접근권한으로 보호합니다.",
+          "sources": [
+            "https://developers.openai.com/api/docs/bots",
+            "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+            "https://docs.perplexity.ai/docs/resources/perplexity-crawlers"
+          ]
+        },
+        {
+          "text": "OpenAI는 OAI-SearchBot이 차단된 페이지라도 다른 경로로 URL을 확보하면 링크와 제목을 표시할 수 있다고 안내합니다. 이 표시까지 원하지 않으면 noindex를 검토할 수 있지만, 크롤러가 noindex를 읽으려면 페이지 접근이 허용돼 있어야 합니다.",
+          "sources": [
+            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+          ]
+        },
+        {
+          "text": "검색 결과에서 제외할 페이지와 접근 자체를 제한할 페이지를 구분합니다. 전자는 noindex, 후자는 인증과 권한 제어가 중심입니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "대표 URL은 7곳 중 1곳만 모두 맞았습니다",
+      "paragraphs": [
+        {
+          "text": "canonical 태그는 3곳에서 확인됐고, 실제 서빙 URL과 일치한 곳은 전체 7곳 중 1곳이었습니다. og:url은 4곳에서 확인됐으며 실제 서빙 URL과 일치한 곳은 전체 7곳 중 2곳이었습니다.",
+          "sources": []
+        },
+        {
+          "text": "프로토콜, www 유무, 루트와 index.php가 어긋나면 같은 페이지에 서로 다른 대표 URL 신호가 생깁니다. canonical, og:url, 내부 링크, 사이트맵에서 같은 대표 URL을 사용합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "대표 URL은 7곳 중 1곳만 모두 맞았습니다",
+        "columns": [
+          "항목",
+          "충족",
+          "전체 7곳 대비",
+          "태그 보유 사이트 대비"
+        ],
+        "rows": [
+          [
+            "canonical 존재",
+            "3곳",
+            "43%",
+            "—"
+          ],
+          [
+            "canonical이 실제 서빙 URL과 일치",
+            "1곳",
+            "14%",
+            "33% (1/3)"
+          ],
+          [
+            "og:url 존재",
+            "4곳",
+            "57%",
+            "—"
+          ],
+          [
+            "og:url이 실제 서빙 URL과 일치",
+            "2곳",
+            "29%",
+            "50% (2/4)"
+          ],
+          [
+            "HTTPS 기본 서빙",
+            "5곳",
+            "71%",
+            "—"
+          ]
+        ],
+        "sources": [
+          "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+        ]
+      }
+    },
+    {
+      "heading": "진료시간이 초기 HTML에 있던 곳은 2곳이었습니다",
+      "paragraphs": [
+        {
+          "text": "홈 초기 HTML에서 대표 전화는 6곳, 주소와 사업자등록번호는 각각 5곳에서 텍스트로 확인됐습니다. 의료진 소개 영역의 실명은 3곳, 진료시간은 2곳에서 확인됐습니다.",
+          "sources": []
+        },
+        {
+          "text": "이 수치는 홈 초기 HTML에서 확인한 값입니다. 하위 페이지나 JavaScript 렌더링 후 DOM에 정보가 있을 가능성은 포함하지 않습니다. 이미지를 사용하더라도 같은 핵심 정보를 접근 가능한 HTML 텍스트로 함께 제공합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "진료시간이 초기 HTML에 있던 곳은 2곳이었습니다",
+        "columns": [
+          "정보",
+          "텍스트로 확인",
+          "전체 7곳 대비"
+        ],
+        "rows": [
+          [
+            "대표 전화",
+            "6곳",
+            "86%"
+          ],
+          [
+            "병원 주소",
+            "5곳",
+            "71%"
+          ],
+          [
+            "사업자등록번호",
+            "5곳",
+            "71%"
+          ],
+          [
+            "의료진 실명",
+            "3곳",
+            "43%"
+          ],
+          [
+            "진료시간",
+            "2곳",
+            "29%"
+          ]
+        ],
+        "sources": [
+          "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+        ]
+      }
+    },
+    {
+      "heading": "자동 요청에 빈 화면이 돌아온 곳도 있었습니다",
+      "paragraphs": [
+        {
+          "text": "한 곳은 조사에 사용한 자동 요청에서 본문 텍스트와 title·description이 확인되지 않았습니다.",
+          "sources": []
+        },
+        {
+          "text": "이 결과만으로 실제 검색 크롤러도 항상 빈 응답을 받는다고 단정할 수는 없습니다. user-agent별 응답, CDN·WAF 정책, JavaScript 렌더링, 일시적 오류가 다를 수 있기 때문입니다.",
+          "sources": []
+        },
+        {
+          "text": "Search Console URL 검사, 브라우저 렌더링 결과, 서버 로그를 함께 대조합니다. Google은 JavaScript 콘텐츠를 렌더링하지만 크롤링·렌더링·색인의 단계를 거칩니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "같은 페이지에서 의료진 정보가 엇갈렸습니다",
+      "paragraphs": [
+        {
+          "text": "7곳 중 3곳에서는 같은 사이트 안의 의료진 정보가 서로 달랐습니다. PC·모바일 목록의 자격 표기가 달랐고, 의료진 이름 텍스트와 사진 alt가 어긋난 사례가 있었습니다. 경력 연수가 본문 34년, meta description 35년으로 표시된 사례도 있었습니다.",
+          "sources": []
+        },
+        {
+          "text": "이것은 어떤 값이 맞는지를 이번 조사로 판정한 결과가 아니라, 같은 사이트 안에 서로 다른 값이 존재했다는 관찰입니다. 의료진 실명·면허 종류·전문의 자격·경력은 원자료로 확인한 뒤 홈, 의료진 페이지, meta description, 이미지 대체텍스트에서 일치시킵니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "외부 채널보다 홈페이지 안의 정보부터 맞춥니다",
+      "paragraphs": [
+        {
+          "text": "병원명, 주소, 전화번호, 진료시간, 의료진, 진료 분야, 예약 방법은 공식 홈페이지의 기준 페이지에서 최신 상태로 관리합니다. 다른 채널에는 요약과 대표 페이지 링크를 두고, 중복 URL은 canonical과 내부 링크로 대표 URL을 일관되게 지정합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+            "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
+          ]
+        },
+        {
+          "text": "페이지마다 주된 목적을 하나씩 정하는 것은 Clinic GEO의 편집 원칙입니다. 병원 소개는 기관 정보, 의료진 페이지는 실명과 확인 가능한 자격, 진료 페이지는 대상과 진료 흐름, 질문형 글은 한 묶음의 환자 질문을 중심으로 구성합니다. 반드시 페이지를 분리해야 한다는 검색 사업자의 공식 규칙은 아닙니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "의료광고는 누가 광고하는지부터 봅니다",
+      "paragraphs": [
+        {
+          "text": "의료법 제56조 제1항은 의료기관 개설자, 의료기관의 장 또는 의료인이 아닌 자의 의료광고를 제한합니다. 마케팅 대행사는 통상 이 조항의 의료인등에 포함되지 않으므로, 대행사 명의로 의료광고의 주체가 될 수 있다는 뜻이 아닙니다.",
+          "sources": [
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
+          ]
+        },
+        {
+          "text": "대행사가 제작·운영을 지원하더라도 광고 주체, 내용 결정·검토 책임, 사전심의 대상 여부를 구분해 확인해야 합니다. 대행자 표기나 채널 명의 변경만으로 적법성이 확보되는 것은 아닙니다. 특정 병원이나 진료를 홍보하는 개별 게시물은 발행 전 자율심의기구 또는 관련 전문가에게 확인합니다.",
+          "sources": [
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723",
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "사전심의 대상은 매체와 전체 문구를 함께 봅니다",
+      "paragraphs": [
+        {
+          "text": "의료법 제57조와 의료법 시행령 제24조는 인터넷뉴스서비스, 방송사업자 운영 홈페이지, 일정 이용자 규모 이상의 인터넷 매체와 사회관계망서비스 등을 사전심의 대상 매체로 규정합니다. 기준은 병원 계정의 구독자 수가 아니라 매체 유형과 플랫폼 규모입니다.",
+          "sources": [
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875",
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032064487"
+          ]
+        },
+        {
+          "text": "이 표는 조문 구조를 정리한 것이며 개별 사안의 법률 판단이 아닙니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "사전심의 대상은 매체와 전체 문구를 함께 봅니다",
+        "columns": [
+          "매체",
+          "확인할 사항",
+          "처리 원칙"
+        ],
+        "rows": [
+          [
+            "병원 공식 홈페이지",
+            "시행령상 인터넷 매체 해당 여부와 이용자 규모 기준 적용 여부",
+            "제56조 표현 규정과 사전심의 대상 여부를 함께 검토"
+          ],
+          [
+            "블로그·SNS",
+            "플랫폼 유형과 일일 평균 이용자 수 요건",
+            "발행 시점의 플랫폼 분류 확인"
+          ],
+          [
+            "인터넷뉴스서비스 기고",
+            "매체 유형",
+            "사전심의 대상 여부 확인"
+          ],
+          [
+            "방송사업자 운영 홈페이지",
+            "매체 운영 주체",
+            "사전심의 대상 여부 확인"
+          ],
+          [
+            "명칭·주소·연락처 등",
+            "제57조 제3항 예외 범위",
+            "문구가 예외 항목으로만 구성됐는지 확인"
+          ]
+        ],
+        "sources": [
+          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875",
+          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032064487"
+        ]
+      }
+    },
+    {
+      "heading": "환자 수와 만족도는 기간만 적는다고 끝나지 않습니다",
+      "paragraphs": [
+        {
+          "text": "조사한 7곳 중 2곳이 식립 개수, 내원 환자 수, 만족도 또는 소개 환자 비율 같은 수치를 홈에 표시했습니다. 한 곳은 집계 기준과 기간이 확인되지 않았고, 다른 한 곳은 집계 시점과 산정 방식을 함께 표시했습니다.",
+          "sources": []
+        },
+        {
+          "text": "집계 시점과 산정 방식은 검증 가능성을 높이지만 그것만으로 사실성이나 적법성이 확보되지는 않습니다. 원자료의 정확성, 중복 제거, 대표성, 전체 문구의 오인 가능성을 함께 검토해야 합니다.",
+          "sources": [
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "환자 수와 만족도는 기간만 적는다고 끝나지 않습니다",
+        "columns": [
+          "위험 표현",
+          "검토 방향"
+        ],
+        "rows": [
+          [
+            "환자 후기·치료 경험담",
+            "치료 효과 오인 가능성과 관련 조항 검토"
+          ],
+          [
+            "효과가 확실합니다",
+            "효과 단정 삭제, 적용 조건·한계 설명"
+          ],
+          [
+            "다른 치과보다 우수",
+            "비교·비방 가능성 검토, 자사 사실만 기술"
+          ],
+          [
+            "중요한 부작용 누락",
+            "실제 진료에 필요한 중요 정보와 주의사항 포함"
+          ],
+          [
+            "산정 근거 없는 환자 수·만족도",
+            "원자료, 기간, 분모, 산정 방식, 오인 가능성 확인"
+          ],
+          [
+            "최고, 1위, 전국 유일",
+            "전체 맥락을 검토하고 안전하게 입증할 수 없으면 삭제"
+          ]
+        ],
+        "sources": [
+          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
+        ]
+      }
+    },
+    {
+      "heading": "효과 대신 실제 절차를 설명합니다",
+      "paragraphs": [
+        {
+          "text": "AI가 인용하기 쉬운 문장을 만든다는 이유로 치료 효과를 단정해서는 안 됩니다. 단정의 대상을 효과가 아니라 실제 절차, 확인 항목, 적용 조건, 담당 주체로 옮깁니다.",
+          "sources": []
+        },
+        {
+          "text": "절차 중심 문장도 특정 병원과 진료를 홍보하는 맥락에서는 의료광고가 될 수 있습니다. 실제 운영 내용과 일치하는지 확인하고 필요한 의료광고 검토를 거칩니다.",
+          "sources": [
+            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
+          ]
+        }
+      ],
+      "table": {
+        "caption": "효과 대신 실제 절차를 설명합니다",
+        "columns": [
+          "피해야 할 문장",
+          "사실 확인 후 사용할 수 있는 방향"
+        ],
+        "rows": [
+          [
+            "임플란트 성공률이 높습니다",
+            "임플란트 상담에서 확인하는 검사·문진 항목을 실제 절차에 맞게 설명"
+          ],
+          [
+            "최고의 교정 진료를 제공합니다",
+            "담당 의료진의 실명과 확인 가능한 면허·전문의 자격을 실제 자료와 일치시켜 표시"
+          ],
+          [
+            "부작용 없이 안전합니다",
+            "시술 후 안내하는 증상과 내원 기준을 실제 안내문에 맞게 설명"
+          ],
+          [
+            "환자들이 만족했습니다",
+            "시술 후 점검 방법과 예약 절차를 실제 운영 내용에 맞게 안내"
+          ],
+          [
+            "당일 시술로 바로 회복됩니다",
+            "당일 시술 가능 여부를 판단하는 검사와 조건을 사실대로 설명"
+          ]
+        ],
+        "sources": [
+          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
+        ]
+      }
+    },
+    {
+      "heading": "Google 노출과 AI 인용은 따로 측정합니다",
+      "paragraphs": [
+        {
+          "text": "Google은 2026년 6월 Search Console의 생성형 AI 성과 리포트를 발표했습니다. 공식 안내에는 노출 수와 페이지·국가·기기·날짜 차원이 포함돼 있습니다. 2026년 8월 14일 확인 기준 클릭·CTR·검색어는 제공 항목으로 안내돼 있지 않습니다.",
+          "sources": [
+            "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+            "https://support.google.com/webmasters/answer/16984139"
+          ]
+        },
+        {
+          "text": "Bing Webmaster Tools의 AI Performance에서는 인용 수와 인용 URL 등을 확인할 수 있고, 2026년 6월에는 Intents, Topics, Citation Share, Compare가 추가됐습니다. 실제 제공 범위는 계정 화면에서 다시 확인합니다.",
+          "sources": [
+            "https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview",
+            "https://blogs.bing.com/search/June-2026/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare"
+          ]
+        },
+        {
+          "text": "OpenAI는 ChatGPT 참조 URL에 utm_source=chatgpt.com을 자동으로 붙인다고 안내합니다. 분석 도구가 UTM 파라미터를 보존하도록 설정돼 있다면 ChatGPT 유입 세션과 랜딩 페이지를 구분할 수 있습니다. 예약 문의를 보려면 폼 제출·전화·메신저 같은 전환 이벤트를 별도로 설정해야 합니다.",
+          "sources": [
+            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+          ]
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "고치는 순서",
+      "paragraphs": [
+        {
+          "text": "의료광고 검토를 뒤로 미루면 이미 작성한 문구의 재검토 범위가 커질 수 있습니다. 이 순서는 Clinic GEO의 편집·운영 절차이며 검색 순위나 AI 인용을 보장하는 공식 기준이 아닙니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "고치는 순서",
+        "columns": [
+          "단계",
+          "작업",
+          "완료 기준"
+        ],
+        "rows": [
+          [
+            "1",
+            "조사 증빙과 숫자 대조",
+            "공개 수치가 내부 원본과 일치"
+          ],
+          [
+            "2",
+            "robots.txt·공개 경로·인증 확인",
+            "공개 콘텐츠 크롤 가능, 비공개 경로는 인증 적용"
+          ],
+          [
+            "3",
+            "canonical·og:url·사이트맵 정리",
+            "실제 서빙 URL과 일치"
+          ],
+          [
+            "4",
+            "의료광고 주체·표현·매체 검토",
+            "검토 결과와 책임자 기록"
+          ],
+          [
+            "5",
+            "진료시간·의료진·주소 텍스트화",
+            "초기 HTML 또는 렌더링 결과에서 확인"
+          ],
+          [
+            "6",
+            "Google·Bing·ChatGPT 지표 분리 측정",
+            "노출·인용·참조 유입을 별도 기록"
+          ]
+        ],
+        "sources": []
+      }
+    }
+  ],
+  "conclusion": {
+    "heading": "결론",
+    "paragraphs": [
+      "이번에 확인한 치과 홈페이지 7곳에서는 AI 크롤러의 명시적 차단보다 대표 URL 불일치, 공개 게시판 경로 차단, 핵심 정보의 이미지 의존, 사이트 내부 정보 불일치가 먼저 확인됐습니다.",
+      "이 결과를 모든 치과에 적용되는 비율로 해석해서는 안 됩니다. 각 병원은 robots.txt, 실제 렌더링 결과, 서버 로그, canonical, 사이트맵을 자기 도메인에서 다시 확인해야 합니다.",
+      "특정 병원이나 진료를 홍보한다면 기술 설정과 의료광고 검토를 분리하지 않습니다. 발행 후에는 Google 노출, Bing 인용, ChatGPT 참조 유입을 서로 다른 지표로 기록합니다."
+    ]
+  },
+  "faqs": [
+    {
+      "question": "OAI-SearchBot을 robots.txt에 반드시 적어야 하나요?",
+      "answer": "OpenAI는 OAI-SearchBot을 차단하지 않도록 안내합니다. User-agent: * 규칙으로 이미 접근이 허용된다면 별도 이름 지정이 꼭 필요한 것은 아닙니다. 이름 지정 그룹을 만들 때는 공통 차단 규칙이 빠지지 않도록 함께 적고 실제 동작을 확인합니다.",
+      "sources": [
+        "https://developers.openai.com/api/docs/bots",
+        "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+      ]
+    },
+    {
+      "question": "robots.txt가 404면 문제인가요?",
+      "answer": "Googlebot은 404를 유효한 robots.txt가 없는 상태로 처리해 크롤 제한이 없다고 봅니다. 다른 크롤러까지 같은 방식이라고 일반화하지 않고 각 사업자 문서를 확인합니다.",
+      "sources": [
+        "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+      ]
+    },
+    {
+      "question": "GPTBot을 차단하면 ChatGPT 검색에서도 사라지나요?",
+      "answer": "반드시 사라지는 것은 아닙니다. GPTBot과 OAI-SearchBot은 목적과 설정이 독립적입니다. OAI-SearchBot 접근을 유지해도 실제 노출과 인용은 보장되지 않습니다.",
+      "sources": [
+        "https://developers.openai.com/api/docs/bots"
+      ]
+    },
+    {
+      "question": "진료시간을 이미지로 올려도 되나요?",
+      "answer": "이미지를 사용하더라도 같은 내용을 HTML 텍스트로 함께 제공합니다. 이번 7곳 점검에서는 홈 초기 HTML에 진료시간이 텍스트로 확인된 곳이 2곳이었습니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
+    },
+    {
+      "question": "실제 병원명을 공개하지 않으면 실측 자료로 쓸 수 없나요?",
+      "answer": "공개 원고는 익명으로 작성할 수 있습니다. 다만 내부 감사에서는 실명·URL, 요청 기록, 원문과 해시를 보관해 공개 수치를 재검증할 수 있어야 합니다.",
+      "sources": []
+    },
+    {
+      "question": "마케팅 대행사가 자기 채널에 병원 콘텐츠를 올려도 되나요?",
+      "answer": "대행사는 통상 의료법 제56조 제1항의 의료인등에 포함되지 않습니다. 제작·운영을 지원하더라도 광고 주체와 내용 결정 책임, 사전심의 대상 여부를 구분해 확인해야 하며 대행자 표기만으로 적법성이 확보되지는 않습니다.",
+      "sources": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723",
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875"
+      ]
+    },
+    {
+      "question": "환자 수나 만족도에 집계 기간만 적으면 괜찮나요?",
+      "answer": "집계 기간과 산정 방식은 필요한 검토 항목이지만 충분조건은 아닙니다. 원자료의 정확성, 분모, 중복 제거, 대표성과 소비자 오인 가능성을 함께 확인합니다.",
+      "sources": [
+        "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
+      ]
+    },
+    {
+      "question": "ChatGPT 유입을 구분할 수 있나요?",
+      "answer": "분석 설정이 UTM 파라미터를 보존한다면 utm_source=chatgpt.com으로 참조 유입을 구분할 수 있습니다. 예약 전환은 별도의 전환 이벤트가 있어야 측정할 수 있습니다.",
+      "sources": [
+        "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
+      ]
+    }
+  ],
+  "tags": [
+    "치과 GEO",
+    "치과 ChatGPT 노출",
+    "치과 홈페이지",
+    "AI 검색",
+    "OAI-SearchBot",
+    "robots.txt",
+    "canonical",
+    "의료광고",
+    "ChatGPT",
+    "Bing AI Performance",
+    "Clinic GEO",
+    "SUMMITFEED"
+  ],
+  "references": [
+    "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
+    "https://developers.google.com/search/docs/appearance/ai-features",
+    "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+    "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls",
+    "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+    "https://support.google.com/webmasters/answer/16984139",
+    "https://support.google.com/webmasters/answer/16908024",
+    "https://developers.openai.com/api/docs/bots",
+    "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
+    "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+    "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
+    "https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview",
+    "https://blogs.bing.com/search/June-2026/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare",
+    "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723",
+    "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875",
+    "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032064487",
+    "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+    "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt"
+  ],
+  "caution_checklist": [],
+  "internal_links": [
+    {
+      "label": "병원 홈페이지가 AI 검색에 인용되지 않는 이유",
+      "url": "/blog/hospital-website-ai-citation-problems",
+      "description": "크롤링·색인·본문 구조 점검"
+    },
+    {
+      "label": "병원 GEO 메인 질문과 팬아웃 질문 설정법",
+      "url": "/blog/hospital-geo-target-query-main-fanout",
+      "description": "질문 범위와 콘텐츠 구조 설계"
+    },
+    {
+      "label": "Clinic GEO 자료실",
+      "url": "/geo-resources",
+      "description": "병의원 GEO 공식 자료와 점검 기준"
+    }
+  ],
+  "entity_connections": [
+    {
+      "entity": "써밋피드(SUMMITFEED)",
+      "type": "Organization",
+      "id": "https://www.summitfeed.co.kr/#organization",
+      "relationship": "publisher"
+    },
+    {
+      "entity": "Clinic GEO",
+      "type": "WebSite",
+      "id": "https://clinicgeo.co.kr/#website",
+      "relationship": "isPartOf"
+    },
+    {
+      "entity": "치과 GEO",
+      "type": "Thing",
+      "id": "https://clinicgeo.co.kr/category/dental-geo",
+      "relationship": "about"
+    },
+    {
+      "entity": "ChatGPT",
+      "type": "Thing",
+      "id": "https://chatgpt.com/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Google Search",
+      "type": "Thing",
+      "id": "https://www.google.com/",
+      "relationship": "mentions"
+    },
+    {
+      "entity": "Bing",
+      "type": "Thing",
+      "id": "https://www.bing.com/",
+      "relationship": "mentions"
+    }
+  ],
+  "editorial": {
+    "author": "써밋피드(SUMMITFEED) · Clinic GEO 운영팀",
+    "publisher": "써밋피드(SUMMITFEED)",
+    "site": "Clinic GEO",
+    "basis": "공식 기술 문서, 현행 의료법 공개 조문, 실제 운영 중인 치과 홈페이지 7곳의 robots.txt·초기 HTML 점검",
+    "reviewedAt": "2026-08-14"
+  },
+  "presentation": {
+    "summary_label": "7곳을 확인한 결과",
+    "compact_layout": false,
+    "show_table_of_contents": false
+  }
+}
