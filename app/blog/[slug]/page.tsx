@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     ...buildMetadata(`/blog/${slug}`, title, description),
     title: {
-      absolute: `${title} | Clinic GEO by SUMMITFEED`,
+      absolute: article.metadata_title ?? `${title} | Clinic GEO by SUMMITFEED`,
     },
     openGraph: {
       type: "article",
@@ -59,7 +59,17 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
           index: false,
           follow: true,
         }
-      : undefined,
+      : {
+          index: true,
+          follow: true,
+          googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1,
+          },
+        },
   };
 }
 
@@ -217,6 +227,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           },
         ]
       : []),
+    ...(Array.isArray(article.supplemental_json_ld) ? article.supplemental_json_ld : []),
   ];
 
   return (

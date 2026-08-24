@@ -14,16 +14,29 @@ export type ArticleDataCard = {
   body: string;
 };
 
+export type ArticleSectionParagraph =
+  | string
+  | {
+      text: string;
+      sources?: string[];
+    };
+
+export type ArticleTable = {
+  id?: string;
+  type?: string;
+  caption?: string;
+  headers?: string[];
+  columns?: string[];
+  rows?: string[][];
+  note?: string;
+  sources?: string[];
+};
+
 export type ArticleSection = {
   heading: string;
-  paragraphs: Array<{ text: string; sources?: string[] }>;
-  table?: {
-    caption?: string;
-    columns?: string[];
-    rows?: string[][];
-    note?: string;
-    sources?: string[];
-  } | null;
+  paragraphs: ArticleSectionParagraph[];
+  table?: ArticleTable | null;
+  table_ref?: string;
 };
 
 export type ArticleConclusion = {
@@ -43,10 +56,24 @@ export type ArticleInternalLink =
       label: string;
       url: string;
       description?: string;
+    }
+  | {
+      anchor: string;
+      slug: string;
+      position?: string;
+    };
+
+export type ArticleReference =
+  | string
+  | {
+      title: string;
+      url: string;
     };
 
 export type Article = {
   title: string;
+  h1?: string;
+  metadata_title?: string;
   slug: string;
   publishAt?: string;
   categorySlug: string;
@@ -55,6 +82,7 @@ export type Article = {
   display_category?: string;
   focus_keyword: string;
   meta_description: string;
+  author?: string;
   quick_answer: ArticleQuickAnswer;
   summary_label?: string;
   compact_layout?: boolean;
@@ -82,13 +110,22 @@ export type Article = {
     reviewedAt?: string;
   };
   data_cards: ArticleDataCard[];
+  stat_strip?: Array<{
+    value: string;
+    label: string;
+  }>;
   sections: ArticleSection[];
+  tables?: ArticleTable[];
+  limits_note?: string;
   conclusion: ArticleConclusion;
   faqs: ArticleFaq[];
   tags: string[];
-  references?: string[];
+  references?: ArticleReference[];
   caution_checklist: string[];
   internal_links?: ArticleInternalLink[];
+  verified_at?: string;
+  revision_log?: string[];
+  supplemental_json_ld?: Array<Record<string, unknown>>;
   publishedAt: string;
   updatedAt?: string;
   published: boolean;

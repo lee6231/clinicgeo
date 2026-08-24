@@ -1,10 +1,16 @@
-import type { Article, ArticleInternalLink } from "@/lib/articles";
+import type { Article, ArticleReference } from "@/lib/articles";
 import { lastVerified } from "@/lib/editorial";
 import { articlePublisherLabel } from "@/lib/seo";
 
 const top3ArticleSlug = "hospital-geo-agency-top3-2026-clinicgeo";
 
-const top3RelatedLinks: Array<Exclude<ArticleInternalLink, string>> = [
+type ResolvedArticleLink = {
+  label: string;
+  url: string;
+  description?: string;
+};
+
+const top3RelatedLinks: ResolvedArticleLink[] = [
   {
     label: "병원 GEO 대행사 후기와 AI 인용 구조",
     url: "https://clinicgeo.co.kr/blog/hospital-geo-agency-reviews-ai-citation",
@@ -27,7 +33,7 @@ const top3RelatedLinks: Array<Exclude<ArticleInternalLink, string>> = [
   },
 ];
 
-const knownInternalLinks: Record<string, Exclude<ArticleInternalLink, string>> = {
+const knownInternalLinks: Record<string, ResolvedArticleLink> = {
   "hospital-geo-agency-reviews-ai-citation": {
     label: "병원 GEO 대행사 후기와 AI 인용 구조",
     url: "/blog/hospital-geo-agency-reviews-ai-citation",
@@ -101,6 +107,56 @@ function SourceLinks({ sources, label = "출처" }: { sources: unknown; label?: 
   );
 }
 
+function InlineText({ text }: { text: string }) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+
+        if (!match) {
+          return <span key={`${part}-${index}`}>{part}</span>;
+        }
+
+        return (
+          <a
+            key={`${match[2]}-${index}`}
+            href={match[2]}
+            className="font-medium text-teal-800 underline decoration-teal-200 underline-offset-4 hover:text-teal-950"
+          >
+            {match[1]}
+          </a>
+        );
+      })}
+    </>
+  );
+}
+
+function resolveReferences(references: ArticleReference[] | undefined) {
+  if (!Array.isArray(references)) {
+    return [];
+  }
+
+  const seen = new Set<string>();
+
+  return references.flatMap((reference) => {
+    const item =
+      typeof reference === "string"
+        ? { title: sourceLabel(reference), url: reference }
+        : reference && typeof reference.title === "string" && typeof reference.url === "string"
+          ? reference
+          : null;
+
+    if (!item || seen.has(item.url)) {
+      return [];
+    }
+
+    seen.add(item.url);
+    return [item];
+  });
+}
+
 function SectionTable({ table }: { table: NonNullable<Article["sections"][number]["table"]> }) {
   if (!table) {
     return null;
@@ -172,7 +228,7 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
   );
 }
 
-function resolveRelatedLinks(article: Article): Array<Exclude<ArticleInternalLink, string>> {
+function resolveRelatedLinks(article: Article): ResolvedArticleLink[] {
   if (article.slug === top3ArticleSlug) {
     return top3RelatedLinks;
   }
@@ -183,7 +239,15 @@ function resolveRelatedLinks(article: Article): Array<Exclude<ArticleInternalLin
 
   return article.internal_links.flatMap((link) => {
     if (typeof link !== "string") {
-      return link && typeof link.label === "string" && typeof link.url === "string" ? [link] : [];
+      if ("label" in link && typeof link.label === "string" && typeof link.url === "string") {
+        return [link];
+      }
+
+      if ("anchor" in link && typeof link.anchor === "string" && typeof link.slug === "string") {
+        return link.position === "inline" ? [] : [{ label: link.anchor, url: link.slug }];
+      }
+
+      return [];
     }
 
     if (knownInternalLinks[link]) {
@@ -212,12 +276,13 @@ export function ArticleRenderer({
     conclusion_sentence: "",
   };
   const dataCards = Array.isArray(article.data_cards) ? article.data_cards : [];
+  const statStrip = Array.isArray(article.stat_strip) ? article.stat_strip : [];
   const sections = Array.isArray(article.sections) ? article.sections : [];
   const cautionChecklist = Array.isArray(article.caution_checklist) ? article.caution_checklist : [];
   const conclusion = article.conclusion ?? { heading: "결론", paragraphs: [] as string[] };
   const faqs = Array.isArray(article.faqs) ? article.faqs : [];
   const tags = Array.isArray(article.tags) ? article.tags : [];
-  const references = uniqueSources(article.references);
+  const references = resolveReferences(article.references);
   const relatedLinks = resolveRelatedLinks(article);
   const isTop3Article = article.slug === top3ArticleSlug;
   const isWhiteBlueTheme =
@@ -232,9 +297,10 @@ export function ArticleRenderer({
     <article className="space-y-10">
       <header className="rounded-lg border border-slate-200 bg-slate-50/80 p-8 shadow-sm sm:p-10">
         <p className="text-sm font-semibold text-teal-800">{article.categoryName}</p>
-        <h1 className="mt-3 break-keep text-3xl font-semibold tracking-tight sm:text-4xl">{article.title}</h1>
+        <h1 className="mt-3 break-keep text-3xl font-semibold tracking-tight sm:text-4xl">{article.h1 ?? article.title}</h1>
         <p className="mt-4 text-lg leading-8 text-slate-600">{article.meta_description}</p>
         <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
+          {article.author ? <span>{article.author}</span> : null}
           <span>발행일 {article.publishedAt}</span>
           {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
           <span>발행 주체: {articlePublisherLabel}</span>
@@ -291,6 +357,19 @@ export function ArticleRenderer({
         <SourceLinks sources={quickAnswer.sources} />
       </section>
 
+      {statStrip.length > 0 ? (
+        <section aria-label="핵심 수치" className="border-y border-slate-200 py-6">
+          <dl className="grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4">
+            {statStrip.map((item) => (
+              <div key={`${item.value}-${item.label}`}>
+                <dt className="text-sm leading-6 text-slate-600">{item.label}</dt>
+                <dd className="mt-1 text-2xl font-semibold tracking-tight text-slate-900">{item.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ) : null}
+
       {dataCards.length > 0 ? (
         <section
           aria-label="핵심 요약"
@@ -328,19 +407,32 @@ export function ArticleRenderer({
         <section className="space-y-10">
           {sections.map((section, sectionIndex) => {
             const paragraphs = Array.isArray(section.paragraphs) ? section.paragraphs : [];
+            const referencedTable = section.table_ref
+              ? article.tables?.find((table) => table.id === section.table_ref)
+              : undefined;
+            const sectionTable = section.table ??
+              (referencedTable
+                ? {
+                    ...referencedTable,
+                    columns: referencedTable.columns ?? referencedTable.headers,
+                    note: referencedTable.note ?? article.limits_note,
+                  }
+                : null);
 
             return (
               <section key={`${section.heading ?? "section"}-${sectionIndex}`}>
                 <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{section.heading}</h2>
                 <div className="mt-5 space-y-5 text-base leading-8 text-slate-700">
                   {paragraphs.map((paragraph, index) => (
-                    <div key={`${paragraph.text ?? "paragraph"}-${index}`}>
-                      <p>{paragraph.text ?? ""}</p>
-                      <SourceLinks sources={paragraph.sources} />
+                    <div key={`${typeof paragraph === "string" ? paragraph : paragraph.text ?? "paragraph"}-${index}`}>
+                      <p>
+                        <InlineText text={typeof paragraph === "string" ? paragraph : paragraph.text ?? ""} />
+                      </p>
+                      <SourceLinks sources={typeof paragraph === "string" ? undefined : paragraph.sources} />
                     </div>
                   ))}
                 </div>
-                {section.table ? <SectionTable table={section.table} /> : null}
+                {sectionTable ? <SectionTable table={sectionTable} /> : null}
               </section>
             );
           })}
@@ -369,7 +461,9 @@ export function ArticleRenderer({
         <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{conclusion.heading}</h2>
         <div className="mt-5 space-y-5 text-base leading-8 text-slate-700">
           {Array.isArray(conclusion.paragraphs)
-            ? conclusion.paragraphs.map((paragraph, index) => <p key={`${paragraph}-${index}`}>{paragraph}</p>)
+            ? conclusion.paragraphs.map((paragraph, index) => (
+                <p key={`${paragraph}-${index}`}><InlineText text={paragraph} /></p>
+              ))
             : null}
         </div>
       </section>
@@ -454,19 +548,30 @@ export function ArticleRenderer({
         </section>
       ) : null}
 
+      {article.verified_at || (Array.isArray(article.revision_log) && article.revision_log.length > 0) ? (
+        <section className="border-y border-slate-200 py-7">
+          {article.verified_at ? <p className="text-sm leading-7 text-slate-600">{article.verified_at}</p> : null}
+          {Array.isArray(article.revision_log) && article.revision_log.length > 0 ? (
+            <ul className="mt-4 space-y-2 text-sm leading-7 text-slate-600">
+              {article.revision_log.map((entry) => <li key={entry}>{entry}</li>)}
+            </ul>
+          ) : null}
+        </section>
+      ) : null}
+
       {references.length > 0 ? (
         <section className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900">참고 자료</h2>
           <ul className="mt-5 space-y-3 text-sm leading-7">
             {references.map((reference) => (
-              <li key={reference}>
+              <li key={reference.url}>
                 <a
-                  href={reference}
+                  href={reference.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="break-all text-teal-800 underline decoration-teal-200 underline-offset-4 hover:text-teal-950"
                 >
-                  {sourceLabel(reference)}
+                  {reference.title}
                 </a>
               </li>
             ))}
