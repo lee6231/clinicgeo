@@ -1,4 +1,4 @@
-import type { Article, ArticleReference } from "@/lib/articles";
+import type { Article, ArticleReference, ArticleRichBlock } from "@/lib/articles";
 import { lastVerified } from "@/lib/editorial";
 import { articlePublisherLabel } from "@/lib/seo";
 
@@ -157,7 +157,13 @@ function resolveReferences(references: ArticleReference[] | undefined) {
   });
 }
 
-function SectionTable({ table }: { table: NonNullable<Article["sections"][number]["table"]> }) {
+function SectionTable({
+  table,
+  editorial = false,
+}: {
+  table: NonNullable<Article["sections"][number]["table"]>;
+  editorial?: boolean;
+}) {
   if (!table) {
     return null;
   }
@@ -184,19 +190,31 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
   };
 
   return (
-    <div className="mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white">
-      <div className="overflow-x-auto">
-        <table className="min-w-[920px] table-fixed divide-y divide-slate-200 text-sm">
+    <div
+      className={
+        editorial
+          ? "my-[26px] min-w-0 max-w-full overflow-hidden rounded-[14px] border border-[#dde6e7] bg-white"
+          : "mt-6 overflow-hidden rounded-lg border border-slate-200 bg-white"
+      }
+    >
+      <div className="w-full max-w-full overflow-x-auto">
+        <table
+          className={
+            editorial
+              ? "min-w-[680px] table-fixed border-collapse text-[15px]"
+              : "min-w-[920px] table-fixed divide-y divide-slate-200 text-sm"
+          }
+        >
           {table.caption ? (
             <caption className="px-4 py-3 text-left text-sm font-medium text-slate-700">{table.caption}</caption>
           ) : null}
           {columns.length > 0 ? (
-            <thead className="bg-slate-50">
+            <thead className={editorial ? "bg-[#f0f5f5] text-[#0e1c26]" : "bg-slate-50"}>
               <tr>
                 {columns.map((column, index) => (
                   <th
                     key={`${column}-${index}`}
-                    className={`break-keep px-4 py-3 font-semibold text-slate-900 ${index === 0 && isRankTable ? "text-center" : "text-left"} ${columnClassName(index)}`}
+                    className={`break-keep px-4 py-3.5 font-semibold ${editorial ? "border-b-2 border-[#dde6e7] text-[#0e1c26]" : "text-slate-900"} ${index === 0 && isRankTable ? "text-center" : "text-left"} ${columnClassName(index)}`}
                   >
                     {column}
                   </th>
@@ -210,7 +228,7 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
                 {row.map((cell, cellIndex) => (
                   <td
                     key={`${cell}-${cellIndex}`}
-                    className={`break-keep px-4 py-4 align-top leading-6 text-slate-700 ${cellIndex === 0 && isRankTable ? "text-center font-semibold" : "text-left"} ${columnClassName(cellIndex)}`}
+                    className={`break-keep px-4 py-3.5 align-top ${editorial ? "border-b border-[#eef3f3] text-[15px] leading-7 text-[#33505f]" : "leading-6 text-slate-700"} ${cellIndex === 0 && isRankTable ? "text-center font-semibold" : "text-left"} ${columnClassName(cellIndex)}`}
                   >
                     {cell}
                   </td>
@@ -226,6 +244,156 @@ function SectionTable({ table }: { table: NonNullable<Article["sections"][number
       </div>
     </div>
   );
+}
+
+function RichArticleBlock({ block, editorial = false }: { block: ArticleRichBlock; editorial?: boolean }) {
+  if (block.type === "h3") {
+    return block.text ? (
+      <h3
+        className={
+          editorial
+            ? "pt-4 text-[19.5px] font-bold tracking-[-0.015em] text-[#0e1c26]"
+            : "pt-2 text-xl font-semibold tracking-tight text-slate-900"
+        }
+      >
+        {block.text}
+      </h3>
+    ) : null;
+  }
+
+  if (block.type === "table") {
+    return (
+      <SectionTable
+        editorial={editorial}
+        table={{
+          columns: Array.isArray(block.headers) ? block.headers : [],
+          rows: Array.isArray(block.rows) ? block.rows : [],
+        }}
+      />
+    );
+  }
+
+  if (block.type === "ul") {
+    const items = Array.isArray(block.items) ? block.items.filter((item): item is string => typeof item === "string") : [];
+
+    return items.length > 0 ? (
+      <ul className={editorial ? "my-7 border-y border-slate-200" : "my-6 space-y-3"}>
+        {items.map((item, index) => (
+          <li
+            key={`${item}-${index}`}
+            className={
+              editorial
+                ? "grid gap-3 border-b border-slate-200 py-4 last:border-b-0 sm:grid-cols-[2rem_1fr]"
+                : "flex gap-3"
+            }
+          >
+            <span className="font-mono text-sm font-semibold text-teal-700">{String(index + 1).padStart(2, "0")}</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    ) : null;
+  }
+
+  if (block.type === "ol_check") {
+    const items = Array.isArray(block.items)
+      ? block.items.filter(
+          (item): item is { label: string; text: string } =>
+            typeof item === "object" && item !== null && typeof item.label === "string" && typeof item.text === "string",
+        )
+      : [];
+
+    return items.length > 0 ? (
+      <ol className={editorial ? "my-8 grid border-y border-slate-200 sm:grid-cols-2" : "my-6 space-y-4"}>
+        {items.map((item, index) => (
+          <li
+            key={`${item.label}-${index}`}
+            className={
+              editorial
+                ? "border-b border-slate-200 py-6 sm:px-6 sm:odd:border-r sm:[&:nth-last-child(-n+2)]:border-b-0"
+                : "rounded-lg border border-slate-200 bg-white p-5"
+            }
+          >
+            <div className="flex items-baseline gap-3">
+              <span className="font-mono text-xs font-semibold text-teal-700">{String(index + 1).padStart(2, "0")}</span>
+              <strong className="text-base text-slate-900">{item.label}</strong>
+            </div>
+            <p className="mt-2 text-sm leading-7 text-slate-600">{item.text}</p>
+          </li>
+        ))}
+      </ol>
+    ) : null;
+  }
+
+  if (block.type === "legal_callout") {
+    return block.text ? (
+      <aside
+        className={
+          editorial
+            ? "rounded-[14px] border border-[#f2c6c1] bg-[#fdeeec] px-6 py-5 text-[15.5px] leading-7 text-[#5a1712]"
+            : "border-l-4 border-amber-400 bg-amber-50 px-5 py-4 text-sm leading-7 text-slate-700"
+        }
+      >
+        {block.text}
+      </aside>
+    ) : null;
+  }
+
+  if (block.type === "inline_cta") {
+    return block.text ? (
+      <aside
+        className={
+          editorial
+            ? "my-7 grid gap-5 rounded-xl border border-[#dde6e7] bg-white px-6 py-5 sm:grid-cols-[1fr_auto] sm:items-center"
+            : "my-7 border-y border-teal-200 bg-teal-50/60 px-5 py-5"
+        }
+      >
+        <p className={editorial ? "text-[16px] font-medium leading-7 text-[#0e1c26]" : "text-sm leading-7 text-slate-700"}>{block.text}</p>
+        {block.link_label && block.link_url ? (
+          <a
+            href={block.link_url}
+            className={
+              editorial
+                ? "inline-flex whitespace-nowrap rounded-lg bg-[#0d6b6b] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0a5252]"
+                : "mt-3 inline-flex font-semibold text-teal-800 underline decoration-teal-300 underline-offset-4 hover:text-teal-950"
+            }
+          >
+            {block.link_label}
+          </a>
+        ) : null}
+      </aside>
+    ) : null;
+  }
+
+  if (block.type === "block_cta") {
+    return (
+      <aside
+        className={
+          editorial
+            ? "my-8 overflow-hidden rounded-[14px] border border-[#bcdcd8] bg-[#e7f2f1] p-6 sm:p-7"
+            : "my-8 rounded-lg border border-teal-200 bg-teal-50/70 p-6"
+        }
+      >
+        {block.heading ? <h3 className={editorial ? "text-xl font-bold tracking-tight text-[#0a5252]" : "text-xl font-semibold tracking-tight text-slate-900"}>{block.heading}</h3> : null}
+        {block.body ? <p className={editorial ? "mt-3 max-w-2xl text-[15.5px] leading-7 text-[#33505f]" : "mt-3 text-sm leading-7 text-slate-700"}>{block.body}</p> : null}
+        {block.link_label && block.link_url ? (
+          <a
+            href={block.link_url}
+            className={editorial ? "mt-5 inline-flex rounded-lg bg-[#0d6b6b] px-5 py-3 text-sm font-semibold text-white hover:bg-[#0a5252]" : "mt-4 inline-flex rounded-md bg-teal-800 px-4 py-2.5 text-sm font-semibold text-white hover:bg-teal-900"}
+          >
+            {block.link_label}
+          </a>
+        ) : null}
+        {block.sub_text ? <p className={editorial ? "mt-3 text-xs leading-6 text-[#6b8493]" : "mt-3 text-xs leading-6 text-slate-500"}>{block.sub_text}</p> : null}
+      </aside>
+    );
+  }
+
+  return block.text ? (
+    <p className={editorial ? "text-[17px] leading-[1.82] tracking-[-0.01em] text-[#0e1c26]" : undefined}>
+      <InlineText text={block.text} />
+    </p>
+  ) : null;
 }
 
 function resolveRelatedLinks(article: Article): ResolvedArticleLink[] {
@@ -277,14 +445,18 @@ export function ArticleRenderer({
   };
   const dataCards = Array.isArray(article.data_cards) ? article.data_cards : [];
   const statStrip = Array.isArray(article.stat_strip) ? article.stat_strip : [];
+  const summaryParagraphs = Array.isArray(article.summary_paragraphs) ? article.summary_paragraphs : [];
   const sections = Array.isArray(article.sections) ? article.sections : [];
+  const richSections = Array.isArray(article.rich_sections) ? article.rich_sections : [];
   const cautionChecklist = Array.isArray(article.caution_checklist) ? article.caution_checklist : [];
   const conclusion = article.conclusion ?? { heading: "결론", paragraphs: [] as string[] };
   const faqs = Array.isArray(article.faqs) ? article.faqs : [];
+  const authorBox = Array.isArray(article.author_box) ? article.author_box : [];
   const tags = Array.isArray(article.tags) ? article.tags : [];
   const references = resolveReferences(article.references);
   const relatedLinks = resolveRelatedLinks(article);
   const isTop3Article = article.slug === top3ArticleSlug;
+  const isA01Article = article.slug === "chatgpt-hospital-visibility";
   const isWhiteBlueTheme =
     article.visual_theme === "white-blue" ||
     article.presentation?.theme === "white-blue";
@@ -294,12 +466,40 @@ export function ArticleRenderer({
     "핵심 요약";
 
   return (
-    <article className="space-y-10">
-      <header className="rounded-lg border border-slate-200 bg-slate-50/80 p-8 shadow-sm sm:p-10">
-        <p className="text-sm font-semibold text-teal-800">{article.categoryName}</p>
-        <h1 className="mt-3 break-keep text-3xl font-semibold tracking-tight sm:text-4xl">{article.h1 ?? article.title}</h1>
-        <p className="mt-4 text-lg leading-8 text-slate-600">{article.meta_description}</p>
-        <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500">
+    <article className={isA01Article ? "min-w-0 space-y-[52px]" : "min-w-0 space-y-10"}>
+      <header
+        className={
+          isA01Article
+            ? "relative border-b border-[#dde6e7] bg-white py-[38px] [box-shadow:0_0_0_100vmax_#fff] [clip-path:inset(0_-100vmax)] sm:py-14"
+            : "rounded-lg border border-slate-200 bg-slate-50/80 p-8 shadow-sm sm:p-10"
+        }
+      >
+        <p
+          className={
+            isA01Article
+              ? "inline-flex rounded-full border border-[#bcdcd8] bg-[#e7f2f1] px-3 py-1.5 text-[12.5px] font-bold tracking-[0.14em] text-[#0d6b6b]"
+              : "text-sm font-semibold text-teal-800"
+          }
+        >
+          {article.categoryName}
+        </p>
+        <h1
+          className={
+            isA01Article
+              ? "mt-5 max-w-3xl break-keep text-[28px] font-bold leading-[1.38] tracking-[-0.02em] text-[#0e1c26] [font-family:'Batang','Noto_Serif_KR','Nanum_Myeongjo',Georgia,serif] sm:text-[37px]"
+              : "mt-3 break-keep text-3xl font-semibold tracking-tight sm:text-4xl"
+          }
+        >
+          {article.h1 ?? article.title}
+        </h1>
+        <p className={isA01Article ? "mt-[18px] max-w-3xl text-[17px] leading-[1.78] text-[#33505f] sm:text-[18px]" : "mt-4 text-lg leading-8 text-slate-600"}>{article.meta_description}</p>
+        <div
+          className={
+            isA01Article
+              ? "mt-[26px] flex flex-wrap items-center gap-x-5 gap-y-2 border-t border-[#eef3f3] pt-4 text-[13px] text-[#6b8493]"
+              : "mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500"
+          }
+        >
           {article.author ? <span>{article.author}</span> : null}
           <span>발행일 {article.publishedAt}</span>
           {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
@@ -316,44 +516,74 @@ export function ArticleRenderer({
 
       <section
         className={
-          isWhiteBlueTheme
+          isA01Article
+            ? "overflow-hidden rounded-[14px] border border-[#bcdcd8] bg-white pb-6 shadow-[0_2px_10px_rgba(14,28,38,0.05)]"
+            : isWhiteBlueTheme
             ? "rounded-lg border border-blue-200 bg-blue-50 p-6 shadow-sm sm:p-8"
             : "rounded-lg border border-teal-100 bg-teal-50/70 p-6 shadow-sm sm:p-8"
         }
       >
-        <div className="flex flex-wrap items-center gap-3">
+        <div className={isA01Article ? "flex flex-wrap items-center gap-3 bg-[#0d6b6b] px-7 py-[15px]" : "flex flex-wrap items-center gap-3"}>
           <h2
             className={
-              isWhiteBlueTheme
+              isA01Article
+                ? "text-[13.5px] font-extrabold tracking-[0.14em] text-white"
+                : isWhiteBlueTheme
                 ? "text-xl font-semibold text-blue-900"
                 : "text-sm font-semibold text-teal-800"
             }
           >
             {summaryLabel}
           </h2>
-          <span
+          {summaryParagraphs.length === 0 ? (
+            <span
+              className={
+                isWhiteBlueTheme
+                  ? "rounded-sm border border-blue-200 bg-white px-3 py-1 text-sm font-medium text-blue-800"
+                  : "rounded-sm border border-teal-200 bg-white px-3 py-1 text-sm font-medium text-teal-800"
+              }
+            >
+              핵심 키워드: {article.focus_keyword ?? ""}
+            </span>
+          ) : null}
+        </div>
+        {summaryParagraphs.length > 0 ? (
+          <div
             className={
-              isWhiteBlueTheme
-                ? "rounded-sm border border-blue-200 bg-white px-3 py-1 text-sm font-medium text-blue-800"
-                : "rounded-sm border border-teal-200 bg-white px-3 py-1 text-sm font-medium text-teal-800"
+              isA01Article
+                ? summaryParagraphs.length === 1
+                  ? "mt-5 max-w-3xl px-7 text-[16.5px] leading-[1.78] text-[#0e1c26]"
+                  : "mt-5 grid gap-4 px-7 text-[16.5px] leading-[1.78] text-[#0e1c26]"
+                : "mt-4 space-y-3 text-base leading-8 text-slate-700"
             }
           >
-            핵심 키워드: {article.focus_keyword ?? ""}
-          </span>
-        </div>
-        <p className="mt-4 text-base leading-8 text-slate-700">{quickAnswer.definition_sentence}</p>
-        <p className="mt-3 text-base leading-8 text-slate-700">{quickAnswer.framing_sentence}</p>
-        <div
-          className={
-            isWhiteBlueTheme
-              ? "mt-5 rounded-lg border border-blue-200 bg-white p-4 text-sm leading-7 text-slate-700"
-              : "mt-5 rounded-lg border border-teal-200 bg-white p-4 text-sm leading-7 text-slate-700"
-          }
-        >
-          <p className="font-semibold text-slate-900">선택 기준</p>
-          <p className="mt-2">{quickAnswer.selection_criteria}</p>
-        </div>
-        <p className="mt-4 text-base font-semibold leading-8 text-slate-900">{quickAnswer.conclusion_sentence}</p>
+            {summaryParagraphs.map((paragraph, index) => (
+              <div
+                key={`${paragraph}-${index}`}
+                className={isA01Article && summaryParagraphs.length > 1 ? "border-b border-[#eef3f3] pb-4 last:border-b-0 last:pb-0" : undefined}
+              >
+                {isA01Article && summaryParagraphs.length > 1 ? <span className="mr-2 inline-flex h-[21px] w-[21px] items-center justify-center rounded-full border border-[#0d6b6b] text-[11px] font-extrabold text-[#0a5252]">{index + 1}</span> : null}
+                <p>{paragraph}</p>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <>
+            <p className="mt-4 text-base leading-8 text-slate-700">{quickAnswer.definition_sentence}</p>
+            <p className="mt-3 text-base leading-8 text-slate-700">{quickAnswer.framing_sentence}</p>
+            <div
+              className={
+                isWhiteBlueTheme
+                  ? "mt-5 rounded-lg border border-blue-200 bg-white p-4 text-sm leading-7 text-slate-700"
+                  : "mt-5 rounded-lg border border-teal-200 bg-white p-4 text-sm leading-7 text-slate-700"
+              }
+            >
+              <p className="font-semibold text-slate-900">선택 기준</p>
+              <p className="mt-2">{quickAnswer.selection_criteria}</p>
+            </div>
+            <p className="mt-4 text-base font-semibold leading-8 text-slate-900">{quickAnswer.conclusion_sentence}</p>
+          </>
+        )}
         <SourceLinks sources={quickAnswer.sources} />
       </section>
 
@@ -439,6 +669,41 @@ export function ArticleRenderer({
         </section>
       ) : null}
 
+      {richSections.length > 0 ? (
+        <section className={isA01Article ? "min-w-0" : "space-y-12"}>
+          {richSections.map((section, sectionIndex) => (
+            <section
+              key={`${section.heading}-${sectionIndex}`}
+              className={isA01Article ? "mb-[52px] min-w-0 last:mb-0" : undefined}
+            >
+              {isA01Article ? (
+                <span className="mb-2 block text-[12.5px] font-bold tracking-[0.16em] text-[#0d6b6b]">{String(sectionIndex + 1).padStart(2, "0")}</span>
+              ) : null}
+              <div className={isA01Article ? "min-w-0" : undefined}>
+                <h2
+                  className={
+                    isA01Article
+                      ? "max-w-3xl break-keep border-b-2 border-[#0e1c26] pb-3.5 text-[23px] font-bold leading-[1.45] tracking-[-0.02em] text-[#0e1c26] [font-family:'Batang','Noto_Serif_KR','Nanum_Myeongjo',Georgia,serif] sm:text-[27px]"
+                      : "text-2xl font-semibold tracking-tight text-slate-900"
+                  }
+                >
+                  {section.heading}
+                </h2>
+                <div className={isA01Article ? "mt-5 space-y-[18px]" : "mt-5 space-y-5 text-base leading-8 text-slate-700"}>
+                  {section.blocks.map((block, blockIndex) => (
+                    <RichArticleBlock
+                      key={`${block.type}-${block.text ?? block.heading ?? blockIndex}-${blockIndex}`}
+                      block={block}
+                      editorial={isA01Article}
+                    />
+                  ))}
+                </div>
+              </div>
+            </section>
+          ))}
+        </section>
+      ) : null}
+
       {cautionChecklist.length > 0 ? (
         <section className="rounded-lg border border-slate-200 bg-slate-50 p-8">
           <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
@@ -457,16 +722,18 @@ export function ArticleRenderer({
         </section>
       ) : null}
 
-      <section className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-        <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{conclusion.heading}</h2>
-        <div className="mt-5 space-y-5 text-base leading-8 text-slate-700">
-          {Array.isArray(conclusion.paragraphs)
-            ? conclusion.paragraphs.map((paragraph, index) => (
-                <p key={`${paragraph}-${index}`}><InlineText text={paragraph} /></p>
-              ))
-            : null}
-        </div>
-      </section>
+      {conclusion.heading || (Array.isArray(conclusion.paragraphs) && conclusion.paragraphs.length > 0) ? (
+        <section className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
+          {conclusion.heading ? <h2 className="text-2xl font-semibold tracking-tight text-slate-900">{conclusion.heading}</h2> : null}
+          <div className="mt-5 space-y-5 text-base leading-8 text-slate-700">
+            {Array.isArray(conclusion.paragraphs)
+              ? conclusion.paragraphs.map((paragraph, index) => (
+                  <p key={`${paragraph}-${index}`}><InlineText text={paragraph} /></p>
+                ))
+              : null}
+          </div>
+        </section>
+      ) : null}
 
       {relatedLinks.length > 0 ? (
         <section className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
@@ -498,15 +765,40 @@ export function ArticleRenderer({
       ) : null}
 
       {faqs.length > 0 ? (
-        <section className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm">
-          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">자주 묻는 질문</h2>
-          <div className="mt-6 space-y-4">
-            {faqs.map((faq) => (
-              <section key={faq.question} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
-                <h3 className="font-semibold text-slate-900">{faq.question}</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-600">{faq.answer}</p>
-                <SourceLinks sources={faq.sources} />
-              </section>
+        <section className={isA01Article ? "mb-0" : "rounded-lg border border-slate-200 bg-white p-8 shadow-sm"}>
+          {isA01Article ? <p className="mb-2 text-[12.5px] font-bold tracking-[0.16em] text-[#0d6b6b]">FAQ</p> : null}
+          <h2 className={isA01Article ? "border-b-2 border-[#0e1c26] pb-3.5 text-[23px] font-bold leading-[1.45] tracking-[-0.02em] text-[#0e1c26] [font-family:'Batang','Noto_Serif_KR','Nanum_Myeongjo',Georgia,serif] sm:text-[27px]" : "text-2xl font-semibold tracking-tight text-slate-900"}>자주 묻는 질문</h2>
+          <div className={isA01Article ? "mt-5 space-y-2.5" : "mt-6 space-y-4"}>
+            {faqs.map((faq) =>
+              isA01Article ? (
+                <details key={faq.question} className="group overflow-hidden rounded-xl border border-[#dde6e7] bg-white open:border-[#bcdcd8]">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-[22px] py-[18px] text-[16.5px] font-bold leading-6 text-[#0e1c26] group-open:bg-[#e7f2f1] group-open:text-[#0a5252]">
+                    <span>{faq.question}</span>
+                    <span aria-hidden="true" className="text-xl font-normal text-[#0d6b6b] group-open:hidden">+</span>
+                    <span aria-hidden="true" className="hidden text-xl font-normal text-[#0d6b6b] group-open:inline">−</span>
+                  </summary>
+                  <div className="border-t border-[#eef3f3] px-[22px] pb-1 pt-[18px]">
+                    <p className="mb-4 text-[16px] leading-[1.75] text-[#33505f]">{faq.answer}</p>
+                    <SourceLinks sources={faq.sources} />
+                  </div>
+                </details>
+              ) : (
+                <section key={faq.question} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
+                  <h3 className="font-semibold text-slate-900">{faq.question}</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">{faq.answer}</p>
+                  <SourceLinks sources={faq.sources} />
+                </section>
+              ),
+            )}
+          </div>
+        </section>
+      ) : null}
+
+      {authorBox.length > 0 ? (
+        <section className={isA01Article ? "rounded-[14px] border border-[#dde6e7] bg-[#eef2f3] px-6 py-6" : "border-y border-slate-200 py-7"}>
+          <div className={isA01Article ? "space-y-1 text-[13.5px] leading-7 text-[#6b8493]" : "space-y-2 text-sm leading-7 text-slate-600"}>
+            {authorBox.map((paragraph, index) => (
+              <p key={`${paragraph}-${index}`}>{paragraph}</p>
             ))}
           </div>
         </section>

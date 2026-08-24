@@ -87,6 +87,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const tags = Array.isArray(article.tags) ? article.tags : [];
   const isHiddenCandidate = hiddenArticleSlugs.has(slug);
   const isTop3Article = article.slug === "hospital-geo-agency-top3-2026-clinicgeo";
+  const isA01Article = article.slug === "chatgpt-hospital-visibility";
 
   if (isHiddenCandidate) {
     return (
@@ -231,10 +232,16 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   ];
 
   return (
-    <div className="min-h-screen bg-[#fbfaf7] text-[#172638]">
+    <div className={isA01Article ? "min-h-screen bg-[#f4f7f7] text-[#0e1c26]" : "min-h-screen bg-[#fbfaf7] text-[#172638]"}>
       <Header />
       <JsonLd jsonLd={jsonLd} />
-      <main className="mx-auto flex max-w-5xl flex-col gap-8 px-6 py-16 sm:px-8 lg:px-10">
+      <main
+        className={
+          isA01Article
+            ? "mx-auto flex max-w-[800px] flex-col px-5 pb-20 sm:px-5"
+            : "mx-auto flex max-w-5xl flex-col gap-8 px-6 py-16 sm:px-8 lg:px-10"
+        }
+      >
         <ArticleRenderer article={article} />
       </main>
       <Footer />

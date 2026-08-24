@@ -32,6 +32,36 @@ export type ArticleTable = {
   sources?: string[];
 };
 
+export type ArticleRichBlock = {
+  type: "p" | "h3" | "table" | "ul" | "ol_check" | "inline_cta" | "legal_callout" | "block_cta";
+  text?: string;
+  id?: string;
+  headers?: string[];
+  rows?: string[][];
+  items?: Array<
+    | string
+    | {
+        label: string;
+        text: string;
+      }
+  >;
+  link?: {
+    label: string;
+    url: string;
+  };
+  link_label?: string;
+  link_url?: string;
+  heading?: string;
+  body?: string;
+  sub_text?: string;
+};
+
+export type ArticleRichSection = {
+  heading: string;
+  type?: string;
+  blocks: ArticleRichBlock[];
+};
+
 export type ArticleSection = {
   heading: string;
   paragraphs: ArticleSectionParagraph[];
@@ -84,6 +114,7 @@ export type Article = {
   meta_description: string;
   author?: string;
   quick_answer: ArticleQuickAnswer;
+  summary_paragraphs?: string[];
   summary_label?: string;
   compact_layout?: boolean;
   data_cards_layout?: "two-by-two";
@@ -115,10 +146,12 @@ export type Article = {
     label: string;
   }>;
   sections: ArticleSection[];
+  rich_sections?: ArticleRichSection[];
   tables?: ArticleTable[];
   limits_note?: string;
   conclusion: ArticleConclusion;
   faqs: ArticleFaq[];
+  author_box?: string[];
   tags: string[];
   references?: ArticleReference[];
   caution_checklist: string[];
