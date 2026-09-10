@@ -20,14 +20,14 @@ const serviceLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-blue-950 bg-[#0e2438] text-blue-100">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.25fr_0.75fr_0.75fr] lg:py-16">
+    <footer className="border-t border-[#4c3542] bg-[#3b2934] text-[#f5dfe7]">
+      <div className="mx-auto grid max-w-[1152px] gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.25fr_0.75fr_0.75fr] lg:py-16">
         <div>
           <p className="text-lg font-bold text-white">Clinic GEO</p>
-          <p className="mt-3 max-w-lg text-sm leading-7 text-blue-200/75">
-            Clinic GEO는 써밋피드(SUMMITFEED)가 직접 운영하는 병의원 GEO 전문 사이트입니다. 병원 홈페이지 구조화, 정보성 엔티티 발행, AI 인용률 측정과 네이버 채널 운영을 하나의 흐름으로 연결합니다.
+          <p className="mt-3 max-w-lg text-sm leading-7 text-[#e8cbd5]">
+            Clinic GEO는 써밋피드(SUMMITFEED)가 운영하는 병원 마케팅 회사입니다. GEO와 네이버 SEO, 브랜딩 블로그, 플레이스 운영을 하나의 흐름으로 연결합니다.
           </p>
-          <a href="mailto:summit-ai@summitfeed.co.kr" className="mt-4 inline-block text-sm font-semibold text-blue-300">
+          <a href="mailto:summit-ai@summitfeed.co.kr" className="mt-4 inline-block text-sm font-semibold text-[#f3a9c0] hover:text-white">
             summit-ai@summitfeed.co.kr
           </a>
         </div>
@@ -48,9 +48,9 @@ export function Footer() {
           </div>
         </div>
       </div>
-      <div className="border-t border-blue-900">
-        <div className="mx-auto max-w-7xl px-5 py-7 text-xs leading-6 text-blue-300/65 sm:px-6">
-          <dl className="flex flex-wrap gap-x-6 gap-y-1 text-blue-100/80">
+      <div className="border-t border-[#5d4952]">
+        <div className="mx-auto max-w-[1152px] px-5 py-7 text-xs leading-6 text-[#cfaebb] sm:px-6">
+          <dl className="flex flex-wrap gap-x-6 gap-y-1 text-[#f5dfe7]">
             <div className="flex gap-2"><dt className="font-bold text-white">상호</dt><dd>SUMMITFEED</dd></div>
             <div className="flex gap-2"><dt className="font-bold text-white">대표</dt><dd>이승찬</dd></div>
             <div className="flex gap-2"><dt className="font-bold text-white">사업자등록번호</dt><dd>884-73-00630</dd></div>

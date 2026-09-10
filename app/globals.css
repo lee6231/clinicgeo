@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f6f2;
-  --foreground: #172638;
+  --background: #fffaf4;
+  --foreground: #3b2934;
 }
 
 @theme inline {
@@ -10,28 +10,28 @@
   --color-foreground: var(--foreground);
   --font-sans: Arial, Helvetica, sans-serif;
   --font-mono: "Courier New", Courier, monospace;
-  --color-blue-50: #f3f6f8;
-  --color-blue-100: #e2e8ee;
-  --color-blue-200: #cbd6e0;
-  --color-blue-300: #a9bacb;
-  --color-blue-400: #7892aa;
-  --color-blue-500: #52759b;
-  --color-blue-600: #35618f;
-  --color-blue-700: #244b76;
-  --color-blue-800: #183b61;
-  --color-blue-900: #102a43;
-  --color-blue-950: #081521;
-  --color-teal-50: #f3f6f8;
-  --color-teal-100: #e2e8ee;
-  --color-teal-200: #cbd6e0;
-  --color-teal-300: #a9bacb;
-  --color-teal-400: #7892aa;
-  --color-teal-500: #52759b;
-  --color-teal-600: #35618f;
-  --color-teal-700: #244b76;
-  --color-teal-800: #183b61;
-  --color-teal-900: #102a43;
-  --color-teal-950: #081521;
+  --color-blue-50: #fff4f7;
+  --color-blue-100: #f9e7ed;
+  --color-blue-200: #efced9;
+  --color-blue-300: #e4a9bb;
+  --color-blue-400: #d77d99;
+  --color-blue-500: #d26383;
+  --color-blue-600: #b95474;
+  --color-blue-700: #95445f;
+  --color-blue-800: #6f4654;
+  --color-blue-900: #3b2934;
+  --color-blue-950: #271923;
+  --color-teal-50: #fff4f7;
+  --color-teal-100: #f9e7ed;
+  --color-teal-200: #efced9;
+  --color-teal-300: #e4a9bb;
+  --color-teal-400: #d77d99;
+  --color-teal-500: #d26383;
+  --color-teal-600: #b95474;
+  --color-teal-700: #95445f;
+  --color-teal-800: #6f4654;
+  --color-teal-900: #3b2934;
+  --color-teal-950: #271923;
 }
 
 body {
@@ -39,6 +39,8 @@ body {
   color: var(--foreground);
   font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
   letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 html {
@@ -47,12 +49,12 @@ html {
 }
 
 ::selection {
-  background: #cbd6e0;
-  color: #102a43;
+  background: #f5c2d2;
+  color: #3b2934;
 }
 
 :focus-visible {
-  outline: 3px solid #52759b;
+  outline: 3px solid #d26383;
   outline-offset: 3px;
 }
 
@@ -60,39 +62,42 @@ summary::-webkit-details-marker {
   display: none;
 }
 
-@keyframes ai-logo-cycle {
-  0%,
-  20% {
-    opacity: 1;
-    transform: translateY(0);
+.landing-3d-stage {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.landing-3d-visual {
+  animation: landing-3d-float 7s ease-in-out infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.landing-3d-visual img {
+  filter: drop-shadow(0 24px 34px rgba(83, 59, 70, 0.12));
+}
+
+.landing-3d-label {
+  animation: landing-3d-label-float 5.5s ease-in-out infinite;
+  transform: translateZ(42px);
+  will-change: transform;
+}
+
+@keyframes landing-3d-float {
+  0%, 100% {
+    transform: translateY(0) rotateX(0.8deg) rotateY(-1.2deg);
   }
-  25%,
-  95% {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  96% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+  50% {
+    transform: translateY(-10px) rotateX(-0.8deg) rotateY(1.6deg) scale(1.01);
   }
 }
 
-.ai-logo-rotator-item {
-  opacity: 0;
-  animation: ai-logo-cycle 12s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .ai-logo-rotator-item {
-    animation: none;
+@keyframes landing-3d-label-float {
+  0%, 100% {
+    transform: translateY(0) translateZ(42px);
   }
-
-  .ai-logo-rotator-item:first-child {
-    opacity: 1;
+  50% {
+    transform: translateY(-7px) translateZ(54px);
   }
 }
 
@@ -111,7 +116,7 @@ summary::-webkit-details-marker {
 }
 
 .service-reveal-card:hover {
-  box-shadow: 0 22px 60px rgba(16, 42, 67, 0.13);
+  box-shadow: 0 22px 60px rgba(93, 73, 82, 0.14);
 }
 
 .geo-shift-seo,
@@ -133,14 +138,14 @@ summary::-webkit-details-marker {
 }
 
 .geo-shift-section.is-ready:not(.is-active) .geo-shift-seo {
-  color: #102a43;
+  color: #3b2934;
   opacity: 1;
   filter: blur(0) grayscale(0);
   transform: translateX(1.25rem) translateY(0) scale(1.06);
 }
 
 .geo-shift-section.is-ready:not(.is-active) .geo-shift-geo {
-  color: #a9bacb;
+  color: #e4a9bb;
   opacity: 0.1;
   filter: blur(2.5px);
   text-shadow: none;
@@ -153,30 +158,30 @@ summary::-webkit-details-marker {
 }
 
 .geo-shift-section.is-active .geo-shift-seo {
-  color: #94a3b8;
+  color: #b9a8af;
   opacity: 0.12;
   filter: blur(1.4px) grayscale(1);
   transform: translateX(-1.5rem) translateY(0.75rem) scale(0.82);
 }
 
 .geo-shift-section.is-active .geo-shift-geo {
-  color: #244b76;
+  color: #95445f;
   opacity: 1;
   filter: blur(0);
-  text-shadow: 0 12px 32px rgba(16, 42, 67, 0.16);
+  text-shadow: 0 12px 32px rgba(149, 68, 95, 0.16);
   transform: translateX(0) translateY(0) scale(1.08);
   transition-delay: 700ms;
 }
 
 .geo-shift-chevrons span {
-  color: #cbd6e0;
+  color: #efced9;
   opacity: 0.25;
   transform: translateX(-0.6rem) scale(0.8);
   transition: color 300ms ease, opacity 300ms ease, transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .geo-shift-section.is-active .geo-shift-chevrons span {
-  color: #35618f;
+  color: #d26383;
   opacity: 1;
   transform: translateX(0) scale(1);
 }
@@ -221,6 +226,12 @@ summary::-webkit-details-marker {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .landing-3d-visual,
+  .landing-3d-label {
+    animation: none;
+    transform: none;
+  }
+
   .service-series.is-ready .service-reveal-card {
     opacity: 1;
     transform: none;
@@ -261,7 +272,7 @@ summary::-webkit-details-marker {
 }
 
 .ai-question-card:hover {
-  box-shadow: 0 24px 62px rgba(16, 42, 67, 0.13);
+  box-shadow: 0 24px 62px rgba(93, 73, 82, 0.14);
 }
 
 @media (prefers-reduced-motion: reduce) {

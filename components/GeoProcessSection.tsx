@@ -72,44 +72,41 @@ export function GeoProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="geo-process-section relative overflow-hidden border-b border-blue-100 bg-[#eff3f6]"
+      className="geo-process-section relative overflow-hidden border-b border-blue-100 bg-[#fffaf4]"
     >
-      <div className="absolute -left-28 top-20 h-80 w-80 rounded-full bg-white blur-3xl" aria-hidden="true" />
-      <div className="absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-blue-200/45 blur-3xl" aria-hidden="true" />
+      <div className="absolute inset-x-0 top-0 h-px bg-[#d26383] opacity-30" aria-hidden="true" />
 
-      <div className="relative mx-auto w-full max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
-        <div className="max-w-3xl">
-          <p className="text-xs font-bold tracking-[0.16em] text-blue-700">04 · GEO WORKFLOW</p>
-          <h2 className="mt-4 break-keep text-3xl font-bold leading-tight text-[#102a43] sm:text-4xl lg:text-[2.75rem]">
-            병원 GEO는 여섯 단계로 실행됩니다.
-          </h2>
-          <p className="mt-5 max-w-2xl break-keep text-base leading-8 text-slate-600">
-            병원을 이해하는 온보딩부터 월간 결과 보고까지, 각 단계의 데이터를 다음 작업으로 연결합니다.
-          </p>
+      <div className="relative mx-auto w-full max-w-[1152px] px-5 py-20 sm:px-6 lg:py-28">
+        <div className="grid gap-6 border-b border-[#ddc7d0] pb-10 lg:grid-cols-[0.38fr_1.62fr] lg:items-end lg:gap-12 lg:pb-12">
+          <p className="self-start text-xs font-bold tracking-[0.16em] text-blue-600">HOW WE WORK</p>
+          <div>
+            <h2 className="max-w-4xl break-keep text-3xl font-extrabold leading-tight text-[#3b2934] sm:text-4xl lg:text-[3rem]">
+              질문을 찾고, 답변을 설계하고,<br />결과를 다시 측정합니다.
+            </h2>
+            <p className="mt-5 max-w-2xl break-keep text-base leading-8 text-[#6f5962]">
+              병원을 이해하는 온보딩부터 월간 결과 보고까지, 각 단계의 데이터를 다음 작업으로 연결합니다.
+            </p>
+          </div>
         </div>
 
-        <div className="relative mt-14 grid gap-0 md:grid-cols-6">
-          <div className="absolute left-[8.333%] right-[8.333%] top-5 hidden h-px bg-blue-200 md:block" aria-hidden="true" />
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {processSteps.map((step, index) => (
             <article
               key={step.number}
-              className="geo-process-step relative border-l border-blue-200 py-2 pb-10 pl-8 last:pb-0 md:border-l-0 md:border-t-0 md:px-4 md:pb-0 md:pt-0"
-              style={{ transitionDelay: `${index * 520}ms` }}
+              className={`geo-process-step relative min-h-64 rounded-lg border p-6 sm:p-7 ${index === 0 || index === 5 ? "border-[#d26383] bg-[#fff1f5]" : "border-[#eadde2] bg-[#fffdf9]"}`}
+              style={{ transitionDelay: `${index * 140}ms` }}
             >
-              <span className="absolute -left-[5px] top-3 h-[9px] w-[9px] rounded-full bg-blue-600 ring-4 ring-[#eff3f6] md:static md:mx-auto md:flex md:h-10 md:w-10 md:items-center md:justify-center md:ring-8 md:ring-[#eff3f6]">
-                <span className="hidden font-mono text-[11px] font-bold text-white md:inline">{step.number}</span>
-              </span>
-              <span className="font-mono text-xs font-bold text-blue-600 md:hidden">{step.number}</span>
-              <div className="md:text-center">
-                <p className="mt-1 text-[10px] font-bold tracking-[0.12em] text-blue-500 md:mt-6">{step.english}</p>
-                <h3 className="mt-2 break-keep text-lg font-bold text-[#102a43]">{step.title}</h3>
-                <p className="mt-3 break-keep text-sm leading-6 text-slate-600">{step.description}</p>
+              <div className="flex items-start justify-between gap-5 border-b border-[#e5d4da] pb-5">
+                <p className="text-[10px] font-bold tracking-[0.12em] text-blue-600">{step.english}</p>
+                <span className="font-mono text-2xl font-bold text-[#e4a9bb]">{step.number}</span>
               </div>
+              <h3 className="mt-7 break-keep text-xl font-bold leading-snug text-[#3b2934]">{step.title}</h3>
+              <p className="mt-4 break-keep text-sm leading-7 text-[#6f5962]">{step.description}</p>
             </article>
           ))}
         </div>
 
-        <p className="mt-12 border-t border-blue-200 pt-6 text-sm font-bold leading-7 text-[#102a43] md:text-center">
+        <p className="mt-12 border-t border-blue-200 pt-6 text-sm font-bold leading-7 text-[#3b2934] md:text-center">
           온보딩부터 월간 리포트까지 한 번의 운영은 <span className="text-blue-700">1개월 사이클</span>입니다.
           <span className="block">확인된 결과를 다음 설계에 반영하며 계약 기간 동안 이 과정을 반복합니다.</span>
         </p>

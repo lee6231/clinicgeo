@@ -8,7 +8,7 @@ export const websiteId = `${siteUrl}/#website`;
 export const publisherName = "써밋피드(SUMMITFEED)";
 export const articlePublisherLabel = "써밋피드(SUMMITFEED) · Clinic GEO 운영팀";
 export const siteDescription =
-  "Clinic GEO는 써밋피드(SUMMITFEED)가 직접 운영하는 병의원 GEO 전문 사이트입니다. 병원 홈페이지 구조화, 정보성 콘텐츠와 엔티티 발행, 4개 AI 플랫폼 인용 측정, 네이버 채널 운영 기준을 제공합니다.";
+  "Clinic GEO는 써밋피드(SUMMITFEED)가 운영하는 병원 마케팅 회사입니다. GEO, 네이버 SEO, 브랜딩 블로그와 플레이스 운영을 연결해 병원의 검색 노출과 브랜드 성장을 설계합니다.";
 export const shortSiteDescription =
   "써밋피드가 운영하는 병의원 GEO 전문 사이트. 홈페이지 구조화, 정보성 콘텐츠, AI 인용 측정과 네이버 채널 운영을 연결합니다.";
 

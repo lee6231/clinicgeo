@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
 import { AiQuestionSection } from "@/components/AiQuestionSection";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
@@ -8,41 +6,24 @@ import { GeoProcessSection } from "@/components/GeoProcessSection";
 import { GeoShiftSection } from "@/components/GeoShiftSection";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
+import { LandingIntro } from "@/components/LandingIntro";
 import { ServiceSeries } from "@/components/ServiceSeries";
 import { buildMetadata, siteDescription, siteUrl, websiteId } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  ...buildMetadata("/", "병의원 GEO 서비스와 인사이트", siteDescription),
+  ...buildMetadata("/", "병원 마케팅 서비스와 GEO 인사이트", siteDescription),
   title: {
-    absolute: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+    absolute: "병원 마케팅 서비스와 GEO 인사이트 | Clinic GEO by SUMMITFEED",
   },
   openGraph: {
     ...buildMetadata("/", "병의원 GEO 서비스와 인사이트", siteDescription).openGraph,
-    title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+    title: "병원 마케팅 서비스와 GEO 인사이트 | Clinic GEO by SUMMITFEED",
   },
   twitter: {
     ...buildMetadata("/", "병의원 GEO 서비스와 인사이트", siteDescription).twitter,
-    title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
+    title: "병원 마케팅 서비스와 GEO 인사이트 | Clinic GEO by SUMMITFEED",
   },
 };
-
-const inHouseSteps = [
-  {
-    number: "01",
-    title: "AIGEO 원고 설계",
-    description: "진료과와 핵심 질문을 분석해 AI가 이해하기 쉬운 원고 구조를 직접 설계합니다.",
-  },
-  {
-    number: "02",
-    title: "원고 작성·검수",
-    description: "병원 자료와 확인 가능한 출처를 바탕으로 작성하고, 표현과 정보 구조를 직접 검수합니다.",
-  },
-  {
-    number: "03",
-    title: "발행·정보 연결",
-    description: "완성된 원고를 서브 홈페이지와 블로그에 발행하고 병원 엔티티와 연결합니다.",
-  },
-];
 
 const faqs = [
   {
@@ -96,8 +77,8 @@ const aiPlatforms = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#f7f6f2] text-[#172638]">
-      <Header tone="hero" />
+    <div className="min-h-screen bg-[#fffaf4] text-[#3b2934]">
+      <Header />
       <JsonLd
         jsonLd={[
           {
@@ -106,6 +87,7 @@ export default function Home() {
             name: "Clinic GEO",
             description: siteDescription,
             url: siteUrl,
+            keywords: aiPlatforms.map((platform) => platform.name).join(", "),
             isPartOf: { "@id": websiteId },
           },
           {
@@ -121,95 +103,9 @@ export default function Home() {
       />
 
       <main>
-        <section className="relative flex h-[calc(100svh-4rem)] min-h-[620px] max-h-[820px] items-center overflow-hidden bg-[#07121e]">
-          <div className="relative mx-auto w-full max-w-5xl px-5 py-16 text-center sm:px-6">
-            <div className="relative mx-auto h-14 w-64" aria-label="GPT, Gemini, Perplexity, Claude">
-              <span className="sr-only">GPT, Gemini, Perplexity, Claude</span>
-              {aiPlatforms.map((platform, index) => (
-                <div
-                  key={platform.name}
-                  className="ai-logo-rotator-item absolute inset-0 flex items-center justify-center gap-3"
-                  style={{ animationDelay: `${index * 3}s` }}
-                  aria-hidden="true"
-                >
-                  <svg viewBox="0 0 24 24" className="h-9 w-9 shrink-0" fill={platform.color} aria-hidden="true">
-                    <path fillRule="evenodd" d={platform.path} />
-                  </svg>
-                  <span className="text-2xl font-semibold tracking-[-0.03em] text-white">{platform.name}</span>
-                </div>
-              ))}
-            </div>
-
-            <p className="mt-8 text-xs font-bold tracking-[0.16em] text-blue-300">병원 GEO · GENERATIVE ENGINE OPTIMIZATION</p>
-            <h1 className="mx-auto mt-6 max-w-4xl break-keep text-4xl font-bold leading-[1.12] tracking-[-0.045em] text-white sm:text-5xl lg:text-[4.5rem]">
-              병원은 <span className="text-blue-300">AI 검색</span>에서
-              <br />
-              어떻게 추천될까
-            </h1>
-            <p className="mx-auto mt-7 max-w-2xl break-keep text-base font-bold leading-8 text-white sm:text-lg">
-              Clinic GEO는 써밋피드(SUMMITFEED)가 직접 운영하는 병의원 GEO 전문 사이트입니다.
-            </p>
-            <p className="mx-auto mt-2 max-w-2xl break-keep text-sm leading-7 text-slate-400 sm:text-base">
-              병원 홈페이지 구조화, 진료별 질문 콘텐츠, 정보성 엔티티 발행, ChatGPT·Gemini·Perplexity·Claude
-              인용 측정, 네이버 채널 운영과 월간 보강을 하나의 흐름으로 연결합니다.
-            </p>
-            <Link href="/blog" className="mt-9 inline-flex items-center gap-3 border-b border-white pb-1 text-sm font-bold text-white transition hover:border-blue-300 hover:text-blue-300">
-              GEO 인사이트 보기 <span aria-hidden="true">→</span>
-            </Link>
-          </div>
-        </section>
+        <LandingIntro />
 
         <ServiceSeries />
-
-        <section className="relative overflow-hidden border-b border-blue-100 bg-[#fbfaf7]">
-          <div className="absolute inset-x-0 top-0 h-72 bg-gradient-to-b from-blue-50 to-transparent" aria-hidden="true" />
-          <div
-            className="absolute inset-0 opacity-30 [background-image:radial-gradient(#cbd6e0_1px,transparent_1px)] [background-size:24px_24px]"
-            aria-hidden="true"
-          />
-          <div className="relative mx-auto w-full max-w-7xl px-5 py-16 sm:px-6 lg:py-20">
-            <div className="grid items-center gap-12 lg:grid-cols-[1.02fr_0.98fr] lg:gap-16">
-              <div>
-                <p className="text-xs font-bold tracking-[0.16em] text-blue-700">03 · IN-HOUSE PRODUCTION</p>
-                <h2 className="mt-4 max-w-xl break-keep text-3xl font-bold leading-tight text-[#102a43] sm:text-4xl lg:text-[2.75rem]">
-                  외주가 아닙니다.<br />설계부터 발행까지 직접 합니다.
-                </h2>
-                <p className="mt-5 max-w-xl break-keep text-sm leading-7 text-slate-600 sm:text-base">
-                  Clinic GEO는 AIGEO 원고의 방향을 정하는 일부터 작성, 검수, 발행까지 전 과정을 내부에서 직접 실행합니다.
-                </p>
-
-                <div className="mt-8 overflow-hidden rounded-2xl border border-blue-100 bg-[#f7f6f2]/92 shadow-[0_16px_44px_rgba(16,42,67,0.06)]">
-                  {inHouseSteps.map((step) => (
-                    <div key={step.number} className="grid gap-3 border-b border-blue-100 px-5 py-4 last:border-b-0 sm:grid-cols-[3rem_9rem_1fr] sm:items-center sm:px-6">
-                      <span className="font-mono text-xs font-bold text-blue-500">{step.number}</span>
-                      <h3 className="font-bold text-[#102a43]">{step.title}</h3>
-                      <p className="break-keep text-sm leading-6 text-slate-600">{step.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <figure className="overflow-hidden rounded-2xl border border-blue-100 bg-[#f7f6f2] p-2 shadow-[0_22px_60px_rgba(16,42,67,0.1)]">
-                <div className="relative aspect-[3/2] overflow-hidden rounded-xl bg-blue-50">
-                  <Image
-                    src="/clinicgeo-inhouse-production.webp"
-                    alt="AIGEO 원고 자료를 직접 작성하고 구성하는 작업 모습"
-                    fill
-                    sizes="(min-width: 1024px) 46vw, 100vw"
-                    className="object-cover"
-                  />
-                  <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#071426]/95 via-[#071426]/80 to-transparent px-5 pb-5 pt-14 text-sm font-bold text-white">
-                    원고 설계부터 검수·발행까지, 한 팀이 직접 실행합니다.
-                  </figcaption>
-                </div>
-              </figure>
-            </div>
-
-            <p className="mt-12 border-t border-blue-200 pt-6 text-center text-sm font-bold text-[#102a43]">
-              기획과 제작 과정을 나누지 않습니다. <span className="text-blue-700">외주 없이, 우리 손으로 끝까지 만듭니다.</span>
-            </p>
-          </div>
-        </section>
 
         <GeoShiftSection />
 
@@ -217,41 +113,44 @@ export default function Home() {
 
         <AiQuestionSection />
 
-        <section id="faq" className="flex min-h-[70svh] scroll-mt-16 items-center border-b border-blue-100 bg-[#fbfaf7]">
-          <div className="mx-auto grid w-full max-w-6xl gap-12 px-5 py-16 sm:px-6 lg:grid-cols-[0.6fr_1.4fr] lg:py-24">
+        <section id="faq" className="flex min-h-[70svh] scroll-mt-16 items-center border-b border-blue-100 bg-[#fffaf4]">
+          <div className="mx-auto grid w-full max-w-[1152px] gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20 lg:py-28">
             <div>
-              <p className="text-xs font-bold text-teal-700">06 · FAQ</p>
-              <h2 className="mt-4 break-keep text-3xl font-bold sm:text-4xl">병원에서 자주 묻는 질문</h2>
-              <p className="mt-5 break-keep leading-8 text-slate-600">도입 전 가장 많이 확인하는 병원 GEO의 작업 범위와 운영 기준을 정리했습니다.</p>
+              <p className="text-xs font-bold tracking-[0.16em] text-blue-600">FAQ</p>
+              <h2 className="mt-4 break-keep text-3xl font-extrabold leading-tight sm:text-5xl">병원 마케팅,<br />무엇이 궁금하세요?</h2>
+              <p className="mt-6 max-w-sm break-keep leading-8 text-[#6f5962]">상담 전 가장 많이 확인하는 GEO와 네이버 마케팅의 작업 범위와 운영 기준을 정리했습니다.</p>
             </div>
-            <div className="border-t-2 border-[#102a43]">
+            <div className="border-t-2 border-[#3b2934]">
               {faqs.map((faq, index) => (
                 <details key={faq.question} className="group border-b border-slate-200" open={index === 0}>
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-base font-bold text-[#102a43]">
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 text-base font-bold text-[#3b2934] sm:text-lg">
                     <span className="flex items-start gap-4">
                       <span className="font-mono text-xs leading-6 text-blue-500">{String(index + 1).padStart(2, "0")}</span>
                       <span>{faq.question}</span>
                     </span>
                     <span className="text-xl font-normal text-teal-700 group-open:rotate-45" aria-hidden="true">+</span>
                   </summary>
-                  <p className="max-w-3xl pb-6 pr-10 text-sm leading-7 text-slate-600">{faq.answer}</p>
+                  <p className="max-w-3xl pb-6 pr-10 text-sm leading-7 text-[#6f5962]">{faq.answer}</p>
                 </details>
               ))}
             </div>
           </div>
         </section>
 
-        <section id="contact" className="relative scroll-mt-16 overflow-hidden border-b border-blue-100 bg-gradient-to-b from-[#fbfaf7] to-[#eff3f6]">
-          <div className="absolute left-1/2 top-20 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-100/60 blur-3xl" aria-hidden="true" />
-          <div className="relative mx-auto max-w-4xl px-5 py-16 sm:px-6 lg:py-24">
-            <div className="mx-auto max-w-2xl text-center">
-              <p className="text-xs font-bold tracking-[0.16em] text-blue-700">CONTACT</p>
-              <h2 className="mt-4 text-3xl font-bold text-[#102a43] sm:text-4xl">문의하기</h2>
-              <p className="mt-4 break-keep text-sm leading-7 text-slate-600 sm:text-base">
-                병원명과 사이트 주소를 남겨 주시면 필요한 작업 범위를 확인한 뒤 연락드립니다.
+        <section id="contact" className="relative scroll-mt-16 overflow-hidden border-b border-blue-100 bg-[#fff1f5]">
+          <div className="absolute inset-x-0 top-0 h-1 bg-[#f5c2d2]" aria-hidden="true" />
+          <div className="relative mx-auto grid max-w-[1152px] gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:py-28">
+            <div className="lg:sticky lg:top-28">
+              <p className="text-xs font-bold tracking-[0.16em] text-blue-600">CONTACT</p>
+              <h2 className="mt-4 break-keep text-3xl font-extrabold leading-tight text-[#3b2934] sm:text-5xl">병원의 다음 성장을<br />함께 설계합니다.</h2>
+              <p className="mt-6 max-w-md break-keep text-sm leading-7 text-[#6f5962] sm:text-base">
+                병원명과 사이트 주소를 남겨 주시면 현재 채널을 확인하고 필요한 작업 범위를 정리해 연락드립니다.
               </p>
+              <a href="mailto:summit-ai@summitfeed.co.kr" className="mt-8 inline-flex border-b border-[#3b2934] pb-1 text-sm font-bold text-[#3b2934] hover:border-[#d26383] hover:text-[#d26383]">
+                summit-ai@summitfeed.co.kr
+              </a>
             </div>
-            <div className="mt-10">
+            <div>
               <ContactForm />
             </div>
           </div>
