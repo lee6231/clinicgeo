@@ -19,37 +19,9 @@ const seriesProfiles: Record<string, SeriesProfile> = {
   "hospital-geo": {
     number: "00",
     title: "병원 GEO 인사이트",
-    description: "병원 홈페이지 구조, 환자 질문, AI 인용 측정과 월간 보강을 하나의 운영 흐름으로 정리하는 대분류 칼럼입니다.",
-    deskNote: "진료과를 넘어 병의원 GEO 전체 전략과 대행사 선택, 측정 체계를 다루는 대분류 시리즈입니다. 아래 4개 진료과 칼럼은 이 대분류의 소분류입니다.",
+    description: "병원 홈페이지 구조, 환자 질문, AI 인용 측정과 월간 보강을 하나의 운영 흐름으로 정리하는 칼럼입니다.",
+    deskNote: "진료과별 사례를 포함해 병의원 GEO 전체 전략과 대행사 선택, 측정 체계를 함께 다루는 시리즈입니다.",
     topics: ["병원 GEO 진단과 우선순위", "메인·팬아웃 질문 설계", "AI 인용 측정과 월간 보강"],
-  },
-  "orthopedics-geo": {
-    number: "01",
-    title: "정형외과 GEO 칼럼",
-    description: "허리·목·관절 통증처럼 증상으로 시작되는 환자 질문과 검사·치료 정보를 연결합니다.",
-    deskNote: "증상 질문에서 진료 페이지와 의료진 정보까지 이어지는 정형외과 GEO 구조를 연재합니다.",
-    topics: ["허리·목·관절 증상 질문", "검사·치료 페이지 구조", "의료진·진료 엔티티 연결"],
-  },
-  "dermatology-geo": {
-    number: "02",
-    title: "피부과 GEO 칼럼",
-    description: "리프팅·여드름·색소·흉터 질문을 중심으로 시술, 장비와 의료진 정보를 구조화합니다.",
-    deskNote: "피부과 홈페이지가 환자의 질문에 직접 답하고 AI가 공식 출처로 이해할 수 있는 구조를 다룹니다.",
-    topics: ["리프팅·여드름·색소 질문", "시술·장비·의료진 정보 구조", "피부과 홈페이지 AI 인용 점검"],
-  },
-  "dental-geo": {
-    number: "03",
-    title: "치과 GEO 칼럼",
-    description: "임플란트·교정·보존 진료의 질문을 진단 과정, 비용 정보와 선택 기준으로 확장합니다.",
-    deskNote: "치과를 찾는 환자의 실제 질문과 홈페이지 원본 정보가 연결되는 GEO 설계를 연재합니다.",
-    topics: ["임플란트·교정 환자 질문", "진단 과정·비용 정보 구조", "치과 홈페이지 AI 인용 점검"],
-  },
-  "plastic-surgery-geo": {
-    number: "04",
-    title: "성형외과 GEO 칼럼",
-    description: "눈·코·윤곽과 재수술 질문에 필요한 상담, 수술과 사후 관리 정보를 연결합니다.",
-    deskNote: "상담 전 질문부터 수술 과정과 회복 정보까지 이어지는 성형외과 GEO 콘텐츠를 다룹니다.",
-    topics: ["눈·코·윤곽 상담 질문", "수술·회복·사후 관리 구조", "성형외과 홈페이지 AI 인용 점검"],
   },
 };
 
@@ -93,7 +65,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   const breadcrumbItems = [
     { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
-    { "@type": "ListItem", position: 2, name: "진료별 GEO 칼럼", item: `${siteUrl}/hospitals` },
+    { "@type": "ListItem", position: 2, name: "GEO 인사이트", item: `${siteUrl}/blog` },
     ...(parentCategory
       ? [{ "@type": "ListItem", position: 3, name: parentCategory.name, item: `${siteUrl}/category/${parentCategory.slug}` }]
       : []),
@@ -152,7 +124,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           <div className="relative mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.12fr_0.88fr] lg:items-end lg:gap-16 lg:py-18">
             <div>
               <nav className="text-sm text-slate-500" aria-label="현재 위치">
-                <Link href="/hospitals" className="hover:text-blue-700">진료별 GEO 칼럼</Link>
+                <Link href="/blog" className="hover:text-blue-700">GEO 인사이트</Link>
                 {parentCategory && (
                   <>
                     <span className="mx-2">/</span>
@@ -255,32 +227,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
               ))}
             </ol>
           </div>
-        </section>
-
-        <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-16">
-          <div className="flex flex-col gap-4 border-b border-blue-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-xs font-bold tracking-[0.14em] text-blue-600">{isParentCategory ? "SUB CATEGORY" : "OTHER SERIES"}</p>
-              <h2 className="mt-3 text-2xl font-bold text-[#102a43]">{isParentCategory ? "소분류 진료과 칼럼" : "다른 진료별 GEO 칼럼"}</h2>
-            </div>
-            <Link href="/hospitals" className="w-fit border-b border-blue-700 pb-1 text-sm font-bold text-blue-700">전체 시리즈 보기 →</Link>
-          </div>
-          <nav className="grid border-l border-blue-100 sm:grid-cols-2 lg:grid-cols-5" aria-label={isParentCategory ? "소분류 진료과 칼럼" : "다른 진료별 GEO 칼럼"}>
-            {relatedCategories.slice(0, 5).map((item) => {
-              const siblingProfile = seriesProfiles[item.slug];
-              const issueCount = posts.filter((post) => post.published && post.categorySlug === item.slug && isArticleListed(post.slug)).length;
-              return (
-                <Link key={item.slug} href={`/category/${item.slug}`} className="group border-b border-r border-blue-100 px-5 py-6 transition hover:bg-blue-50">
-                  <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-blue-500">SERIES {siblingProfile.number}</span>
-                    <span className="text-blue-300 transition group-hover:translate-x-1 group-hover:text-blue-600" aria-hidden="true">→</span>
-                  </div>
-                  <h3 className="mt-5 font-bold text-[#102a43]">{siblingProfile.title}</h3>
-                  <p className="mt-2 text-xs text-slate-500">현재 {issueCount}편</p>
-                </Link>
-              );
-            })}
-          </nav>
         </section>
       </main>
     </PageFrame>

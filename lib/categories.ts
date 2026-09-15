@@ -10,35 +10,7 @@ export const categories: Category[] = [
     slug: "hospital-geo",
     name: "병원 GEO 인사이트",
     description:
-      "써밋피드가 운영하는 병원 GEO 대분류 콘텐츠로, 진료과를 넘어선 병의원 GEO 전략과 대행사 선택, AI 인용 측정 기준을 다룹니다.",
-  },
-  {
-    slug: "orthopedics-geo",
-    name: "정형외과 GEO",
-    description:
-      "써밋피드가 운영하는 정형외과 GEO 콘텐츠로, 허리·어깨 통증 등 증상 기반 AI 검색 최적화 실무를 다룹니다.",
-    parentSlug: "hospital-geo",
-  },
-  {
-    slug: "dermatology-geo",
-    name: "피부과 GEO",
-    description:
-      "써밋피드가 운영하는 피부과 GEO 콘텐츠로, 리프팅·여드름·색소·흉터 질문에 대응하는 실무 기준을 다룹니다.",
-    parentSlug: "hospital-geo",
-  },
-  {
-    slug: "dental-geo",
-    name: "치과 GEO",
-    description:
-      "써밋피드가 운영하는 치과 GEO 콘텐츠로, 임플란트·교정 등 진료 영역의 AI 검색 최적화 실무를 다룹니다.",
-    parentSlug: "hospital-geo",
-  },
-  {
-    slug: "plastic-surgery-geo",
-    name: "성형외과 GEO",
-    description:
-      "써밋피드가 운영하는 성형외과 GEO 콘텐츠로, 눈·코·윤곽 등 AI 검색 대응 실무 기준을 다룹니다.",
-    parentSlug: "hospital-geo",
+      "써밋피드가 운영하는 병원 GEO 콘텐츠로, 병의원 GEO 전략, 대행사 선택, AI 인용 측정 기준과 진료과별 실무를 함께 다룹니다.",
   },
 ];
 

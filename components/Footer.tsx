@@ -1,11 +1,9 @@
 import Link from "next/link";
 
 const categoryLinks = [
-  ["병원 GEO", "/category/hospital-geo"],
-  ["정형외과 GEO", "/category/orthopedics-geo"],
-  ["피부과 GEO", "/category/dermatology-geo"],
-  ["치과 GEO", "/category/dental-geo"],
-  ["성형외과 GEO", "/category/plastic-surgery-geo"],
+  ["병원 GEO 인사이트", "/category/hospital-geo"],
+  ["GEO 대행사 비교", "/blog/hospital-geo-agency-top3-2026-clinicgeo"],
+  ["병원 GEO 타겟 쿼리", "/blog/hospital-geo-target-query-main-fanout"],
 ];
 
 const serviceLinks = [
@@ -31,7 +29,7 @@ export function Footer() {
           </a>
         </div>
         <div>
-          <h2 className="text-xs font-bold tracking-[0.1em] text-white">진료별 GEO 칼럼</h2>
+          <h2 className="text-xs font-bold tracking-[0.1em] text-white">GEO 인사이트</h2>
           <div className="mt-5 grid grid-cols-2 gap-x-5 gap-y-3 text-sm lg:grid-cols-1">
             {categoryLinks.map(([label, href]) => (
               <Link key={href} href={href} className="hover:text-white">{label}</Link>

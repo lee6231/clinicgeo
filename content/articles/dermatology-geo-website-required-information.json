@@ -3,8 +3,8 @@
   "site": "clinicgeo.co.kr",
   "slug": "dermatology-geo-website-required-information",
   "title": "피부과 GEO란? AI 검색에 인용되는 피부과 홈페이지 필수 정보",
-  "categorySlug": "dermatology-geo",
-  "categoryName": "피부과 GEO",
+  "categorySlug": "hospital-geo",
+  "categoryName": "병원 GEO 인사이트",
   "focus_keyword": "피부과 GEO",
   "meta_description": "피부과 홈페이지가 AI 검색과 Google에서 이해되려면 어떤 정보가 필요할까요? 의료진, 진료·시술 정보, 위치, FAQ, 구조화 데이터와 내부 링크 기준을 정리했습니다.",
   "publishedAt": "2026-08-01",
@@ -354,7 +354,7 @@
     {
       "entity": "피부과 GEO",
       "type": "Thing",
-      "id": "https://clinicgeo.co.kr/category/dermatology-geo",
+      "id": "https://clinicgeo.co.kr/category/hospital-geo",
       "relationship": "about"
     },
     {
