@@ -12,6 +12,32 @@ export const siteDescription =
 export const shortSiteDescription =
   "써밋피드가 운영하는 병의원 GEO 전문 사이트. 홈페이지 구조화, 정보성 콘텐츠, AI 인용 측정과 네이버 채널 운영을 연결합니다.";
 
+const defaultOgTitle = "병원이 AI 검색에서 선택되는 구조";
+const defaultOgEyebrow = "Clinic GEO · SUMMITFEED";
+
+export function buildOgImageUrl(title: string, eyebrow = defaultOgEyebrow) {
+  const imageUrl = new URL("/api/og", siteUrl);
+  imageUrl.searchParams.set("title", title);
+  imageUrl.searchParams.set("eyebrow", eyebrow);
+  return imageUrl.toString();
+}
+
+function getOgEyebrow(pathname: string) {
+  if (pathname.startsWith("/category/")) return "진료과별 GEO 인사이트";
+  if (pathname.startsWith("/blog/")) return "Clinic GEO 인사이트";
+  if (pathname.startsWith("/hospitals/")) return "병원 정보 · Clinic GEO";
+  if (pathname === "/hospitals") return "병원 정보 · Clinic GEO";
+  return defaultOgEyebrow;
+}
+
+const defaultOgImageUrl = buildOgImageUrl(defaultOgTitle);
+const defaultOgImage = {
+  url: defaultOgImageUrl,
+  width: 1200,
+  height: 630,
+  alt: `${defaultOgTitle} | Clinic GEO`,
+};
+
 export const baseMetadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -29,11 +55,13 @@ export const baseMetadata: Metadata = {
     title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
     description: siteDescription,
     url: siteUrl,
+    images: [defaultOgImage],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "병의원 GEO 서비스와 인사이트 | Clinic GEO by SUMMITFEED",
     description: siteDescription,
+    images: [{ url: defaultOgImageUrl, alt: defaultOgImage.alt }],
   },
   robots: {
     index: true,
@@ -48,6 +76,8 @@ export function buildMetadata(pathname: string, title?: string, description?: st
     description ??
     baseMetadata.description ??
     siteDescription;
+  const ogImageUrl = buildOgImageUrl(resolvedTitle, getOgEyebrow(pathname));
+  const ogImageAlt = `${resolvedTitle} | Clinic GEO`;
 
   return {
     ...baseMetadata,
@@ -61,11 +91,20 @@ export function buildMetadata(pathname: string, title?: string, description?: st
       title: resolvedTitle,
       description: resolvedDescription,
       url,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
+        },
+      ],
     },
     twitter: {
       ...baseMetadata.twitter,
       title: resolvedTitle,
       description: resolvedDescription,
+      images: [{ url: ogImageUrl, alt: ogImageAlt }],
     },
   };
 }

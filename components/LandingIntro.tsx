@@ -19,7 +19,7 @@ export function LandingIntro() {
             <span className="mt-2 block text-[#c35476]">Clinic GEO</span>
           </h1>
           <p className="mt-8 max-w-md break-keep text-[15px] leading-7 text-[#67535c] sm:text-base">
-            GEO, AEO, 네이버 SEO와 플레이스를 하나의 전략으로 연결합니다. 병원이 검색과 AI 답변에서 발견되고 실제 선택으로 이어지도록 설계합니다.
+            <strong className="font-black text-[#3b2934]">AI부터 네이버까지, 노출을 설계합니다.</strong> GEO, AEO, 네이버 SEO와 플레이스를 하나의 전략으로 연결해 병원이 검색과 AI 답변 모두에서 발견되도록 만듭니다.
           </p>
         </div>
 

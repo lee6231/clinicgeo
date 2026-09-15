@@ -5,39 +5,43 @@ import { useEffect, useRef } from "react";
 const processSteps = [
   {
     number: "01",
-    english: "ONBOARDING",
-    title: "온보딩 질문지",
-    description: "진료과, 핵심 진료, 운영 현황과 기존 채널을 확인해 병원 GEO의 기준 정보를 수집합니다.",
+    title: "환자 질문 선정",
+    description: "환자가 ChatGPT·Gemini 등 AI에 실제로 물어볼 가능성이 높은 증상·진료·비교 질문을 분석해 핵심 타겟 질문을 선정합니다.",
   },
   {
     number: "02",
-    english: "SITE STRUCTURE",
-    title: "홈페이지 구조화",
-    description: "AI와 검색엔진이 병원 정보의 관계를 이해하도록 페이지 계층과 내부 연결 구조를 설계합니다.",
+    title: "AI 노출 측정",
+    description: "ChatGPT·Gemini·Perplexity·Claude에서 병원이 어떤 질문에 언급·인용되는지 기준 데이터를 확보합니다.",
   },
   {
     number: "03",
-    english: "ENTITY BUILD",
+    title: "홈페이지 구조 진단",
+    description: "검색엔진과 AI가 병원, 진료 분야, 의료진을 이해할 수 있는 상태인지 사이트 전반을 점검합니다.",
+  },
+  {
+    number: "04",
+    title: "경쟁 병원·출처 분석",
+    description: "같은 질문에서 어떤 병원이 등장하고 어떤 정보가 인용되는지 비교해 정보 격차를 파악합니다.",
+  },
+  {
+    number: "05",
+    title: "답변 구조 설계",
+    description: "환자 질문과 검색 의도에 맞춰 정보성·비교·선택 기준 콘텐츠 구조를 설계합니다.",
+  },
+  {
+    number: "06",
     title: "정보성 엔티티 구축",
     description: "병원, 의료진, 진료 분야와 지역 정보를 일관된 출처 기반의 엔티티로 연결합니다.",
   },
   {
-    number: "04",
-    english: "DISTRIBUTION",
+    number: "07",
     title: "외부 채널 배포",
     description: "검수한 콘텐츠를 블로그와 관련 외부 채널에 배포해 병원 정보의 접점을 확장합니다.",
   },
   {
-    number: "05",
-    english: "CITATION CHECK",
-    title: "AI 인용률 확인",
-    description: "주요 질문별 인용 여부와 출처 노출을 점검하고 결과를 다음 구조 개선에 반영합니다.",
-  },
-  {
-    number: "06",
-    english: "MONTHLY REPORT",
-    title: "월간 리포트",
-    description: "발행 링크와 AI 인용률을 정리하고, 시크릿 모드 검색 결과를 캡처해 월간 보고서로 전달합니다.",
+    number: "08",
+    title: "재측정·고도화",
+    description: "동일한 질문을 다시 측정해 플랫폼별 변화를 확인하고, 부족한 영역을 월간 리포트로 정리해 다음 운영에 반영합니다.",
   },
 ];
 
@@ -72,42 +76,45 @@ export function GeoProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="geo-process-section relative overflow-hidden border-b border-blue-100 bg-[#fffaf4]"
+      className="geo-process-section relative overflow-hidden border-b border-[#eadde2] bg-white"
     >
-      <div className="absolute inset-x-0 top-0 h-px bg-[#d26383] opacity-30" aria-hidden="true" />
+      <div className="mx-auto w-full max-w-[1152px] px-5 py-20 sm:px-6 lg:py-28">
+        <p className="text-xs font-bold tracking-[0.16em] text-[#c35476]">CLINIC GEO 8-STEP PROCESS</p>
+        <h2 className="mt-4 max-w-4xl break-keep text-3xl font-extrabold leading-tight text-[#3b2934] sm:text-4xl lg:text-[3rem]">
+          질문을 찾고, 답변을 설계하고,<br />결과를 다시 측정합니다.
+        </h2>
+        <p className="mt-5 max-w-2xl break-keep text-base leading-8 text-[#6f5962]">
+          실제 환자가 AI에 묻는 질문을 기준으로 현재 노출을 진단하고, 병원이 답변 후보로 연결될 수 있는 구조를 단계적으로 설계합니다.
+        </p>
 
-      <div className="relative mx-auto w-full max-w-[1152px] px-5 py-20 sm:px-6 lg:py-28">
-        <div className="grid gap-6 border-b border-[#ddc7d0] pb-10 lg:grid-cols-[0.38fr_1.62fr] lg:items-end lg:gap-12 lg:pb-12">
-          <p className="self-start text-xs font-bold tracking-[0.16em] text-blue-600">HOW WE WORK</p>
-          <div>
-            <h2 className="max-w-4xl break-keep text-3xl font-extrabold leading-tight text-[#3b2934] sm:text-4xl lg:text-[3rem]">
-              질문을 찾고, 답변을 설계하고,<br />결과를 다시 측정합니다.
-            </h2>
-            <p className="mt-5 max-w-2xl break-keep text-base leading-8 text-[#6f5962]">
-              병원을 이해하는 온보딩부터 월간 결과 보고까지, 각 단계의 데이터를 다음 작업으로 연결합니다.
-            </p>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-14 grid grid-cols-1 gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-4" aria-label="Clinic GEO 8단계 프로세스">
           {processSteps.map((step, index) => (
-            <article
+            <li
               key={step.number}
-              className={`geo-process-step relative min-h-64 rounded-lg border p-6 sm:p-7 ${index === 0 || index === 5 ? "border-[#d26383] bg-[#fff1f5]" : "border-[#eadde2] bg-[#fffdf9]"}`}
-              style={{ transitionDelay: `${index * 140}ms` }}
+              className={`geo-process-step relative min-h-[11.5rem] border-t border-[#ddc7d0] pt-9 ${(index + 1) % 4 !== 0 ? "lg:pr-6" : ""}`}
+              style={{ transitionDelay: `${index * 90}ms` }}
             >
-              <div className="flex items-start justify-between gap-5 border-b border-[#e5d4da] pb-5">
-                <p className="text-[10px] font-bold tracking-[0.12em] text-blue-600">{step.english}</p>
-                <span className="font-mono text-2xl font-bold text-[#e4a9bb]">{step.number}</span>
-              </div>
-              <h3 className="mt-7 break-keep text-xl font-bold leading-snug text-[#3b2934]">{step.title}</h3>
-              <p className="mt-4 break-keep text-sm leading-7 text-[#6f5962]">{step.description}</p>
-            </article>
+              <span
+                aria-hidden="true"
+                className="absolute -top-5 left-0 flex h-10 w-10 items-center justify-center rounded-full border border-[#e4a9bb] bg-[#fff2f6] font-mono text-xs font-extrabold text-[#95445f]"
+              >
+                {step.number}
+              </span>
+              {(index + 1) % 4 !== 0 && (
+                <span aria-hidden="true" className="absolute -top-3 right-1 hidden font-mono text-sm text-[#c14a72] lg:inline">
+                  →
+                </span>
+              )}
+              <h3 className="break-keep text-lg font-bold leading-snug tracking-tight text-[#211d19]">
+                {step.title}
+              </h3>
+              <p className="mt-3 break-keep text-sm leading-7 text-[#625950]">{step.description}</p>
+            </li>
           ))}
-        </div>
+        </ol>
 
-        <p className="mt-12 border-t border-blue-200 pt-6 text-sm font-bold leading-7 text-[#3b2934] md:text-center">
-          온보딩부터 월간 리포트까지 한 번의 운영은 <span className="text-blue-700">1개월 사이클</span>입니다.
+        <p className="mt-16 border-t border-[#ddc7d0] pt-6 text-sm font-bold leading-7 text-[#3b2934] md:text-center">
+          8단계 프로세스 한 사이클은 <span className="text-[#d26383]">1개월</span> 단위로 진행됩니다.
           <span className="block">확인된 결과를 다음 설계에 반영하며 계약 기간 동안 이 과정을 반복합니다.</span>
         </p>
       </div>

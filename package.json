@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --incremental false",
+    "seo:audit": "node scripts/audit-seo.mjs",
     "indexnow": "node scripts/submit-indexnow.mjs",
     "publish:scheduled": "node scripts/publish-scheduled-articles.mjs",
     "publish:verify": "node scripts/verify-published-url.mjs",

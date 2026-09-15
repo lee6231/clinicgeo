@@ -59,6 +59,13 @@ export default function RootLayout({
                 url: siteUrl,
                 logo: `${siteUrl}/icon.png`,
               },
+              logo: `${siteUrl}/icon.png`,
+              makesOffer: [
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "병원 GEO 최적화", serviceType: "GEO Optimization" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "네이버 플레이스 운영", serviceType: "Naver Place Management" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "블로그 키워드 상위노출", serviceType: "Blog SEO" } },
+                { "@type": "Offer", itemOffered: { "@type": "Service", name: "SEO·AEO 최적화", serviceType: "SEO/AEO Optimization" } },
+              ],
             },
             {
               "@context": "https://schema.org",

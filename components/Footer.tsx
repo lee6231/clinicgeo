@@ -6,7 +6,6 @@ const categoryLinks = [
   ["피부과 GEO", "/category/dermatology-geo"],
   ["치과 GEO", "/category/dental-geo"],
   ["성형외과 GEO", "/category/plastic-surgery-geo"],
-  ["내과 GEO", "/category/internal-medicine-geo"],
 ];
 
 const serviceLinks = [

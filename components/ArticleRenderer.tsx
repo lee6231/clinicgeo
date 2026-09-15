@@ -1,6 +1,7 @@
 import type { Article, ArticleReference, ArticleRichBlock } from "@/lib/articles";
-import { lastVerified } from "@/lib/editorial";
-import { articlePublisherLabel } from "@/lib/seo";
+import Link from "next/link";
+import { resolveArticleAuthor } from "@/lib/authors";
+import { publisherName, summitfeedUrl } from "@/lib/seo";
 
 const top3ArticleSlug = "hospital-geo-agency-top3-2026-clinicgeo";
 
@@ -455,6 +456,9 @@ export function ArticleRenderer({
   const tags = Array.isArray(article.tags) ? article.tags : [];
   const references = resolveReferences(article.references);
   const relatedLinks = resolveRelatedLinks(article);
+  const articleAuthor = resolveArticleAuthor();
+  const reviewedAt = article.editorial?.reviewedAt ?? article.updatedAt ?? article.publishedAt;
+  const editorialBasis = article.editorial?.basis ?? articleAuthor.defaultBasis;
   const isTop3Article = article.slug === top3ArticleSlug;
   const isA01Article = article.slug === "chatgpt-hospital-visibility";
   const isWhiteBlueTheme =
@@ -500,11 +504,13 @@ export function ArticleRenderer({
               : "mt-6 flex flex-wrap items-center gap-4 text-sm text-slate-500"
           }
         >
-          {article.author ? <span>{article.author}</span> : null}
+          <Link href={articleAuthor.pathname} rel="author" className="font-semibold underline underline-offset-4">
+            {articleAuthor.name}
+          </Link>
           <span>발행일 {article.publishedAt}</span>
           {article.updatedAt ? <span>수정일 {article.updatedAt}</span> : null}
-          <span>발행 주체: {articlePublisherLabel}</span>
-          <span>정보 최종 확인 {article.updatedAt ?? lastVerified}</span>
+          <span>발행 주체: {publisherName}</span>
+          <span>정보 최종 확인 {reviewedAt}</span>
         </div>
         {hiddenCandidate ? (
           <p className="mt-5 w-fit rounded-sm bg-slate-200 px-3 py-1.5 text-xs font-bold text-slate-700">
@@ -779,14 +785,12 @@ export function ArticleRenderer({
                   </summary>
                   <div className="border-t border-[#eef3f3] px-[22px] pb-1 pt-[18px]">
                     <p className="mb-4 text-[16px] leading-[1.75] text-[#33505f]">{faq.answer}</p>
-                    <SourceLinks sources={faq.sources} />
                   </div>
                 </details>
               ) : (
                 <section key={faq.question} className="rounded-lg border border-slate-200 bg-slate-50 p-5">
                   <h3 className="font-semibold text-slate-900">{faq.question}</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-600">{faq.answer}</p>
-                  <SourceLinks sources={faq.sources} />
                 </section>
               ),
             )}
@@ -804,41 +808,44 @@ export function ArticleRenderer({
         </section>
       ) : null}
 
-      {article.editorial ? (
-        <section className="rounded-lg border border-blue-200 bg-slate-50 p-8">
+      <section className="rounded-lg border border-blue-200 bg-slate-50 p-8" aria-labelledby="article-editorial-heading">
           <h2 className="text-xl font-semibold tracking-tight text-slate-900">
-            작성·검토 기준
+            <span id="article-editorial-heading">작성·정보 확인 기준</span>
           </h2>
           <dl className="mt-5 grid gap-4 text-sm leading-7 sm:grid-cols-2">
-            {article.editorial.author ? (
-              <div>
-                <dt className="font-semibold text-slate-900">작성 주체</dt>
-                <dd className="text-slate-600">{article.editorial.author}</dd>
-              </div>
-            ) : null}
-            {article.editorial.publisher ? (
-              <div>
-                <dt className="font-semibold text-slate-900">발행 주체</dt>
-                <dd className="text-slate-600">{article.editorial.publisher}</dd>
-              </div>
-            ) : null}
-            {article.editorial.reviewedAt ? (
-              <div>
-                <dt className="font-semibold text-slate-900">최종 확인일</dt>
-                <dd className="text-slate-600">{article.editorial.reviewedAt}</dd>
-              </div>
-            ) : null}
-            {article.editorial.basis ? (
-              <div>
-                <dt className="font-semibold text-slate-900">작성 기준</dt>
-                <dd className="text-slate-600">{article.editorial.basis}</dd>
-              </div>
-            ) : null}
+            <div>
+              <dt className="font-semibold text-slate-900">작성 주체</dt>
+              <dd className="text-slate-600">
+                <Link href={articleAuthor.pathname} rel="author" className="underline underline-offset-4">
+                  {articleAuthor.name}
+                </Link>
+              </dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-slate-900">발행 주체</dt>
+              <dd className="text-slate-600">
+                <a href={summitfeedUrl} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">
+                  {publisherName}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-slate-900">최종 확인일</dt>
+              <dd className="text-slate-600">{reviewedAt}</dd>
+            </div>
+            <div>
+              <dt className="font-semibold text-slate-900">작성 기준</dt>
+              <dd className="text-slate-600">{editorialBasis}</dd>
+            </div>
           </dl>
-
-
+          <p className="mt-5 border-t border-blue-100 pt-5 text-sm leading-7 text-slate-600">
+            의료인의 진단이나 진료 조언이 아닌 병원 마케팅·검색 구조 정보입니다. 자세한 기준은{" "}
+            <Link href="/editorial-policy" className="font-semibold text-blue-700 underline underline-offset-4">
+              편집·선정 기준
+            </Link>
+            에서 확인할 수 있습니다.
+          </p>
         </section>
-      ) : null}
 
       {article.verified_at || (Array.isArray(article.revision_log) && article.revision_log.length > 0) ? (
         <section className="border-y border-slate-200 py-7">

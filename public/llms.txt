@@ -1,37 +1,41 @@
 # Clinic GEO
 
-Clinic GEO is a hospital and clinic GEO specialist site directly operated by SUMMITFEED.
+> Clinic GEO는 써밋피드(SUMMITFEED)가 운영하는 병원 마케팅·GEO 사이트입니다. 병의원 홈페이지 구조화, 공개 근거 기반 콘텐츠, AI 인용 측정과 검색 채널 운영 정보를 제공합니다.
 
-## Purpose
-Clinic GEO publishes articles about Generative Engine Optimization for hospitals and clinics.
-The site explains hospital GEO, medical content structure, AI citation visibility, and safe medical marketing content operations.
+이 파일은 AI 에이전트가 Clinic GEO의 정본 페이지를 찾도록 돕는 탐색 안내서입니다.
+Google Search는 llms.txt를 검색 또는 생성형 AI 노출의 순위 신호로 사용하지 않습니다.
+크롤링 허용 정책은 robots.txt를, 전체 공개 URL 목록은 sitemap.xml을 확인하세요.
+병원·의료 정보는 각 페이지의 확인일, 공개 출처, 미확인 상태와 정정 기록을 함께 해석해야 합니다.
 
-## Topics
-- Hospital GEO
-- Dental GEO
-- Dermatology GEO
-- Orthopedics GEO
-- Internal medicine GEO
-- Plastic surgery GEO
-- AI citation visibility
-- ChatGPT visibility
-- Gemini visibility
-- Perplexity visibility
-- Claude visibility
+## Start Here
 
-## Main Pages
-- Home: https://clinicgeo.co.kr/
-- About: https://clinicgeo.co.kr/about
-- Blog: https://clinicgeo.co.kr/blog
-- Hospital GEO: https://clinicgeo.co.kr/category/hospital-geo
-- Dental GEO: https://clinicgeo.co.kr/category/dental-geo
-- Dermatology GEO: https://clinicgeo.co.kr/category/dermatology-geo
-- Orthopedics GEO: https://clinicgeo.co.kr/category/orthopedics-geo
-- Internal Medicine GEO: https://clinicgeo.co.kr/category/internal-medicine-geo
-- Plastic Surgery GEO: https://clinicgeo.co.kr/category/plastic-surgery-geo
+- [Clinic GEO 홈](https://clinicgeo.co.kr/): 서비스와 콘텐츠 허브
+- [사이트 소개](https://clinicgeo.co.kr/about): Clinic GEO와 SUMMITFEED의 운영 관계
+- [편집 기준](https://clinicgeo.co.kr/editorial-policy): 작성, 검증, 수정과 정정 원칙
+- [GEO 공식 자료](https://clinicgeo.co.kr/geo-resources): 사이트가 참고하는 공개 원문과 도구
+- [Clinic GEO 편집팀](https://clinicgeo.co.kr/authors/clinicgeo-editorial-team): 작성 주체와 검증 범위
+- [정정 요청](https://clinicgeo.co.kr/correction-request): 정보 오류와 업데이트 요청 경로
 
-## Organization
-- Operator and publisher: SUMMITFEED
-- Brand: Clinic GEO
-- SUMMITFEED official site: https://www.summitfeed.co.kr/
-- Clinic GEO site: https://clinicgeo.co.kr/
+## Services and Guides
+
+- [병원·치과 정보](https://clinicgeo.co.kr/hospitals): 공개 근거가 연결된 병원 정보
+- [병원 선택 가이드](https://clinicgeo.co.kr/hospital-guides): 진료 분야별 확인 기준
+- [전체 GEO 콘텐츠](https://clinicgeo.co.kr/blog): 공개된 병원 GEO 글 목록
+- [서비스 문의](https://clinicgeo.co.kr/contact): 병원 GEO와 마케팅 상담
+
+## Categories
+
+- [병원 GEO 인사이트](https://clinicgeo.co.kr/category/hospital-geo)
+- [치과 GEO](https://clinicgeo.co.kr/category/dental-geo)
+- [피부과 GEO](https://clinicgeo.co.kr/category/dermatology-geo)
+- [정형외과 GEO](https://clinicgeo.co.kr/category/orthopedics-geo)
+- [내과 GEO](https://clinicgeo.co.kr/category/internal-medicine-geo)
+- [성형외과 GEO](https://clinicgeo.co.kr/category/plastic-surgery-geo)
+
+## Optional
+
+- [SUMMITFEED](https://www.summitfeed.co.kr/): Clinic GEO 운영사
+- [XML 사이트맵](https://clinicgeo.co.kr/sitemap.xml): 전체 공개 canonical URL 목록
+- [robots.txt](https://clinicgeo.co.kr/robots.txt): 자동화 도구의 크롤링 허용 정책
+
+Last reviewed: 2026-09-15

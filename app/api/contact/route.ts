@@ -15,8 +15,9 @@ export async function POST(request: Request) {
   const siteUrl = clean(body.siteUrl, 300);
   const phone = clean(body.phone, 30);
   const type = clean(body.type, 50);
+  const email = clean(body.email, 200);
   const consent = clean(body.consent, 20);
-  if (!hospital || !siteUrl || !phone || !type || consent !== "agreed") {
+  if (!hospital || !siteUrl || !phone || !type || !email || consent !== "agreed") {
     return NextResponse.json({ message: "필수 항목과 개인정보 동의를 확인해 주세요." }, { status: 400 });
   }
 
@@ -32,7 +33,8 @@ export async function POST(request: Request) {
       from: process.env.CONTACT_FROM_EMAIL ?? "Clinic GEO <contact@clinicgeo.co.kr>",
       to: [recipient],
       subject: `[Clinic GEO 문의] ${type} · ${hospital}`,
-      text: [`병원명: ${hospital}`, `사이트 주소: ${siteUrl}`, `문의 유형: ${type}`, `연락처: ${phone}`].join("\n"),
+      text: [`병원명: ${hospital}`, `사이트 주소: ${siteUrl}`, `문의 유형: ${type}`, `연락처: ${phone}`, `이메일: ${email}`].join("\n"),
+      reply_to: email,
     }),
   });
 

@@ -1,393 +1,506 @@
 {
-  "title": "챗GPT에 우리 병원이 안 나오는 이유, 상황별로 정리했습니다 (2026) | 클리닉GEO",
-  "metadata_title": "챗GPT에 우리 병원이 안 나오는 이유, 상황별로 정리했습니다 (2026) | 클리닉GEO",
-  "h1": "챗GPT에 우리 병원이 안 나오는 이유, 상황별로 정리했습니다 (2026)",
+  "title": "챗GPT에 우리 병원이 안 나올 때 확인할 4가지",
+  "metadata_title": "챗GPT 병원 노출이 안 될 때 확인할 4가지 | Clinic GEO",
+  "h1": "챗GPT에 우리 병원이 안 나올 때 확인할 4가지",
   "slug": "chatgpt-hospital-visibility",
-  "categorySlug": "plastic-surgery-geo",
-  "categoryName": "성형외과 GEO",
-  "category": "성형외과 GEO",
-  "display_category": "성형외과 GEO",
+  "categorySlug": "hospital-geo",
+  "categoryName": "병원 GEO 인사이트",
+  "category": "병원 GEO 인사이트",
+  "display_category": "병원 GEO 인사이트",
   "focus_keyword": "챗GPT 병원 노출",
-  "meta_description": "AI 검색에 병원이 노출되지 않는 원인은 접근·문장·신뢰 세 층위로 나뉩니다. 진료과를 불문하고 적용되는 원인 구분과 상황별 대응 순서, 직접 확인하는 방법까지 정리했습니다.",
-  "author": "클리닉GEO 편집팀",
+  "meta_description": "챗GPT에 병원이 보이지 않을 때 robots.txt만 고치면 되는지부터 확인합니다. 접근, 렌더링, 페이지 정보, 발견 경로 4가지를 공식 문서 기준으로 점검하고 확인할 수 없는 범위도 공개합니다.",
+  "author": "Clinic GEO 편집팀",
   "quick_answer": {
-    "definition_sentence": "AI 검색에서 병원이 안 보이는 건 순위가 낮아서가 아니라 출처 후보에 들지 못했기 때문입니다. 홈페이지 접근, 인용 가능한 문장, 외부 신뢰 근거를 함께 갖춰야 합니다.",
-    "framing_sentence": "",
-    "selection_criteria": "",
-    "conclusion_sentence": ""
+    "definition_sentence": "챗GPT에 병원이 보이지 않는 원인은 공개 정보만으로 하나로 확정할 수 없습니다. 먼저 크롤러 접근, 렌더링된 HTML, 화면 정보와 구조화 데이터의 일치, 내부 링크와 사이트맵의 발견 경로를 확인해야 합니다.",
+    "framing_sentence": "이 4가지는 공개 웹사이트에서 재현할 수 있는 기술 점검 항목입니다. ChatGPT의 내부 출처 선택 기준이나 병원 노출 순위를 설명하는 공식 점수표는 아닙니다.",
+    "selection_criteria": "확인 기준: robots.txt와 페이지 접근 / 렌더링된 HTML 본문 / 화면과 JSON-LD의 일치 / 내부 링크와 사이트맵 / 의료광고 표현 / 측정 조건과 결과 기록",
+    "conclusion_sentence": "한 가지 설정을 바꿨다고 노출을 보장할 수는 없습니다. 4개 항목의 상태와 실제 질문 결과를 같은 날짜와 조건으로 기록해야 다음 수정의 우선순위를 정할 수 있습니다.",
+    "sources": [
+      "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+      "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+      "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+      "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+      "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+      "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+    ]
   },
-  "summary_label": "핵심 요약",
+  "summary_label": "먼저 확인한 결론",
   "summary_paragraphs": [
-    "AI 검색에서 병원이 안 보이는 건 순위가 낮아서가 아니라 출처 후보에 들지 못했기 때문입니다. 홈페이지 접근, 인용 가능한 문장, 외부 신뢰 근거를 함께 갖춰야 합니다."
+    "2026년 9월 15일에 Google Search Central 공식 문서 6개와 의료법 제57조를 직접 열어 확인했습니다. 병원 사이트에서 바로 점검할 항목은 접근, 렌더링, 정보 일치, 발견 경로의 4가지입니다. robots.txt나 JSON-LD 하나만으로 ChatGPT 노출을 보장한다는 근거는 확인하지 못했습니다. 따라서 수정 전 상태와 수정 후 실제 질문 결과를 같은 조건으로 기록하는 것이 먼저입니다."
   ],
-  "data_cards": [],
-  "sections": [],
-  "rich_sections": [
+  "data_cards": [
     {
-      "heading": "AI 검색과 네이버 노출은 작동 방식이 다릅니다",
-      "blocks": [
-        {
-          "type": "p",
-          "text": "네이버는 검색어에 맞는 문서를 순위로 나열합니다. 10위든 30위든 목록 어딘가에는 존재합니다. 챗GPT는 그렇지 않습니다. 질문을 받으면 웹에서 몇 개의 문서를 골라 읽고, 그 내용을 재구성해 하나의 답변을 만듭니다. 고르지 않은 문서는 목록 아래가 아니라 아예 존재하지 않는 것으로 처리됩니다."
-        },
-        {
-          "type": "p",
-          "text": "그래서 \"우리 병원이 안 나온다\"는 말은 정확히는 \"우리 홈페이지가 출처로 선택되지 않는다\"는 뜻입니다. 순위 개선의 문제가 아니라 후보 진입의 문제이고, 해결 방법도 검색 순위 작업과는 다릅니다."
-        },
-        {
-          "type": "p",
-          "text": "지금 \"○○동 무릎 통증 잘 보는 정형외과 추천해줘\"나 \"강남 쌍꺼풀 잘하는 병원 추천해줘\"를 입력해 보십시오. 답변 아래 붙은 출처는 대부분 커뮤니티 글, 의료 플랫폼 페이지, 언론 기사입니다. 병원 공식 홈페이지가 출처로 잡히는 경우는 드뭅니다. 여기서부터 원인을 세 층위로 나눠 보면 우리 병원이 어디에서 막혀 있는지가 드러납니다."
-        }
-      ]
+      "title": "1. 접근",
+      "body": "robots.txt와 페이지 응답을 확인합니다. 특정 봇 이름이 없다는 사실만으로 허용이나 차단을 단정하지 않습니다."
     },
     {
-      "heading": "이런 병원이라면 홈페이지 설정만 손보면 됩니다",
-      "blocks": [
-        {
-          "type": "p",
-          "text": "드물지만 콘텐츠는 이미 갖춰져 있고 문이 닫혀 있을 뿐인 경우가 있습니다. 아래 세 가지가 모두 해당하면 여기에 속합니다."
-        },
-        {
-          "type": "h3",
-          "text": "진료 설명이 HTML 텍스트로 들어가 있다"
-        },
-        {
-          "type": "p",
-          "text": "진료 안내 페이지의 설명 문단을 마우스로 드래그했을 때 선택이 됩니다. 이미지가 아니라 실제 텍스트라는 뜻이고, 크롤러가 읽을 수 있는 상태입니다."
-        },
-        {
-          "type": "h3",
-          "text": "문장에 조건과 숫자가 들어 있다"
-        },
-        {
-          "type": "p",
-          "text": "\"위내시경 수면 진정 후 회복실 관찰은 30분입니다\", \"실밥은 수술 후 5~7일에 제거합니다\" 같은 문장이 페이지마다 몇 개씩 있습니다. AI가 발췌해 옮길 수 있는 형태입니다."
-        },
-        {
-          "type": "h3",
-          "text": "병원 정보가 채널마다 같다"
-        },
-        {
-          "type": "p",
-          "text": "홈페이지, 구글 비즈니스 프로필, 네이버 플레이스의 병원명 표기와 주소, 대표원장 이름이 정확히 일치합니다."
-        },
-        {
-          "type": "p",
-          "text": "이 조건을 갖춘 병원이 인용되지 않는 이유는 대부분 robots.txt 하나입니다. AI는 각자 별도의 크롤러로 웹을 읽습니다. OpenAI는 GPTBot과 OAI-SearchBot, Perplexity는 PerplexityBot, Anthropic은 ClaudeBot을 쓰고, 구글의 AI 답변에는 Google-Extended가 관여합니다. 이 이름들이 차단돼 있거나 허용 목록에 없으면 크롤러는 문 앞에서 돌아갑니다."
-        },
-        {
-          "type": "p",
-          "text": "병원에서 이 차단은 대부분 의도한 것이 아닙니다. 홈페이지 제작사가 서버 부하를 줄이려고 넣어둔 기본 설정이거나, 2023년 이후 등장한 크롤러라 그 전에 만든 홈페이지에는 항목 자체가 없는 경우입니다. 확인은 주소창에 병원도메인/robots.txt를 입력하면 끝나고, 수정은 한 줄이면 됩니다."
-        }
-      ]
+      "title": "2. 렌더링",
+      "body": "병원명, 의료진, 진료 정보가 브라우저 화면뿐 아니라 렌더링된 HTML에서도 읽히는지 확인합니다."
     },
     {
-      "heading": "반대로 이런 상황이라면 콘텐츠부터 다시 써야 합니다",
-      "blocks": [
-        {
-          "type": "p",
-          "text": "실제로 진단해 보면 대부분의 병원이 이쪽에 속합니다. 크롤러를 열어줘도 가져갈 것이 없는 상태입니다."
-        },
-        {
-          "type": "h3",
-          "text": "진료 설명이 전부 이미지 안에 있다"
-        },
-        {
-          "type": "p",
-          "text": "피부과와 성형외과 홈페이지는 시각적 완성도를 우선합니다. 그 과정에서 시술 설명과 회복 안내가 디자인 이미지 안에 박히는 경우가 많습니다. 내과와 정형외과는 결이 다릅니다. 몇 년 전에 만든 홈페이지를 그대로 쓰면서 진료 안내가 표 이미지 한 장으로 끝나는 경우가 흔합니다. 원인은 달라도 결과는 같습니다. 사람 눈에는 읽히지만 크롤러가 받아가는 HTML에는 그 텍스트가 없습니다."
-        },
-        {
-          "type": "p",
-          "text": "자바스크립트로만 본문을 그리는 홈페이지도 결과가 같습니다. 구글 검색 봇은 자바스크립트를 실행해 보완하지만, AI 크롤러 상당수는 그 단계를 거치지 않습니다. 페이지에서 오른쪽 버튼을 눌러 소스 보기를 연 뒤 본문 문장을 검색해 보면 바로 확인됩니다."
-        },
-        {
-          "type": "h3",
-          "text": "형용사만 있고 판정이 없다"
-        },
-        {
-          "type": "p",
-          "text": "AI는 문단을 통째로 옮기지 않습니다. 조건과 결론이 붙은 한 덩어리를 발췌합니다. 대부분의 병원 홈페이지 문장은 형용사와 약속으로 채워져 있어서 발췌할 것이 없습니다."
-        },
-        {
-          "type": "table",
-          "id": "sentence-comparison",
-          "headers": [
-            "진료과",
-            "인용되지 않는 문장",
-            "인용되는 문장"
-          ],
-          "rows": [
-            [
-              "내과",
-              "편안한 검진 환경을 제공합니다",
-              "위내시경 수면 진정 후 회복실 관찰은 30분이며, 당일 운전은 권하지 않습니다"
-            ],
-            [
-              "정형외과",
-              "최신 장비로 정확하게 진단합니다",
-              "무릎 통증이 2주 이상 지속되고 계단 내려갈 때 심해지면 연골 손상 가능성이 있어 MRI를 권합니다"
-            ],
-            [
-              "성형외과",
-              "개인에게 꼭 맞는 라인을 디자인합니다",
-              "눈꺼풀이 두껍고 지방량이 많으면 매몰법은 풀림 위험이 높아 부분절개를 권합니다"
-            ]
-          ],
-          "_note": "진료과를 1열로 두어 어느 과 독자든 자기 사례를 찾게 했습니다. 각 행이 독립 인용 단위입니다."
-        },
-        {
-          "type": "p",
-          "text": "오른쪽 문장들의 공통점은 숫자, 조건, 검증 가능한 사실입니다. AI가 답변에 옮겨 쓸 수 있는 형태이고, 잘못 옮기면 책임이 생기는 형태이기도 합니다. 그래서 AI는 이런 문장을 가진 문서를 우선 고릅니다."
-        },
-        {
-          "type": "h3",
-          "text": "홈페이지 말고는 병원을 언급한 곳이 없다"
-        },
-        {
-          "type": "p",
-          "text": "AI 입장에서 병원 자사 홈페이지는 이해관계가 있는 출처입니다. 그래서 제3자 기록으로 교차 확인이 되는 병원을 선호합니다. 원장의 학회 발표 이력, 논문, 언론 인터뷰, 정확하게 관리된 구글 비즈니스 프로필이 여기에 해당합니다."
-        },
-        {
-          "type": "p",
-          "text": "채널마다 정보가 어긋나는 것도 같은 층위의 문제입니다. 확장 이전 후 옛 주소가 디렉토리에 남아 있거나, 홈페이지에는 '○○정형외과의원'인데 플레이스에는 '○○정형외과'로 등록된 식입니다. 사소해 보이는 표기 차이도 AI에게는 별개의 기관으로 읽히고, 교차 확인이 안 되면 답변에서 제외됩니다."
-        }
-      ]
+      "title": "3. 정보 일치",
+      "body": "화면에 보이는 병원 정보와 JSON-LD, canonical, 제목·설명이 서로 어긋나지 않는지 확인합니다."
     },
     {
-      "heading": "실제로는 세 층위가 동시에 걸린 병원이 가장 많습니다",
-      "blocks": [
+      "title": "4. 발견 경로",
+      "body": "핵심 페이지가 설명형 내부 링크와 사이트맵에 연결돼 있는지 확인합니다. 사이트맵 제출 자체는 노출 보장이 아닙니다."
+    }
+  ],
+  "sections": [
+    {
+      "heading": "공개 설정 4곳을 보면 무엇을 알 수 있나요?",
+      "paragraphs": [
         {
-          "type": "p",
-          "text": "접근만 막힌 병원과 문장만 부족한 병원은 오히려 드뭅니다. 대부분은 세 가지가 겹쳐 있고, 그래서 콘텐츠 편수를 늘리는 것만으로는 아무 변화가 없습니다. 아래 표에서 현재 상황을 찾아보시면 무엇부터 손대야 하는지가 나옵니다."
+          "text": "첫 점검은 ‘왜 ChatGPT가 우리 병원을 선택하지 않았는가’를 추측하는 일이 아닙니다. 외부에서 재현할 수 있는 사이트 상태를 네 영역으로 나누고, 어느 단계에서 정보가 사라지거나 서로 달라지는지 확인하는 일입니다.",
+          "sources": []
         },
         {
-          "type": "table",
-          "id": "situation-matching",
-          "headers": [
-            "우리 상황",
-            "걸린 층위",
-            "먼저 할 일"
+          "text": "Google은 robots.txt가 크롤러의 URL 접근을 관리하는 파일이며 색인 제외 수단과는 다르다고 설명합니다. 빈 robots.txt나 규칙이 없는 상태는 일반적으로 크롤링을 허용하지만, 실제 적용은 사용자 에이전트와 규칙의 일치 여부를 함께 봐야 합니다.",
+          "sources": []
+        }
+      ],
+      "table": {
+        "caption": "챗GPT 병원 노출 전 공개 사이트 점검 4가지",
+        "columns": [
+          "점검 영역",
+          "직접 확인할 것",
+          "확인 후 판단할 것"
+        ],
+        "rows": [
+          [
+            "접근",
+            "robots.txt, HTTP 응답, noindex 여부",
+            "크롤러가 공개 URL과 본문에 접근할 수 있는가"
           ],
-          "rows": [
-            [
-              "홈페이지 글은 많은데 AI 답변에 한 번도 안 나온다",
-              "접근",
-              "robots.txt에 AI 크롤러 허용, 사이트맵 갱신"
-            ],
-            [
-              "디자인은 좋은데 진료 설명이 대부분 이미지다",
-              "접근 + 문장",
-              "이미지 안 텍스트를 HTML로 옮기고 조건·수치 문장 추가"
-            ],
-            [
-              "블로그는 네이버 상위인데 AI에는 안 나온다",
-              "문장",
-              "후기·감성형 글을 판단 기준형으로 리라이팅"
-            ],
-            [
-              "홈페이지는 정비했는데 여전히 인용이 없다",
-              "신뢰",
-              "채널별 정보 통일, 원장 이력·외부 기록 정비"
-            ],
-            [
-              "어디가 문제인지 판단이 안 된다",
-              "미확정",
-              "세 층위 전체 진단 후 우선순위 결정"
-            ]
+          [
+            "렌더링",
+            "렌더링된 HTML의 제목, 본문, 링크",
+            "핵심 정보가 자바스크립트 실행이나 이미지에만 의존하는가"
+          ],
+          [
+            "정보 일치",
+            "화면의 병원명·주소·의료진과 JSON-LD·메타 정보",
+            "사용자에게 보이는 사실과 기계가 읽는 설명이 같은가"
+          ],
+          [
+            "발견 경로",
+            "내부 링크, canonical, XML 사이트맵",
+            "핵심 페이지가 고립되지 않고 대표 URL로 연결되는가"
+          ]
+        ],
+        "note": "이 표는 공개 웹사이트의 점검 순서입니다. ChatGPT 내부 순위나 인용 확률을 계산하는 점수표가 아닙니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+          "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+          "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+          "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+        ]
+      }
+    },
+    {
+      "heading": "robots.txt에 GPTBot이 없으면 차단된 상태인가요?",
+      "paragraphs": [
+        {
+          "text": "아닙니다. 특정 봇 이름이 robots.txt에 없다는 사실만으로 차단됐다고 판단할 수 없습니다. 먼저 User-agent: * 규칙과 해당 경로의 Disallow 규칙을 확인하고, 페이지 자체의 응답과 noindex 설정을 별도로 점검해야 합니다.",
+          "sources": []
+        },
+        {
+          "text": "robots.txt는 크롤링 접근을 다루지만 페이지의 색인 여부를 직접 보장하지 않습니다. 또한 크롤러마다 규칙 해석과 제품별 사용 목적이 다를 수 있으므로, 한 검색엔진의 문서를 모든 AI 서비스에 그대로 적용했다고 단정해서는 안 됩니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+          ]
+        },
+        {
+          "text": "이번 개정에서는 OpenAI 공식 개발자 문서 범위에서 GPTBot과 검색 노출의 관계를 설명하는 최신 게시자용 기준을 확인하지 못했습니다. 그래서 특정 OpenAI 봇 규칙을 추가하면 ChatGPT에 노출된다는 문장은 사용하지 않았습니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "렌더링된 본문에는 어떤 정보가 보여야 하나요?",
+      "paragraphs": [
+        {
+          "text": "Google은 자바스크립트를 처리할 수 있지만 모든 봇이 자바스크립트를 실행하는 것은 아니므로 서버 측 렌더링이나 사전 렌더링을 고려할 수 있다고 안내합니다. 병원명, 의료진, 진료 영역, 위치와 연락 방법 같은 핵심 정보가 이미지나 클릭 후 화면에만 남지 않는지 렌더링 결과를 확인해야 합니다.",
+          "sources": []
+        },
+        {
+          "text": "여기서 확인하는 것은 ‘AI가 반드시 읽는다’는 보장이 아니라 공개 페이지에 실제 텍스트가 존재하는지입니다. 브라우저의 개발자 도구나 검색엔진의 URL 검사 기능으로 렌더링된 HTML을 확인하고, 핵심 문장이 비어 있다면 구현 방식을 먼저 고칩니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
           ]
         }
-      ]
+      ],
+      "table": null
     },
     {
-      "heading": "비용은 콘텐츠 편수보다 인용까지 걸리는 시간으로 보는 편이 맞습니다",
-      "blocks": [
+      "heading": "본문과 구조화 데이터를 겹쳐 보면 무엇이 보이나요?",
+      "paragraphs": [
         {
-          "type": "p",
-          "text": "GEO 견적을 받으면 대부분 월 몇 편 기준으로 적혀 있습니다. 그런데 접근 문제가 남아 있는 상태에서 글을 늘리면 크롤러가 못 읽는 문서만 쌓입니다. 편수는 늘고 인용은 그대로인 상황이 여기서 나옵니다."
-        },
-        {
-          "type": "p",
-          "text": "기준으로 삼아야 할 것은 첫 인용까지 걸리는 시간입니다. 기술 수정은 즉시 반영되지만 크롤러 재방문과 색인 갱신에 2~6주가 걸리고, 콘텐츠가 인용 후보로 자리 잡는 데 추가로 4~8주가 필요합니다. 첫 인용 확인까지 통상 8~12주로 잡는 것이 현실적입니다."
-        },
-        {
-          "type": "p",
-          "text": "그래서 계약 전에 물어야 할 것은 \"월 몇 편을 쓰는가\"가 아니라 \"언제 어떤 방식으로 인용 여부를 확인해 주는가\"입니다."
+          "text": "Google은 구조화 데이터가 페이지 내용을 이해하는 데 도움을 줄 수 있다고 설명하고 JSON-LD를 권장합니다. 동시에 마크업은 사용자가 화면에서 볼 수 있는 최신 정보와 일치해야 하며, 올바르게 작성해도 검색 결과의 확장 노출은 보장되지 않습니다.",
+          "sources": []
         }
-      ]
+      ],
+      "table": {
+        "caption": "병원 페이지의 화면 정보와 구조화 데이터 대조표",
+        "columns": [
+          "정보",
+          "화면에서 확인",
+          "마크업에서 확인"
+        ],
+        "rows": [
+          [
+            "병원 주체",
+            "공식 병원명과 운영 주체",
+            "Organization 또는 MedicalClinic의 name·url"
+          ],
+          [
+            "의료진",
+            "이름, 소속, 공개된 자격·담당 범위",
+            "화면과 같은 Person 정보와 병원 연결"
+          ],
+          [
+            "페이지 주제",
+            "제목과 첫 문단이 답하는 질문",
+            "BlogPosting 또는 WebPage의 headline·about"
+          ],
+          [
+            "날짜와 책임",
+            "발행일, 수정일, 작성 주체, 정정 경로",
+            "datePublished·dateModified·author·publisher"
+          ]
+        ],
+        "note": "화면에 없는 의료진, 진료, 평점이나 성과를 JSON-LD에만 추가해서는 안 됩니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+        ]
+      }
     },
     {
-      "heading": "원인을 직접 확인할 때 꼭 봐야 할 부분",
-      "blocks": [
+      "heading": "내부 링크와 사이트맵은 왜 함께 확인하나요?",
+      "paragraphs": [
         {
-          "type": "p",
-          "text": "대행사를 부르기 전에 원장님이나 실장님이 직접 확인할 수 있습니다. 네 가지 중 두 개 이상에서 걸리면 손볼 곳이 확실히 있습니다."
+          "text": "Google은 href가 있는 탐색 가능한 링크를 통해 새 페이지를 찾고 페이지 관계를 이해할 수 있다고 설명합니다. 병원 소개, 의료진, 진료 안내, 위치 안내와 관련 가이드가 서로 단절돼 있다면 설명형 앵커텍스트로 대표 페이지를 연결해야 합니다.",
+          "sources": []
         },
         {
-          "type": "h3",
-          "text": "robots.txt에 AI 크롤러가 열려 있는가"
-        },
-        {
-          "type": "p",
-          "text": "주소창에 병원도메인/robots.txt를 입력합니다. Disallow: / 가 보이거나 GPTBot, ClaudeBot, PerplexityBot, Google-Extended가 한 줄도 없으면 접근 층위에서 막혀 있습니다."
-        },
-        {
-          "type": "h3",
-          "text": "본문이 페이지 소스에서 검색되는가"
-        },
-        {
-          "type": "p",
-          "text": "주력 진료 페이지에서 오른쪽 버튼을 눌러 페이지 소스 보기를 열고, 본문 문장 하나를 그대로 검색합니다. 나오지 않으면 크롤러도 그 문장을 읽지 못합니다."
-        },
-        {
-          "type": "h3",
-          "text": "채널별 병원 정보가 일치하는가"
-        },
-        {
-          "type": "p",
-          "text": "홈페이지, 구글 비즈니스 프로필, 네이버 플레이스를 나란히 열어 병원명 표기와 주소, 대표원장 이름을 비교합니다. 한 글자라도 다르면 불일치입니다."
-        },
-        {
-          "type": "h3",
-          "text": "실제 AI 답변에 어떤 출처가 붙는가"
-        },
-        {
-          "type": "p",
-          "text": "챗GPT와 퍼플렉시티에 \"○○구 주력 진료 항목 잘 보는 병원 추천해줘\"를 입력하고 답변 아래 출처 목록을 확인합니다. 병원 홈페이지가 없고 플랫폼과 커뮤니티만 있다면 신뢰 층위가 비어 있는 상태입니다."
-        },
-        {
-          "type": "inline_cta",
-          "text": "네 가지를 다 확인하기 어려우시면 병원명과 홈페이지 주소만 알려주셔도 됩니다. 같은 항목을 대신 점검해 진단 리포트로 정리해 드립니다.",
-          "link_label": "무료 진단 신청하기",
-          "link_url": "/diagnosis"
+          "text": "XML 사이트맵에는 공개하고 싶은 대표 URL을 넣고 canonical과 맞춰야 합니다. 다만 사이트맵 제출은 크롤링이나 노출을 보장하는 명령이 아니라 발견을 돕는 힌트입니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+            "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+          ]
         }
-      ]
+      ],
+      "table": null
     },
     {
-      "heading": "진료과에 따라 달라지는 부분",
-      "type": "vertical_difference",
-      "blocks": [
+      "heading": "왜 한 가지 설정만으로 원인을 단정할 수 없나요?",
+      "paragraphs": [
         {
-          "type": "p",
-          "text": "세 층위 구조는 진료과와 무관하게 같습니다. 달라지는 것은 선점할 질문의 종류와 규제 강도 두 가지입니다."
+          "text": "공개 페이지의 접근 가능 여부와 ChatGPT가 특정 질문에서 어떤 출처를 선택하는지는 같은 문제가 아닙니다. 접근이 가능해도 질문과 맞는 원본 정보가 부족할 수 있고, 정보가 충분해도 답변 시점과 기능에 따라 출처가 표시되지 않을 수 있습니다.",
+          "sources": []
         },
         {
-          "type": "p",
-          "text": "내과와 정형외과는 증상에서 출발하는 질문이 많습니다. \"명치가 계속 아픈데 어느 과에 가야 해?\", \"무릎에서 소리가 나는데 병원 가야 하나?\" 같은 질문에 답하는 감별과 내원 시점 콘텐츠가 인용됩니다. 피부과와 성형외과는 이미 진료과를 정한 뒤의 선택 질문이 많습니다. 시술 비교, 회복 경과, 재시술 판단이 인용 지점입니다."
-        },
-        {
-          "type": "legal_callout",
-          "text": "규제는 전 진료과에 적용되지만 체감 강도가 다릅니다. 비급여 비중이 큰 피부과와 성형외과는 표현 제약이 특히 촘촘합니다. 인용 가능한 문장을 만들려고 할 때 치료경험담과 전후사진, 최상급 표현, 다른 병원과의 비교는 쓸 수 없습니다."
-        },
-        {
-          "type": "legal_callout",
-          "text": "그런데 AI가 실제로 인용하는 문장은 대부분 그 바깥에 있습니다. 진단 기준, 치료 적응증, 회복 경과, 부작용 발생 가능성과 대처는 규제 대상이 아니면서 인용률이 가장 높은 영역입니다. 규제 때문에 대부분의 병원이 이 영역을 비워둔 상태라 지금은 경쟁도 거의 없습니다."
-        },
-        {
-          "type": "legal_callout",
-          "text": "다만 콘텐츠를 늘리기 전에 사전심의 대상 여부와 표현 범위는 병원 법무 또는 의료광고심의위원회 기준으로 확인하십시오. GEO에서 규제 검토는 마지막 절차가 아니라 기획 단계에 들어가야 하는 항목입니다."
+          "text": "따라서 ‘robots.txt 수정 후 몇 주면 노출된다’거나 ‘JSON-LD를 넣으면 인용된다’는 식의 기간·성과 약속은 이 글의 확인 범위를 벗어납니다. 공개 설정을 고친 뒤에도 같은 질문, 같은 플랫폼, 같은 판정 기준으로 결과를 반복 기록해야 합니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+            "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+          ]
         }
-      ]
+      ],
+      "table": null
     },
     {
-      "heading": "클리닉GEO는 진단부터 인용 기록까지 제공합니다",
-      "type": "house_block",
-      "blocks": [
+      "heading": "병원 담당자가 바로 확인할 순서는 무엇인가요?",
+      "paragraphs": [
         {
-          "type": "p",
-          "text": "클리닉GEO는 생성형 검색 최적화 기업 써밋피드가 운영하는 병원 전용 GEO 브랜드입니다. 써밋피드가 개발한 GEO 인용 프로세스를 의료기관 환경에 맞춰 적용하며, 내과와 정형외과부터 피부과와 성형외과까지 진료과를 가리지 않고 담당합니다."
-        },
-        {
-          "type": "p",
-          "text": "진행 순서는 이 글에서 설명한 세 층위를 그대로 따릅니다. 진단으로 접근·문장·신뢰 중 무엇이 막혀 있는지 확정하고, 해당 진료과에서 환자가 실제로 던지는 질문으로 질의 세트를 설계한 뒤, 그 질문에 답하는 콘텐츠를 의료광고법 검토와 함께 제작합니다. 이어서 외부 신뢰 신호를 붙이고, 매월 같은 질의를 실제 AI에 입력해 인용 여부를 기록합니다."
-        },
-        {
-          "type": "p",
-          "text": "보고서로 드리는 것은 검색 순위가 아니라 인용 기록입니다. 어떤 질문에서 병원이 인용됐고, 함께 인용된 병원이 어디인지가 매월 남습니다."
-        },
-        {
-          "type": "block_cta",
-          "heading": "손볼 곳을 정하기 전에 먼저 진단부터 해보세요",
-          "body": "병원명과 홈페이지 주소만 알려주시면 접근·문장·신뢰 세 층위를 실제로 점검해 진단 리포트로 정리해 드립니다. 챗GPT·퍼플렉시티·제미나이에 직접 질의한 결과와 인용된 출처 목록이 함께 들어갑니다.",
-          "link_label": "무료 AI 노출 진단 신청하기",
-          "link_url": "/diagnosis",
-          "sub_text": "진료과 무관 · 영업일 기준 3일 이내 발송 · 비용 없음"
+          "text": "수정 전에 현재 상태를 저장해야 무엇이 바뀌었는지 판단할 수 있습니다. 아래 항목마다 확인 URL, 확인 시각, 결과, 캡처 또는 원문 링크, 담당자를 함께 기록합니다.",
+          "sources": []
         }
-      ]
+      ],
+      "table": {
+        "caption": "병원 사이트 공개 설정 점검 순서",
+        "columns": [
+          "순서",
+          "확인 방법",
+          "남길 기록"
+        ],
+        "rows": [
+          [
+            "1. 접근",
+            "/robots.txt, 핵심 URL의 상태 코드와 noindex 확인",
+            "원문, 확인 시각, 영향받는 URL"
+          ],
+          [
+            "2. 렌더링",
+            "핵심 페이지의 렌더링된 HTML에서 병원명·진료 정보 검색",
+            "렌더링 캡처와 누락된 문장"
+          ],
+          [
+            "3. 정보 일치",
+            "화면과 JSON-LD의 병원명·URL·작성자·날짜 대조",
+            "불일치 항목과 수정 위치"
+          ],
+          [
+            "4. 발견 경로",
+            "내부 링크, canonical, sitemap의 대표 URL 대조",
+            "고립 페이지와 중복 URL"
+          ],
+          [
+            "5. 실제 측정",
+            "수정 전후 동일 질문을 같은 조건으로 확인",
+            "질문, 플랫폼, 날짜, 답변, 출처 URL"
+          ]
+        ],
+        "note": "Clinic GEO 진단을 의뢰할 때도 이 기록을 기준으로 범위와 우선순위를 정합니다.",
+        "sources": [
+          "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+          "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+          "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+          "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+        ]
+      }
     },
     {
-      "heading": "결론",
-      "blocks": [
+      "heading": "의료광고 표현은 어디까지 확인해야 하나요?",
+      "paragraphs": [
         {
-          "type": "p",
-          "text": "병원이 AI 답변에 안 나오는 것은 홈페이지 품질이 낮아서가 아닙니다. 지금까지의 병원 홈페이지가 사람이 보기 좋게 만들어졌고, 기계가 읽기 좋게 만들어진 적이 없기 때문입니다. 그래서 디자인에 공을 들인 병원일수록 이미지 비중이 높아 오히려 불리한 경우가 많습니다."
+          "text": "현행 의료법 제57조는 대통령령으로 정하는 인터넷 매체 등을 이용한 의료광고에 사전심의 절차를 두고 있습니다. 실제 글이 심의 대상인지, 어떤 표현이 허용되는지는 매체와 문안, 운영 방식에 따라 달라질 수 있으므로 발행 전 자율심의기구나 법률 전문가에게 확인해야 합니다.",
+          "sources": [
+            "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031169779"
+          ]
         },
         {
-          "type": "p",
-          "text": "순서는 접근, 문장, 신뢰입니다. 문이 닫혀 있으면 콘텐츠가 소용없고, 문을 열어도 인용할 문장이 없으면 그대로입니다. 세 층위 중 어디에서 막혀 있는지부터 확인한 다음에 예산을 쓰는 편이 맞습니다."
-        },
-        {
-          "type": "p",
-          "text": "대행을 검토하고 계시다면 「병원 GEO 대행사 계약 전 확인할 7가지」를 이어서 보시면 도움이 됩니다.",
-          "link": {
-            "label": "병원 GEO 대행사 계약 전 확인할 7가지",
-            "url": "/blog/geo-agency-checklist/"
-          }
+          "text": "이 글은 기술 점검 절차를 설명하며 특정 진료의 효과, 치료 결과, 부작용 가능성이나 다른 의료기관과의 우위를 판단하지 않습니다. 의료 정보를 추가할 때는 병원이 확인한 사실과 담당 의료진의 검수 범위를 별도로 기록해야 합니다.",
+          "sources": []
         }
-      ]
+      ],
+      "table": null
+    },
+    {
+      "heading": "이 글은 어떤 절차로 확인했나요?",
+      "paragraphs": [
+        {
+          "text": "Clinic GEO 편집팀은 2026년 9월 15일 Google Search Central의 robots.txt, JavaScript SEO, 구조화 데이터, 링크, 사이트맵 문서와 국가법령정보센터의 의료법 제57조를 직접 열어 안내 범위와 예외를 대조했습니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+            "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+            "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+            "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+            "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap",
+            "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031169779"
+          ]
+        },
+        {
+          "text": "공개 문서로 확인하지 못한 ChatGPT의 내부 출처 선택 기준, 질문별 노출 확률, 반영 소요 기간은 평가에서 제외했습니다. Clinic GEO가 제공하는 유료 진단·구축 서비스와 이 글의 이해관계도 하단 작성자 고지에 함께 공개합니다.",
+          "sources": []
+        }
+      ],
+      "table": null
+    },
+    {
+      "heading": "이 글의 용어는 무엇을 뜻하나요?",
+      "paragraphs": [
+        {
+          "text": "크롤링은 자동화된 프로그램이 공개 URL과 콘텐츠에 접근하는 과정입니다. 색인은 검색 시스템이 발견한 정보를 저장하고 검색에 사용할 수 있도록 처리하는 과정이며, 크롤링 허용과 같은 뜻이 아닙니다.",
+          "sources": []
+        },
+        {
+          "text": "렌더링은 HTML, CSS, 자바스크립트를 처리해 최종 화면과 내용을 구성하는 과정입니다. 구조화 데이터는 페이지의 사람·조직·문서 같은 항목을 기계가 이해하기 쉬운 형식으로 설명하는 마크업입니다.",
+          "sources": [
+            "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+            "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+            "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+          ]
+        },
+        {
+          "text": "인용은 AI 답변에서 특정 페이지나 도메인이 출처로 표시되는 상태를 뜻합니다. 이 글에서 ‘노출’은 추천 순위 보장이 아니라 병원명, 설명 또는 공식 URL이 답변에서 확인되는지를 기록하는 운영 용어로 사용합니다.",
+          "sources": []
+        }
+      ],
+      "table": null
     }
   ],
   "conclusion": {
-    "heading": "",
-    "paragraphs": []
+    "heading": "무엇을 기억하면 되나요?",
+    "paragraphs": [
+      "챗GPT에 병원이 보이지 않는 이유를 공개 정보만으로 하나로 단정할 수는 없습니다.",
+      "접근, 렌더링, 정보 일치, 발견 경로를 순서대로 확인하고 수정 전후 상태를 남겨야 합니다.",
+      "그다음 동일한 질문 조건으로 실제 답변과 출처를 반복 기록해 다음 수정의 근거로 사용합니다."
+    ]
   },
   "faqs": [
     {
-      "question": "robots.txt만 열어주면 챗GPT에 바로 나오나요?",
-      "answer": "아닙니다. 크롤러 허용은 출발선입니다. 크롤러가 들어와도 읽을 텍스트가 없거나 인용할 문장이 없으면 출처로 선택되지 않습니다. 접근·문장·신뢰 세 층위는 순차 해결이 아니라 동시 해결 대상입니다."
+      "question": "챗GPT에 우리 병원이 안 나오는 가장 흔한 이유는 무엇인가요?",
+      "answer": "공개 자료만으로 가장 흔한 단일 원인을 확정할 수는 없습니다. robots.txt와 페이지 응답, 렌더링된 HTML, 화면과 구조화 데이터의 일치, 내부 링크와 사이트맵을 차례로 확인한 뒤 실제 질문 결과와 함께 판단해야 합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+        "https://developers.google.com/search/docs/crawling-indexing/links-crawlable",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+      ]
     },
     {
-      "question": "진료과에 따라 GEO 방식이 다른가요?",
-      "answer": "원인 구조는 같고 선점할 질문과 규제 강도가 다릅니다. 내과와 정형외과는 증상에서 출발하는 질문이 많아 감별과 내원 시점 콘텐츠가 인용되고, 피부과와 성형외과는 시술 선택과 회복 경과 질문이 많으며 의료광고법 제약이 더 큽니다. 접근·문장·신뢰 세 층위를 점검하는 순서는 진료과와 무관하게 동일합니다."
+      "question": "robots.txt에 GPTBot이 없으면 차단된 건가요?",
+      "answer": "특정 봇 이름이 없다는 사실만으로 차단됐다고 볼 수 없습니다. User-agent: * 규칙과 해당 경로의 Disallow, 페이지 응답과 noindex를 함께 확인해야 하며 크롤러별 해석 차이도 고려해야 합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+      ]
     },
     {
-      "question": "AI가 우리 병원을 인용하기까지 얼마나 걸리나요?",
-      "answer": "기술 수정은 즉시 반영되지만 인용 발생은 별개입니다. 크롤러 재방문과 색인 갱신에 2~6주, 콘텐츠가 인용 후보로 자리 잡는 데 추가로 4~8주가 걸립니다. 첫 인용 확인까지 통상 8~12주로 잡습니다."
+      "question": "병원 홈페이지에 구조화 데이터만 넣으면 ChatGPT에 나오나요?",
+      "answer": "구조화 데이터는 페이지의 의미를 설명하는 데 도움을 줄 수 있지만 검색 결과나 AI 인용을 보장하지 않습니다. 화면에 보이는 병원 정보와 일치시키고 접근, 렌더링, 내부 링크와 함께 점검해야 합니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+        "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+      ]
     },
     {
-      "question": "네이버 블로그 상위 노출은 되는데 왜 AI에는 안 나오나요?",
-      "answer": "평가 기준이 다릅니다. 네이버는 키워드 적합도와 체류 지표로 순위를 매기고, AI는 발췌 가능한 사실과 출처 신뢰도로 인용 대상을 고릅니다. 키워드가 반복된 감성 후기형 글은 네이버에서는 유리하고 AI에서는 인용 후보에 오르지 못합니다."
+      "question": "병원 정보가 이미지에만 있어도 AI가 읽을 수 있나요?",
+      "answer": "핵심 병원 정보는 HTML 텍스트로도 제공하는 편이 안전합니다. Google은 자바스크립트를 렌더링할 수 있지만 모든 봇이 자바스크립트를 실행하는 것은 아니라고 안내하며, ChatGPT가 개별 이미지를 어떻게 사용하는지는 이 글의 공개 근거만으로 확정하지 않습니다.",
+      "sources": [
+        "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+      ]
     },
     {
-      "question": "의료광고법 때문에 GEO 콘텐츠를 못 만드는 것 아닌가요?",
-      "answer": "제한되는 것은 치료경험담, 전후사진 무단 게재, 최상급 표현, 기관 간 비교입니다. AI가 인용하는 형태인 진단 기준, 치료 적응증, 회복 경과, 부작용 설명은 규제 대상이 아닙니다. 규제 때문에 대부분의 병원이 이 영역을 비워둬서 경쟁도 적습니다."
-    },
-    {
-      "question": "홈페이지를 새로 만들어야 하나요?",
-      "answer": "대부분은 필요하지 않습니다. robots.txt 수정, 구조화 데이터 추가, 이미지 안의 텍스트를 HTML로 옮기는 작업만으로 접근 문제는 해결됩니다. 전면 재구축이 필요한 경우는 본문 전체가 클라이언트 렌더링으로만 그려지고 소스 수정 권한이 없는 임대형 홈페이지입니다."
+      "question": "Clinic GEO 진단을 받으면 챗GPT 노출이 보장되나요?",
+      "answer": "보장되지 않습니다. Clinic GEO 진단은 공개 URL의 접근, 렌더링, 정보 일치, 발견 경로와 실제 질문 결과를 확인 시점 기준으로 기록하고 수정 우선순위를 제안하는 서비스입니다.",
+      "sources": []
     }
   ],
   "author_box": [
-    "클리닉GEO 편집팀 · SEO·네이버 플레이스 운영 7년. 병원 검색 유입을 담당해 온 실무진이 직접 작성하고 검수합니다.",
-    "클리닉GEO는 생성형 검색 최적화 기업 써밋피드가 운영하는 병원 전용 GEO 브랜드입니다."
+    "작성·확인: Clinic GEO 편집팀. 2026년 9월 15일 Google Search Central 공식 문서 6개와 국가법령정보센터의 의료법 제57조를 직접 열어 공개 안내 범위를 대조했습니다.",
+    "이해관계 고지: Clinic GEO는 SUMMITFEED가 운영하는 병원 마케팅·GEO 브랜드이며, 병원 사이트 진단과 구축 서비스를 유료로 제공합니다.",
+    "한계 고지: ChatGPT의 내부 출처 선택 기준, 노출 확률과 반영 기간은 확인하지 못했으며 이 글은 의료 또는 법률 자문이 아닙니다."
   ],
   "tags": [
     "챗GPT 병원 노출",
     "병원 GEO",
-    "병원 AI 검색 최적화",
+    "병원 홈페이지",
+    "robots.txt",
+    "구조화 데이터",
+    "JSON-LD",
+    "병원 AI 검색",
     "AI 인용",
-    "생성형 검색 최적화",
-    "GPTBot 허용",
-    "병원 홈페이지 크롤러",
-    "내과 GEO",
-    "정형외과 GEO",
-    "피부과 GEO",
-    "성형외과 GEO",
-    "네이버 플레이스 정보 일치"
+    "내부 링크",
+    "사이트맵",
+    "의료광고",
+    "Clinic GEO",
+    "SUMMITFEED"
   ],
-  "caution_checklist": [],
-  "internal_links": [],
+  "references": [
+    {
+      "title": "Google Search Central — robots.txt 소개",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/robots/intro"
+    },
+    {
+      "title": "Google Search Central — JavaScript SEO 기본사항",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
+    },
+    {
+      "title": "Google Search Central — 구조화 데이터 작동 방식 이해",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data"
+    },
+    {
+      "title": "Google Search Central — 구조화 데이터 일반 가이드라인",
+      "url": "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+    },
+    {
+      "title": "Google Search Central — 크롤링 가능한 링크",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/links-crawlable"
+    },
+    {
+      "title": "Google Search Central — 사이트맵 만들기 및 제출",
+      "url": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap"
+    },
+    {
+      "title": "국가법령정보센터 — 의료법 제57조 의료광고의 심의",
+      "url": "https://www.law.go.kr/LSW/lsLinkCommonInfo.do?chrClsCd=010202&lsJoLnkSeq=1031169779"
+    }
+  ],
+  "caution_checklist": [
+    "ChatGPT 노출, 인용, 검색 순위와 반영 기간을 보장하지 않습니다.",
+    "특정 봇 이름이 robots.txt에 없다는 이유만으로 허용 또는 차단을 단정하지 않습니다.",
+    "화면에서 확인할 수 없는 병원·의료진·진료 정보를 JSON-LD에 추가하지 않습니다.",
+    "의료광고 해당 여부와 표현 적법성은 실제 매체와 문안을 기준으로 별도 확인합니다.",
+    "측정 결과에는 질문, 플랫폼, 날짜, 답변과 출처 URL을 함께 보존합니다."
+  ],
+  "internal_links": [
+    {
+      "label": "병원 홈페이지의 AI 인용 문제는 어디서 시작될까요?",
+      "url": "/blog/hospital-website-ai-citation-problems",
+      "description": "병원 웹사이트의 접근·구조·콘텐츠 문제를 더 자세히 확인합니다."
+    },
+    {
+      "label": "Clinic GEO는 어떤 근거를 참고하나요?",
+      "url": "/geo-resources",
+      "description": "사이트가 사용하는 공식 자료와 점검 도구를 확인합니다."
+    },
+    {
+      "label": "원고는 어떤 기준으로 작성하고 수정하나요?",
+      "url": "/editorial-policy",
+      "description": "작성 주체, 확인일, 정정과 업데이트 기준을 확인합니다."
+    },
+    {
+      "label": "병원 사이트 공개 설정 진단을 요청하려면?",
+      "url": "/contact",
+      "description": "병원명과 공개 URL을 보내 진단 범위를 협의합니다."
+    }
+  ],
+  "entity_connections": [
+    {
+      "entity": "써밋피드(SUMMITFEED)",
+      "type": "Organization",
+      "id": "https://www.summitfeed.co.kr/#organization",
+      "relationship": "publisher"
+    },
+    {
+      "entity": "Clinic GEO",
+      "type": "WebSite",
+      "id": "https://clinicgeo.co.kr/#website",
+      "relationship": "isPartOf"
+    },
+    {
+      "entity": "챗GPT 병원 노출",
+      "type": "Thing",
+      "id": "https://clinicgeo.co.kr/blog/chatgpt-hospital-visibility#topic",
+      "relationship": "about"
+    },
+    {
+      "entity": "ChatGPT",
+      "type": "Thing",
+      "id": "https://chatgpt.com/",
+      "relationship": "mentions"
+    }
+  ],
+  "editorial": {
+    "author": "Clinic GEO 편집팀",
+    "publisher": "SUMMITFEED",
+    "site": "Clinic GEO",
+    "basis": "Google Search Central 공식 문서 6개와 국가법령정보센터의 현행 의료법 제57조를 직접 열어 확인",
+    "reviewedAt": "2026-09-15"
+  },
+  "presentation": {
+    "summary_label": "먼저 확인한 결론",
+    "theme": "white-blue",
+    "compact_layout": true,
+    "show_table_of_contents": true
+  },
+  "verified_at": "최종 확인일 2026년 9월 15일 — Google Search Central의 robots.txt·JavaScript SEO·구조화 데이터·링크·사이트맵 문서와 국가법령정보센터 의료법 제57조를 직접 열어 대조했습니다.",
+  "revision_log": [
+    "기존의 근거 없는 노출 예상 기간을 삭제했습니다.",
+    "특정 봇 이름이 robots.txt에 없으면 차단된다는 설명을 사용자 에이전트와 규칙을 함께 확인하는 절차로 수정했습니다.",
+    "검증되지 않은 경쟁도·인용 우선순위·성과 보장 문구를 삭제하고 확인할 수 없는 범위를 공개했습니다.",
+    "작성자를 Clinic GEO 편집팀으로 통일하고 공식 출처, 이해관계, 의료·법률 자문 한계를 추가했습니다.",
+    "2026-09-15: 섹션당 문단마다 따로 붙던 '출처' 표시를 섹션당 1개로 통합함. 인용됐던 출처는 삭제하지 않고 각 섹션의 마지막 문단(또는 표) 한 곳에 모아 표시함."
+  ],
   "publishedAt": "2026-08-24",
-  "updatedAt": "2026-08-24",
+  "updatedAt": "2026-09-15",
   "publishAt": "2026-08-24T09:00:00+09:00",
   "published": true
 }

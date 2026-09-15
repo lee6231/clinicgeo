@@ -10,6 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
     "/",
     "/about",
+    "/authors/clinicgeo-editorial-team",
     "/blog",
     "/hospitals",
     "/hospital-guides",
@@ -21,7 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/category/dental-geo",
     "/category/dermatology-geo",
     "/category/orthopedics-geo",
-    "/category/internal-medicine-geo",
     "/category/plastic-surgery-geo",
   ].map((route) => ({
     url: `${siteUrl}${route}`,

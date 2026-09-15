@@ -8,7 +8,7 @@
   "focus_keyword": "병원 GEO 타겟 쿼리",
   "meta_description": "병원 GEO 타겟 쿼리는 키워드 목록이 아니라 AI에 실제 입력할 질문 세트입니다. 메인 질문 2개와 팬아웃 질문 3개를 콘텐츠·내부 링크·측정에 연결하는 방법을 정리합니다.",
   "publishedAt": "2026-08-03",
-  "updatedAt": "2026-08-03",
+  "updatedAt": "2026-09-15",
   "publishAt": "2026-08-03T12:30:00+09:00",
   "published": true,
   "summary_label": "핵심 요약",
@@ -97,9 +97,7 @@
           ]
         ],
         "note": "타겟 질문과 측정 질문은 같은 문장을 사용할 수 있지만, 콘텐츠 설계용인지 반복 측정용인지 역할을 구분해 기록해야 합니다.",
-        "sources": [
-          "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-        ]
+        "sources": []
       }
     },
     {
@@ -115,9 +113,7 @@
         },
         {
           "text": "이 글에서 사용하는 메인 질문과 팬아웃 질문은 Google이나 OpenAI가 공개한 공식 순위 용어가 아닙니다. Clinic GEO가 콘텐츠 클러스터와 AI 응답 측정을 일관되게 운영하기 위해 사용하는 실무 분류이며, 특정 플랫폼의 비공개 내부 작동 방식을 뜻하지 않습니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/third-party-seo"
-          ]
+          "sources": []
         }
       ],
       "table": {
@@ -162,6 +158,7 @@
         ],
         "note": "질문의 목적에 따라 필요한 결과가 다르므로 브랜드 언급, 공식 출처 인용, 추천 포함을 하나의 성공 지표로 합치지 않습니다.",
         "sources": [
+          "https://developers.google.com/search/docs/fundamentals/third-party-seo",
           "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide",
           "https://help.openai.com/en/articles/9237897-chatgpt-search"
         ]
@@ -226,9 +223,7 @@
           ]
         ],
         "note": "질문 수는 업종과 사이트 상태에 따라 조정하며, 발행량을 정당화하기 위해 불필요한 질문을 추가하지 않습니다.",
-        "sources": [
-          "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-        ]
+        "sources": []
       }
     },
     {
@@ -247,9 +242,7 @@
         },
         {
           "text": "병원 관련 질문은 건강과 안전에 영향을 줄 수 있으므로 마케팅 목적의 타겟 쿼리와 의료적 진단·치료 조언을 구분해야 합니다. 의료진, 진료 범위, 상담 절차, 위치처럼 병원이 확인할 수 있는 사실을 중심으로 작성하고 효능이나 결과를 단정하는 질문은 피해야 합니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-          ]
+          "sources": []
         }
       ],
       "table": {
@@ -299,9 +292,7 @@
           ]
         ],
         "note": "각 질문이 독립된 사용자 목적과 고유한 답변을 가지는지 확인하고, 동일한 답변을 요구하면 하나의 대표 문서로 통합합니다.",
-        "sources": [
-          "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-        ]
+        "sources": []
       }
     },
     {
@@ -309,22 +300,15 @@
       "paragraphs": [
         {
           "text": "질문을 정한 다음에는 각 질문을 책임질 대표 URL을 하나씩 지정합니다. 대표 페이지가 없는 질문은 먼저 공식 사이트에서 답할 수 있는 원본 정보를 준비해야 하며, 외부 채널의 글만으로 핵심 설명을 대신하지 않는 편이 좋습니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/get-started-developers"
-          ]
+          "sources": []
         },
         {
           "text": "대표 허브는 메인 질문에 답하고, 팬아웃 글은 비교·문제·상황·측정 같은 하위 질문에 답합니다. 팬아웃 글에서는 ‘자세히 보기’보다 ‘병원 홈페이지가 AI에 인용되지 않는 이유’처럼 연결 문서의 의미를 설명하는 앵커 텍스트를 사용합니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/get-started-developers"
-          ]
+          "sources": []
         },
         {
           "text": "구조화 데이터는 페이지의 운영 주체와 문서 관계를 보조할 수 있지만 화면에 없는 정보나 과장된 관계를 대신 만들 수는 없습니다. Organization, WebSite, BlogPosting과 about·mentions 관계는 실제 본문과 일치하는 범위에서 사용해야 합니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
-            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
-          ]
+          "sources": []
         }
       ],
       "table": {
@@ -370,6 +354,8 @@
         "note": "각 페이지는 하나의 중심 질문을 직접 답하되, 관련 질문은 문맥에 맞는 내부 링크로 연결합니다.",
         "sources": [
           "https://developers.google.com/search/docs/fundamentals/get-started-developers",
+          "https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data",
+          "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
           "https://developers.google.com/search/docs/crawling-indexing/canonicalization"
         ]
       }
@@ -383,15 +369,11 @@
         },
         {
           "text": "브랜드명이 답변에 등장한 경우와 공식 홈페이지가 출처로 연결된 경우, 추천 후보에 포함된 경우를 각각 구분합니다. 출처 링크가 확인되지 않는 응답은 브랜드 언급으로만 기록하는 편이 안전합니다.",
-          "sources": [
-            "https://help.openai.com/en/articles/9237897-chatgpt-search"
-          ]
+          "sources": []
         },
         {
           "text": "OpenAI는 공개 사이트가 ChatGPT 검색에 포함될 수 있도록 OAI-SearchBot 접근을 허용할 수 있다고 설명합니다. 페이지 발행 후에는 질문·플랫폼·날짜·원답변과 인용 URL을 반복 기록합니다.",
-          "sources": [
-            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
-          ]
+          "sources": []
         }
       ],
       "table": {
@@ -430,6 +412,7 @@
         ],
         "note": "한 번의 응답이나 화면만으로 지속적인 노출 성과를 확정하지 않으며, 같은 조건의 반복 기록을 기준으로 보강 우선순위를 정합니다.",
         "sources": [
+          "https://help.openai.com/en/articles/9237897-chatgpt-search",
           "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
           "https://developers.google.com/search/docs/fundamentals/ai-optimization-guide"
         ]
@@ -440,9 +423,7 @@
       "paragraphs": [
         {
           "text": "질문의 수보다 중요한 것은 각 질문이 실제 사용자의 다른 목적을 설명하는지 여부입니다. 병원명과 지역명만 바꾼 유사 질문, 같은 답변을 요구하는 문장 변형, 연결할 공식 페이지가 없는 질문은 운영 범위에서 제외하는 편이 좋습니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-          ]
+          "sources": []
         },
         {
           "text": "또한 ‘무조건 추천되는 병원’, ‘가장 효과가 좋은 시술’, ‘AI 인용 보장’처럼 사실 확인이 어렵거나 결과를 보장하는 표현을 측정 질문과 콘텐츠 제목에 사용하지 않습니다. 질문 자체가 과장돼 있으면 답변의 신뢰성과 의료광고 검수에도 문제가 생길 수 있습니다.",
@@ -677,5 +658,9 @@
     "theme": "white-blue",
     "compact_layout": true,
     "show_table_of_contents": true
-  }
+  },
+  "revision_log": [
+    "2026-09-15: 표가 바로 위 문단과 동일하거나 하위 집합인 출처를 반복 표시하던 지점 8곳을 정리함. 이미 문단 표시된 출처는 삭제하지 않고, 표에만 있던 새 출처는 그대로 유지함.",
+    "2026-09-15: 섹션당 문단마다 따로 붙던 '출처' 표시를 섹션당 1개로 통합함. 각 섹션에서 인용됐던 출처는 하나도 삭제하지 않고, 그 섹션의 마지막 문단(또는 표) 한 곳에 모아 표시함."
+  ]
 }

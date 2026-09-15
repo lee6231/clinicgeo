@@ -8,7 +8,7 @@
   "focus_keyword": "피부과 GEO",
   "meta_description": "피부과 홈페이지가 AI 검색과 Google에서 이해되려면 어떤 정보가 필요할까요? 의료진, 진료·시술 정보, 위치, FAQ, 구조화 데이터와 내부 링크 기준을 정리했습니다.",
   "publishedAt": "2026-08-01",
-  "updatedAt": "2026-08-01",
+  "updatedAt": "2026-09-15",
   "publishAt": "2026-08-01T14:00:00+09:00",
   "published": true,
   "summary_label": "핵심 요약",
@@ -37,6 +37,10 @@
     {
       "title": "일관된 병원 정보",
       "body": "병원명, 주소, 전화, 진료시간, 공식 URL을 홈페이지·지도·외부 프로필에서 같은 형식으로 유지합니다."
+    },
+    {
+      "title": "작성 주체·이해관계",
+      "body": "Clinic GEO(운영: 써밋피드) 편집팀이 자사 서비스 기준으로 작성한 글이며, 특정 피부과나 장비 업체와의 협찬·제휴는 포함되어 있지 않습니다. 본문에 등장하는 특정 병원 사례는 없습니다."
     }
   ],
   "sections": [
@@ -45,14 +49,13 @@
       "paragraphs": [
         {
           "text": "AI 검색과 일반 검색 모두 공개 웹페이지에서 병원과 페이지의 의미를 파악합니다. 따라서 병원명, 운영 주체, 주소, 연락처, 진료시간, 의료진, 진료 영역이 페이지마다 다르게 표현되지 않도록 정리하는 것이 출발점입니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
-            "https://developers.google.com/search/docs/appearance/establish-business-details"
-          ]
+          "sources": []
         },
         {
           "text": "Google은 구조화 데이터가 페이지 이해를 도울 수 있다고 설명하지만, 마크업 내용은 사용자가 실제 화면에서 확인할 수 있는 본문과 일치해야 합니다. JSON-LD에만 의료진이나 서비스를 추가하고 화면에는 보이지 않게 두는 방식은 피해야 합니다.",
           "sources": [
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+            "https://developers.google.com/search/docs/appearance/establish-business-details",
             "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
           ]
         },
@@ -68,9 +71,7 @@
       "paragraphs": [
         {
           "text": "필수 정보는 홍보 문구보다 환자가 병원을 이해하고 비교하는 데 필요한 사실 중심으로 구성하는 것이 좋습니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-          ]
+          "sources": []
         }
       ],
       "table": {
@@ -114,6 +115,7 @@
         ],
         "note": "Schema 유형은 페이지의 실제 내용과 사이트 구조에 맞게 선택하고, 화면 정보와 일치하도록 관리합니다.",
         "sources": [
+          "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
           "https://developers.google.com/search/docs/appearance/structured-data/local-business",
           "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
           "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb"
@@ -125,20 +127,17 @@
       "paragraphs": [
         {
           "text": "모든 진료와 장비를 하나의 긴 페이지에 나열하면 각 질문의 답이 어디에 있는지 불명확해질 수 있습니다. 리프팅, 여드름, 색소, 흉터처럼 검색 의도가 다른 주제는 독립 URL을 만들고 의료진·FAQ·관련 글을 내부 링크로 연결하는 편이 관리하기 쉽습니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-          ]
+          "sources": []
         },
         {
           "text": "각 페이지는 첫 문단에서 주제를 짧게 정의하고, 일반적으로 어떤 상담 질문이 생기는지, 어떤 정보를 확인해야 하는지, 개인별 판단이 필요한 부분은 무엇인지 순서대로 설명해야 합니다. 특정 효과를 보장하거나 다른 의료기관과의 우위를 단정하는 문장은 피해야 합니다.",
-          "sources": [
-            "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001788&lsJoLnkSeq=900350305&print=print"
-          ]
+          "sources": []
         },
         {
           "text": "장비명과 이벤트 가격만으로 구성된 페이지보다 병원이 직접 제공할 수 있는 진료 원칙, 상담 과정, 의료진의 담당 범위, 페이지의 수정 기준을 공개한 문서가 고유한 원본 정보로 기능하기 쉽습니다.",
           "sources": [
-            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
+            "https://www.law.go.kr/LSW/lsLawLinkInfo.do?chrClsCd=010202&lsId=001788&lsJoLnkSeq=900350305&print=print"
           ]
         }
       ],
@@ -203,9 +202,7 @@
       "paragraphs": [
         {
           "text": "E-E-A-T는 별도의 점수나 Schema 유형이 아닙니다. 피부과가 직접 제공할 수 있는 경험과 전문 정보, 책임 주체, 출처와 수정 기록을 사용자가 확인할 수 있게 만드는 운영 원칙으로 보는 편이 정확합니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content"
-          ]
+          "sources": []
         },
         {
           "text": "Clinic GEO 아티클은 발행 주체를 SUMMITFEED로 연결하고, Clinic GEO 웹사이트 안의 피부과 GEO 카테고리에 포함하며, 관련된 치과·병원 GEO 문서와 SUMMITFEED의 기술 기준 글을 연결합니다. 이 방식은 두 사이트의 역할을 숨기지 않고 하나의 주제 클러스터로 설명하기 위한 것입니다.",
@@ -214,6 +211,7 @@
         {
           "text": "병원 홈페이지에서도 의료기관, 의료진, 진료 서비스, 위치, 작성 문서를 서로 연결해야 합니다. 동일한 의료진 이름이나 병원명이 페이지마다 다른 표기로 사용되지 않는지 정기적으로 확인하는 것이 좋습니다.",
           "sources": [
+            "https://developers.google.com/search/docs/fundamentals/creating-helpful-content",
             "https://developers.google.com/search/docs/appearance/establish-business-details",
             "https://developers.google.com/search/docs/appearance/structured-data/local-business"
           ]
@@ -226,16 +224,14 @@
       "paragraphs": [
         {
           "text": "LocalBusiness·Organization·BlogPosting·BreadcrumbList 같은 구조화 데이터는 검색 시스템이 페이지 성격과 주체를 이해하도록 돕습니다. 그러나 올바르게 구현해도 검색 결과의 확장 노출이나 생성형 AI 인용이 보장되지는 않습니다.",
-          "sources": [
-            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
-            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
-            "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb"
-          ]
+          "sources": []
         },
         {
           "text": "구조화 데이터는 화면에 보이는 정보와 일치시키고 Rich Results Test와 Schema Markup Validator로 확인해야 합니다. 동시에 robots.txt, noindex, canonical, sitemap과 실제 HTTP 응답을 함께 점검해야 합니다.",
           "sources": [
-            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies"
+            "https://developers.google.com/search/docs/appearance/structured-data/sd-policies",
+            "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+            "https://developers.google.com/search/docs/appearance/structured-data/breadcrumb"
           ]
         },
         {
@@ -404,5 +400,9 @@
     "theme": "white-blue",
     "compact_layout": true,
     "show_table_of_contents": true
-  }
+  },
+  "revision_log": [
+    "2026-09-15: 이해관계 고지 data_card를 추가해 작성 주체(Clinic GEO·써밋피드)와 협찬·제휴 부재, 특정 병원 사례 미포함을 명시함. E-E-A-T 점검 결과 그 외 항목(말투, 근거 출처, 의료광고 표현 유의사항)은 기존 원고가 이미 충족하고 있어 변경하지 않음.",
+    "2026-09-15: 섹션당 문단마다 따로 붙던 '출처' 표시를 섹션당 1개로 통합함. 각 섹션에서 인용됐던 출처는 하나도 삭제하지 않고, 그 섹션의 마지막 문단(또는 표) 한 곳에 모아 표시함."
+  ]
 }

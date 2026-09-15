@@ -3,7 +3,7 @@ import { AiQuestionSection } from "@/components/AiQuestionSection";
 import { ContactForm } from "@/components/ContactForm";
 import { Footer } from "@/components/Footer";
 import { GeoProcessSection } from "@/components/GeoProcessSection";
-import { GeoShiftSection } from "@/components/GeoShiftSection";
+import { GeoServiceCards } from "@/components/GeoServiceCards";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { LandingIntro } from "@/components/LandingIntro";
@@ -27,28 +27,28 @@ export const metadata: Metadata = {
 
 const faqs = [
   {
-    question: "병원 GEO는 정확히 어떤 서비스인가요?",
-    answer: "병원 GEO는 ChatGPT, Gemini, Perplexity, Claude와 같은 생성형 AI가 병원의 진료 정보와 전문 분야를 이해할 수 있도록 홈페이지와 콘텐츠 구조를 정비하는 작업입니다. 단순히 글을 많이 발행하는 방식이 아니라, 병원 정보와 진료 항목, 의료진, 지역, 환자 질문이 서로 연결되도록 설계합니다.",
+    question: "진료과가 여러 개인 병원인데, 어떤 순서로 진행되나요?",
+    answer: "온보딩에서 진료과별 환자 수요와 기존 콘텐츠 현황을 확인해 우선순위를 정합니다. 진료과마다 환자 질문과 검색 패턴이 다르기 때문에 전체를 한 번에 다루지 않고, 핵심 진료과의 엔티티 구조부터 완성한 뒤 다음 진료과로 순차 확장합니다.",
   },
   {
-    question: "기존 SEO나 네이버 블로그 마케팅과 무엇이 다른가요?",
-    answer: "SEO와 블로그 마케팅이 검색 결과에서의 노출을 목표로 한다면, GEO는 AI가 특정 질문에 답변할 때 병원이나 홈페이지를 참고하도록 만드는 데 초점을 둡니다. 두 방식은 서로 대체하는 관계가 아니라 함께 운영했을 때 효과가 커집니다.",
+    question: "의료광고법에 어긋나는 표현이 들어가지는 않나요?",
+    answer: "병원 콘텐츠는 정보 제공과 선택 기준 중심으로 작성합니다. 원고 1차 제작 단계에서 의료법·약사법 기준으로 표현을 검수하고, 2차 최종 검사를 거친 뒤 콘텐츠를 발행합니다. 이 과정에서 ‘1등’, ‘보장’과 같은 과장·단정 표현과 효과를 확신하는 문구는 제외합니다.",
   },
   {
-    question: "기존 홈페이지가 있어도 GEO 작업이 가능한가요?",
-    answer: "가능합니다. 기존 홈페이지의 제목, 페이지 구성, 내부 링크, FAQ, 구조화 데이터, 진료 정보 등을 먼저 점검한 뒤 필요한 부분을 보완합니다. 홈페이지를 새로 제작하지 않아도 현재 구조를 활용해 단계적으로 개선할 수 있습니다.",
+    question: "운영 중인 네이버 플레이스나 블로그도 같이 관리되나요?",
+    answer: "네. GEO만 따로 운영하지 않고 네이버 플레이스, 브랜딩 블로그, 네이버 SEO까지 한 팀에서 통합 관리합니다. 채널별로 대행사를 나눠 쓸 필요 없이 검색과 AI 인용 성과를 한 곳에서 확인할 수 있습니다.",
   },
   {
-    question: "어떤 내용을 중심으로 작업하나요?",
-    answer: "병원의 주요 진료 분야와 지역, 의료진 정보, 환자가 자주 묻는 질문을 기준으로 작업합니다. 예를 들어 단순히 ‘정형외과’라는 키워드만 다루는 것이 아니라, 증상·검사·치료 과정·내원 시점처럼 실제 환자가 궁금해하는 질문까지 함께 구성합니다.",
+    question: "AI 인용 여부는 정확히 어떻게 확인하나요?",
+    answer: "ChatGPT, Gemini, Perplexity, Claude 4개 플랫폼에 고정된 20개 질문을 동일한 조건으로 반복 입력해 병원명 언급, 출처 인용, 추천 포함 여부를 누적 측정합니다. 감이 아니라 매달 동일한 방식으로 재현한 수치로 월간 리포트를 전달합니다.",
   },
   {
-    question: "GEO 작업 후 AI 인용까지 얼마나 걸리나요?",
-    answer: "공개된 병원 정보가 AI 답변에 반영되도록 홈페이지 상태와 검색엔진 색인을 정리합니다. 일반적으로 4~8주의 관찰 기간을 두고 인용 여부를 확인하며, 그동안 부족한 질문과 페이지를 지속적으로 보완합니다.",
+    question: "효과는 언제부터 확인할 수 있나요?",
+    answer: "공개된 병원 정보가 AI 답변에 반영되도록 홈페이지와 검색엔진 색인 상태를 먼저 정리합니다. 이후 6~8주의 관찰 기간을 두고 인용 여부 변화를 확인하며, 그동안 부족한 질문과 페이지를 계속 보완합니다.",
   },
   {
-    question: "AI 노출과 인용 여부는 어떻게 확인하나요?",
-    answer: "ChatGPT, Gemini, Perplexity, Claude 4개 AI 플랫폼의 API를 활용해 병원별로 선정한 20개 질문을 측정합니다. 질문별 병원명 언급, 홈페이지 출처 인용과 추천 포함 여부를 누적하고, 1·2·3개월차 인용률(%) 변화와 질문별 결과를 월간 리포트로 제공합니다.",
+    question: "기존 홈페이지를 새로 만들어야 하나요?",
+    answer: "아닙니다. 기존 홈페이지의 페이지 구성, 내부 링크, FAQ, 구조화 데이터를 먼저 점검하고 부족한 부분만 보완합니다. 홈페이지를 새로 제작하지 않아도 현재 구조를 그대로 활용해 단계적으로 개선할 수 있습니다.",
   },
 ];
 
@@ -105,30 +105,31 @@ export default function Home() {
       <main>
         <LandingIntro />
 
-        <ServiceSeries />
+        <GeoServiceCards />
 
-        <GeoShiftSection />
+        <ServiceSeries />
 
         <GeoProcessSection />
 
         <AiQuestionSection />
 
-        <section id="faq" className="flex min-h-[70svh] scroll-mt-16 items-center border-b border-blue-100 bg-[#fffaf4]">
-          <div className="mx-auto grid w-full max-w-[1152px] gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20 lg:py-28">
+        <section id="faq" className="relative flex min-h-[70svh] scroll-mt-16 items-center overflow-hidden border-b border-[#eadde2] bg-[#fffaf4]">
+          <div className="pointer-events-none absolute -left-24 top-1/4 h-80 w-80 rounded-full bg-[#f5c2d2]/30 blur-3xl" aria-hidden="true" />
+          <div className="relative mx-auto grid w-full max-w-[1152px] gap-14 px-5 py-20 sm:px-6 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20 lg:py-28">
             <div>
-              <p className="text-xs font-bold tracking-[0.16em] text-blue-600">FAQ</p>
+              <p className="text-xs font-bold tracking-[0.16em] text-[#c35476]">FAQ</p>
               <h2 className="mt-4 break-keep text-3xl font-extrabold leading-tight sm:text-5xl">병원 마케팅,<br />무엇이 궁금하세요?</h2>
               <p className="mt-6 max-w-sm break-keep leading-8 text-[#6f5962]">상담 전 가장 많이 확인하는 GEO와 네이버 마케팅의 작업 범위와 운영 기준을 정리했습니다.</p>
             </div>
             <div className="border-t-2 border-[#3b2934]">
               {faqs.map((faq, index) => (
-                <details key={faq.question} className="group border-b border-slate-200" open={index === 0}>
+                <details key={faq.question} className="group border-b border-[#eadde2]" open={index === 0}>
                   <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 text-base font-bold text-[#3b2934] sm:text-lg">
                     <span className="flex items-start gap-4">
-                      <span className="font-mono text-xs leading-6 text-blue-500">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="font-mono text-xs leading-6 text-[#c35476]">{String(index + 1).padStart(2, "0")}</span>
                       <span>{faq.question}</span>
                     </span>
-                    <span className="text-xl font-normal text-teal-700 group-open:rotate-45" aria-hidden="true">+</span>
+                    <span className="text-xl font-normal text-[#d26383] group-open:rotate-45" aria-hidden="true">+</span>
                   </summary>
                   <p className="max-w-3xl pb-6 pr-10 text-sm leading-7 text-[#6f5962]">{faq.answer}</p>
                 </details>
@@ -137,11 +138,12 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="relative scroll-mt-16 overflow-hidden border-b border-blue-100 bg-[#fff1f5]">
+        <section id="contact" className="relative scroll-mt-16 overflow-hidden border-b border-[#eadde2] bg-[#fff1f5]">
           <div className="absolute inset-x-0 top-0 h-1 bg-[#f5c2d2]" aria-hidden="true" />
+          <div className="pointer-events-none absolute -right-32 bottom-0 h-96 w-96 rounded-full bg-[#e985a3]/15 blur-3xl" aria-hidden="true" />
           <div className="relative mx-auto grid max-w-[1152px] gap-12 px-5 py-20 sm:px-6 lg:grid-cols-[0.72fr_1.28fr] lg:items-start lg:gap-20 lg:py-28">
             <div className="lg:sticky lg:top-28">
-              <p className="text-xs font-bold tracking-[0.16em] text-blue-600">CONTACT</p>
+              <p className="text-xs font-bold tracking-[0.16em] text-[#c35476]">CONTACT</p>
               <h2 className="mt-4 break-keep text-3xl font-extrabold leading-tight text-[#3b2934] sm:text-5xl">병원의 다음 성장을<br />함께 설계합니다.</h2>
               <p className="mt-6 max-w-md break-keep text-sm leading-7 text-[#6f5962] sm:text-base">
                 병원명과 사이트 주소를 남겨 주시면 현재 채널을 확인하고 필요한 작업 범위를 정리해 연락드립니다.
@@ -149,6 +151,24 @@ export default function Home() {
               <a href="mailto:summit-ai@summitfeed.co.kr" className="mt-8 inline-flex border-b border-[#3b2934] pb-1 text-sm font-bold text-[#3b2934] hover:border-[#d26383] hover:text-[#d26383]">
                 summit-ai@summitfeed.co.kr
               </a>
+
+              <ol className="mt-10 space-y-5 border-t border-[#e8cfd8] pt-8">
+                {[
+                  { title: "채널 진단", body: "남겨주신 사이트와 채널을 먼저 확인합니다." },
+                  { title: "작업 범위 정리", body: "필요한 작업과 우선순위를 정리해 안내합니다." },
+                  { title: "담당자 연락", body: "정리한 내용을 바탕으로 직접 연락드립니다." },
+                ].map((step, index) => (
+                  <li key={step.title} className="flex gap-4">
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#3b2934] text-xs font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <p className="text-sm font-bold text-[#3b2934]">{step.title}</p>
+                      <p className="mt-1 text-xs leading-6 text-[#78646e]">{step.body}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
             </div>
             <div>
               <ContactForm />

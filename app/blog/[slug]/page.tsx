@@ -7,12 +7,16 @@ import { ArticleRenderer } from "@/components/ArticleRenderer";
 import { posts } from "@/lib/posts";
 import {
   buildMetadata,
-  publisherName,
+  buildOgImageUrl,
   siteUrl,
   summitfeedOrganizationId,
   websiteId,
 } from "@/lib/seo";
 import { hiddenArticleSlugs } from "@/lib/editorial";
+import {
+  buildClinicGeoEditorialTeamJsonLd,
+  resolveArticleAuthor,
+} from "@/lib/authors";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -28,6 +32,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
   const publishedTime = article.publishedAt;
   const modifiedTime = article.updatedAt ?? article.publishedAt;
+  const ogImageUrl = buildOgImageUrl(title, article.categoryName);
+  const ogImageAlt = `${title} | Clinic GEO`;
+  const articleAuthor = resolveArticleAuthor();
 
   const isHiddenCandidate = hiddenArticleSlugs.has(slug);
 
@@ -36,6 +43,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: {
       absolute: article.metadata_title ?? `${title} | Clinic GEO by SUMMITFEED`,
     },
+    authors: [{ name: articleAuthor.name, url: articleAuthor.url }],
     openGraph: {
       type: "article",
       title,
@@ -45,6 +53,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       locale: "ko_KR",
       publishedTime,
       modifiedTime,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: ogImageAlt,
+        },
+      ],
     },
     alternates: {
       canonical: canonicalUrl,
@@ -53,6 +69,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       card: "summary_large_image",
       title,
       description,
+      images: [{ url: ogImageUrl, alt: ogImageAlt }],
     },
     robots: isHiddenCandidate
       ? {
@@ -83,6 +100,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const article = post.article;
   const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+  const ogImageUrl = buildOgImageUrl(article.title, article.categoryName);
+  const articleAuthor = resolveArticleAuthor();
   const faqs = Array.isArray(article.faqs) ? article.faqs : [];
   const tags = Array.isArray(article.tags) ? article.tags : [];
   const isHiddenCandidate = hiddenArticleSlugs.has(slug);
@@ -140,16 +159,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       description: article.meta_description,
       datePublished: article.publishedAt,
       dateModified: article.updatedAt ?? article.publishedAt,
-      author: {
-        "@type": "Organization",
-        "@id": summitfeedOrganizationId,
-        name: publisherName,
-      },
+      image: [ogImageUrl],
+      author: buildClinicGeoEditorialTeamJsonLd(),
       publisher: {
         "@id": summitfeedOrganizationId,
       },
       creator: {
-        "@id": summitfeedOrganizationId,
+        "@id": articleAuthor.id,
       },
       copyrightHolder: {
         "@id": summitfeedOrganizationId,
@@ -228,7 +244,22 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           },
         ]
       : []),
-    ...(Array.isArray(article.supplemental_json_ld) ? article.supplemental_json_ld : []),
+    ...(Array.isArray(article.supplemental_json_ld)
+      ? article.supplemental_json_ld.map((item) => {
+          const type = item["@type"];
+          const isContentEntity = ["Article", "BlogPosting", "NewsArticle", "MedicalWebPage"].includes(
+            typeof type === "string" ? type : "",
+          );
+
+          return isContentEntity
+            ? {
+                ...item,
+                author: buildClinicGeoEditorialTeamJsonLd(),
+                publisher: { "@id": summitfeedOrganizationId },
+              }
+            : item;
+        })
+      : []),
   ];
 
   return (

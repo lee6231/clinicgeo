@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { getCategoryName } from "@/lib/categories";
 
 export type ArticleQuickAnswer = {
   definition_sentence: string;
@@ -174,7 +175,10 @@ function readArticleFromFile(filePath: string): Article | null {
   const raw = fs.readFileSync(filePath, "utf8");
   const parsed = JSON.parse(raw) as Article;
 
-  return parsed;
+  return {
+    ...parsed,
+    categoryName: getCategoryName(parsed.categorySlug),
+  };
 }
 
 export function getAllArticles(): Article[] {

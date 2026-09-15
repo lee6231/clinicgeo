@@ -2,8 +2,7 @@ export type DirectorySpecialtySlug =
   | "orthopedics-geo"
   | "dermatology-geo"
   | "dental-geo"
-  | "plastic-surgery-geo"
-  | "internal-medicine-geo";
+  | "plastic-surgery-geo";
 
 export type DirectorySpecialty = {
   slug: DirectorySpecialtySlug;
@@ -25,7 +24,6 @@ export const directorySpecialties: DirectorySpecialty[] = [
   { slug: "dermatology-geo", name: "피부과", description: "피부 질환과 미용 진료 정보를 지역별로 확인합니다." },
   { slug: "dental-geo", name: "치과", description: "임플란트·교정·보존 진료 정보를 지역별로 확인합니다." },
   { slug: "plastic-surgery-geo", name: "성형외과", description: "상담·수술·사후 관리 정보를 지역별로 확인합니다." },
-  { slug: "internal-medicine-geo", name: "내과", description: "건강검진과 만성질환 진료 정보를 지역별로 확인합니다." },
 ];
 
 const toDistricts = (items: string[][]): District[] => items.map(([slug, name]) => ({ slug, name }));

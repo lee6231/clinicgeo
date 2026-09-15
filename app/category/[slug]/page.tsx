@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { PageFrame } from "@/components/PageFrame";
 import { isArticleListed } from "@/lib/editorial";
-import { categories, posts } from "@/lib/posts";
+import { categories, getParentCategory, getRelatedCategories, posts } from "@/lib/posts";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 
 type SeriesProfile = {
@@ -18,9 +18,9 @@ type SeriesProfile = {
 const seriesProfiles: Record<string, SeriesProfile> = {
   "hospital-geo": {
     number: "00",
-    title: "병원 GEO 칼럼",
-    description: "병원 홈페이지 구조, 환자 질문, AI 인용 측정과 월간 보강을 하나의 운영 흐름으로 정리합니다.",
-    deskNote: "진료과를 넘어 병의원 GEO 전체 전략과 대행사 선택, 측정 체계를 다루는 메인 시리즈입니다.",
+    title: "병원 GEO 인사이트",
+    description: "병원 홈페이지 구조, 환자 질문, AI 인용 측정과 월간 보강을 하나의 운영 흐름으로 정리하는 대분류 칼럼입니다.",
+    deskNote: "진료과를 넘어 병의원 GEO 전체 전략과 대행사 선택, 측정 체계를 다루는 대분류 시리즈입니다. 아래 4개 진료과 칼럼은 이 대분류의 소분류입니다.",
     topics: ["병원 GEO 진단과 우선순위", "메인·팬아웃 질문 설계", "AI 인용 측정과 월간 보강"],
   },
   "orthopedics-geo": {
@@ -50,13 +50,6 @@ const seriesProfiles: Record<string, SeriesProfile> = {
     description: "눈·코·윤곽과 재수술 질문에 필요한 상담, 수술과 사후 관리 정보를 연결합니다.",
     deskNote: "상담 전 질문부터 수술 과정과 회복 정보까지 이어지는 성형외과 GEO 콘텐츠를 다룹니다.",
     topics: ["눈·코·윤곽 상담 질문", "수술·회복·사후 관리 구조", "성형외과 홈페이지 AI 인용 점검"],
-  },
-  "internal-medicine-geo": {
-    number: "05",
-    title: "내과 GEO 칼럼",
-    description: "건강검진과 만성질환, 소화기·호흡기 증상 질문을 세부 진료 정보로 확장합니다.",
-    deskNote: "증상과 검사, 진료 범위를 명확히 연결하는 내과 홈페이지와 콘텐츠 구조를 연재합니다.",
-    topics: ["건강검진·만성질환 질문", "검사·증상·진료 범위 구조", "내과 홈페이지 AI 인용 점검"],
   },
 };
 
@@ -93,30 +86,60 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const categoryPosts = posts
     .filter((post) => post.published && post.categorySlug === slug && isArticleListed(post.slug))
     .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
-  const siblingSeries = categories.filter((item) => item.slug !== slug && seriesProfiles[item.slug]);
+  const relatedCategories = getRelatedCategories(slug).filter((item) => seriesProfiles[item.slug]);
+  const parentCategory = getParentCategory(slug);
+  const isParentCategory = !category.parentSlug;
+  const collectionId = `${siteUrl}/category/${slug}#collection`;
+
+  const breadcrumbItems = [
+    { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
+    { "@type": "ListItem", position: 2, name: "진료별 GEO 칼럼", item: `${siteUrl}/hospitals` },
+    ...(parentCategory
+      ? [{ "@type": "ListItem", position: 3, name: parentCategory.name, item: `${siteUrl}/category/${parentCategory.slug}` }]
+      : []),
+    {
+      "@type": "ListItem",
+      position: parentCategory ? 4 : 3,
+      name: profile.title,
+      item: `${siteUrl}/category/${slug}`,
+    },
+  ];
 
   const jsonLd = [
     {
       "@context": "https://schema.org",
       "@type": "CollectionPage",
+      "@id": collectionId,
       name: profile.title,
       description: profile.description,
       url: `${siteUrl}/category/${slug}`,
-      hasPart: categoryPosts.map((post) => ({
-        "@type": "Article",
-        name: post.title,
-        url: `${siteUrl}/blog/${post.slug}`,
-        datePublished: post.publishedAt,
-      })),
+      ...(parentCategory ? { isPartOf: { "@id": `${siteUrl}/category/${parentCategory.slug}#collection` } } : {}),
+      ...(isParentCategory
+        ? {
+            hasPart: relatedCategories.map((item) => ({
+              "@type": "CollectionPage",
+              "@id": `${siteUrl}/category/${item.slug}#collection`,
+              name: item.name,
+              url: `${siteUrl}/category/${item.slug}`,
+            })),
+          }
+        : {}),
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "홈", item: siteUrl },
-        { "@type": "ListItem", position: 2, name: "진료별 GEO 칼럼", item: `${siteUrl}/hospitals` },
-        { "@type": "ListItem", position: 3, name: profile.title, item: `${siteUrl}/category/${slug}` },
-      ],
+      itemListElement: breadcrumbItems,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      name: `${profile.title} 발행 칼럼`,
+      itemListElement: categoryPosts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `${siteUrl}/blog/${post.slug}`,
+        name: post.title,
+      })),
     },
   ];
 
@@ -130,6 +153,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <div>
               <nav className="text-sm text-slate-500" aria-label="현재 위치">
                 <Link href="/hospitals" className="hover:text-blue-700">진료별 GEO 칼럼</Link>
+                {parentCategory && (
+                  <>
+                    <span className="mx-2">/</span>
+                    <Link href={`/category/${parentCategory.slug}`} className="hover:text-blue-700">{parentCategory.name}</Link>
+                  </>
+                )}
                 <span className="mx-2">/</span>
                 <span>{category.name}</span>
               </nav>
@@ -231,13 +260,13 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
         <section className="mx-auto max-w-7xl px-5 py-14 sm:px-6 lg:py-16">
           <div className="flex flex-col gap-4 border-b border-blue-200 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-bold tracking-[0.14em] text-blue-600">OTHER SERIES</p>
-              <h2 className="mt-3 text-2xl font-bold text-[#102a43]">다른 진료별 GEO 칼럼</h2>
+              <p className="text-xs font-bold tracking-[0.14em] text-blue-600">{isParentCategory ? "SUB CATEGORY" : "OTHER SERIES"}</p>
+              <h2 className="mt-3 text-2xl font-bold text-[#102a43]">{isParentCategory ? "소분류 진료과 칼럼" : "다른 진료별 GEO 칼럼"}</h2>
             </div>
             <Link href="/hospitals" className="w-fit border-b border-blue-700 pb-1 text-sm font-bold text-blue-700">전체 시리즈 보기 →</Link>
           </div>
-          <nav className="grid border-l border-blue-100 sm:grid-cols-2 lg:grid-cols-5" aria-label="다른 진료별 GEO 칼럼">
-            {siblingSeries.slice(0, 5).map((item) => {
+          <nav className="grid border-l border-blue-100 sm:grid-cols-2 lg:grid-cols-5" aria-label={isParentCategory ? "소분류 진료과 칼럼" : "다른 진료별 GEO 칼럼"}>
+            {relatedCategories.slice(0, 5).map((item) => {
               const siblingProfile = seriesProfiles[item.slug];
               const issueCount = posts.filter((post) => post.published && post.categorySlug === item.slug && isArticleListed(post.slug)).length;
               return (

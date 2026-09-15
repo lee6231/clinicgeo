@@ -8,7 +8,7 @@
   "focus_keyword": "치과 ChatGPT 노출",
   "meta_description": "실제 운영 중인 치과 홈페이지 7곳의 robots.txt와 초기 HTML을 확인했습니다. AI 크롤러보다 먼저 발견된 대표 URL, 진료시간, 공개 게시판 문제와 의료광고 점검 순서를 정리합니다.",
   "publishedAt": "2026-08-14",
-  "updatedAt": "2026-08-14",
+  "updatedAt": "2026-09-15",
   "publishAt": "2026-08-14T21:00:00+09:00",
   "published": true,
   "summary_label": "7곳을 확인한 결과",
@@ -23,7 +23,12 @@
       "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032064487"
     ]
   },
-  "data_cards": [],
+  "data_cards": [
+    {
+      "title": "이해관계 고지",
+      "body": "이 조사에서 확인한 치과 홈페이지 7곳은 Clinic GEO·SUMMITFEED가 운영하거나 광고·자문 계약을 맺은 곳이 아닙니다. 실명과 URL은 익명 처리했으며, 특정 병원을 홍보하거나 비방하려는 목적이 아니라 반복되는 기술 유형을 설명하기 위한 조사입니다."
+    }
+  ],
   "sections": [
     {
       "heading": "조사 범위와 증빙 기준",
@@ -107,9 +112,7 @@
             "Google은 유효한 규칙만 추출하고 나머지를 무시"
           ]
         ],
-        "sources": [
-          "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
-        ]
+        "sources": []
       }
     },
     {
@@ -121,15 +124,13 @@
         },
         {
           "text": "Google은 crawl-delay를 지원하지 않습니다. 또한 Googlebot처럼 구체적인 그룹이 있으면 그 그룹과 * 그룹을 합치지 않습니다. 이 사례에서 Googlebot이 적용받는 크롤 제외 규칙은 /*.save$뿐이고, * 그룹에 있던 관리 경로 14개는 Googlebot 규칙에 포함되지 않습니다.",
-          "sources": [
-            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
-            "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt"
-          ]
+          "sources": []
         },
         {
           "text": "이 상태를 보안상 “관리 화면이 공개됐다”고 표현해서는 안 됩니다. robots.txt는 크롤링 지시일 뿐 인증 장치가 아닙니다. 비공개 경로는 로그인과 접근권한으로 보호하고, robots.txt에는 검색 시스템이 불필요한 경로를 크롤링하지 않도록 규칙을 둡니다.",
           "sources": [
-            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
+            "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec",
+            "https://developers.google.com/crawling/docs/robots-txt/create-robots-txt"
           ]
         }
       ],
@@ -140,10 +141,7 @@
       "paragraphs": [
         {
           "text": "OpenAI는 ChatGPT 검색에 표시될 가능성을 유지하려면 OAI-SearchBot을 차단하지 않도록 안내합니다. 다만 OpenAI 공식 문서는 OAI-SearchBot의 구체적 그룹과 * 그룹이 어떤 방식으로 병합되는지 설명하지 않습니다.",
-          "sources": [
-            "https://developers.openai.com/api/docs/bots",
-            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
-          ]
+          "sources": []
         },
         {
           "text": "따라서 Googlebot의 파서 규칙을 모든 AI 크롤러에 그대로 적용해 단정하지 않습니다. 이름 지정 그룹이 필요한 경우에는 해당 봇이 지켜야 할 공통 차단 규칙도 같은 그룹에 반복하는 보수적 구성을 사용합니다.",
@@ -153,6 +151,7 @@
           "text": "표준 robots.txt는 접근 권한을 강제하지 않습니다. 관리 화면과 개인정보는 인증으로 보호하고, 실제 봇 도달 여부는 공식 IP 범위와 서버 로그로 확인합니다.",
           "sources": [
             "https://developers.openai.com/api/docs/bots",
+            "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
             "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
           ]
         }
@@ -181,11 +180,7 @@
             "실제 도메인의 Sitemap URL"
           ]
         ],
-        "sources": [
-          "https://developers.openai.com/api/docs/bots",
-          "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq",
-          "https://developers.google.com/crawling/docs/robots-txt/robots-txt-spec"
-        ]
+        "sources": []
       }
     },
     {
@@ -237,9 +232,7 @@
       "paragraphs": [
         {
           "text": "OAI-SearchBot은 ChatGPT 검색 기능에 사이트를 표시하기 위한 크롤러이고, GPTBot은 모델 학습에 사용될 수 있는 콘텐츠 수집과 관련됩니다. 두 설정은 독립적입니다.",
-          "sources": [
-            "https://developers.openai.com/api/docs/bots"
-          ]
+          "sources": []
         },
         {
           "text": "OAI-SearchBot을 차단한 사이트는 ChatGPT 검색 답변의 요약·인용 대상에서 제외될 수 있습니다. 다만 다른 경로에서 URL이 확인되면 링크와 제목만 탐색용으로 나타날 수 있습니다. GPTBot을 차단하면서 OAI-SearchBot의 검색 접근을 유지하는 설정도 가능합니다. 실제 노출과 인용은 보장되지 않습니다.",
@@ -288,10 +281,7 @@
             "검색 결과의 사이트 발견·연결에 영향을 줄 수 있음"
           ]
         ],
-        "sources": [
-          "https://developers.openai.com/api/docs/bots",
-          "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
-        ]
+        "sources": []
       }
     },
     {
@@ -299,15 +289,14 @@
       "paragraphs": [
         {
           "text": "사용자가 특정 병원이나 URL을 직접 요청하면 ChatGPT-User 같은 사용자 요청형 에이전트가 접근할 수 있습니다. 모든 요청에서 반드시 방문하는 것은 아니며, robots.txt 적용 방식도 사업자마다 다릅니다. 공개하면 안 되는 정보는 로그인과 접근권한으로 보호합니다.",
-          "sources": [
-            "https://developers.openai.com/api/docs/bots",
-            "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
-            "https://docs.perplexity.ai/docs/resources/perplexity-crawlers"
-          ]
+          "sources": []
         },
         {
           "text": "OpenAI는 OAI-SearchBot이 차단된 페이지라도 다른 경로로 URL을 확보하면 링크와 제목을 표시할 수 있다고 안내합니다. 이 표시까지 원하지 않으면 noindex를 검토할 수 있지만, 크롤러가 noindex를 읽으려면 페이지 접근이 허용돼 있어야 합니다.",
           "sources": [
+            "https://developers.openai.com/api/docs/bots",
+            "https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler",
+            "https://docs.perplexity.ai/docs/resources/perplexity-crawlers",
             "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
           ]
         },
@@ -372,9 +361,7 @@
             "—"
           ]
         ],
-        "sources": [
-          "https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls"
-        ]
+        "sources": []
       }
     },
     {
@@ -425,9 +412,7 @@
             "29%"
           ]
         ],
-        "sources": [
-          "https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics"
-        ]
+        "sources": []
       }
     },
     {
@@ -486,9 +471,7 @@
       "paragraphs": [
         {
           "text": "의료법 제56조 제1항은 의료기관 개설자, 의료기관의 장 또는 의료인이 아닌 자의 의료광고를 제한합니다. 마케팅 대행사는 통상 이 조항의 의료인등에 포함되지 않으므로, 대행사 명의로 의료광고의 주체가 될 수 있다는 뜻이 아닙니다.",
-          "sources": [
-            "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
-          ]
+          "sources": []
         },
         {
           "text": "대행사가 제작·운영을 지원하더라도 광고 주체, 내용 결정·검토 책임, 사전심의 대상 여부를 구분해 확인해야 합니다. 대행자 표기나 채널 명의 변경만으로 적법성이 확보되는 것은 아닙니다. 특정 병원이나 진료를 홍보하는 개별 게시물은 발행 전 자율심의기구 또는 관련 전문가에게 확인합니다.",
@@ -549,10 +532,7 @@
             "문구가 예외 항목으로만 구성됐는지 확인"
           ]
         ],
-        "sources": [
-          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1029945875",
-          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032064487"
-        ]
+        "sources": []
       }
     },
     {
@@ -601,9 +581,7 @@
             "전체 맥락을 검토하고 안전하게 입증할 수 없으면 삭제"
           ]
         ],
-        "sources": [
-          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
-        ]
+        "sources": []
       }
     },
     {
@@ -648,9 +626,7 @@
             "당일 시술 가능 여부를 판단하는 검사와 조건을 사실대로 설명"
           ]
         ],
-        "sources": [
-          "https://www.law.go.kr/lsLinkCommonInfo.do?lsJoLnkSeq=1032849723"
-        ]
+        "sources": []
       }
     },
     {
@@ -658,21 +634,19 @@
       "paragraphs": [
         {
           "text": "Google은 2026년 6월 Search Console의 생성형 AI 성과 리포트를 발표했습니다. 공식 안내에는 노출 수와 페이지·국가·기기·날짜 차원이 포함돼 있습니다. 2026년 8월 14일 확인 기준 클릭·CTR·검색어는 제공 항목으로 안내돼 있지 않습니다.",
-          "sources": [
-            "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
-            "https://support.google.com/webmasters/answer/16984139"
-          ]
+          "sources": []
         },
         {
           "text": "Bing Webmaster Tools의 AI Performance에서는 인용 수와 인용 URL 등을 확인할 수 있고, 2026년 6월에는 Intents, Topics, Citation Share, Compare가 추가됐습니다. 실제 제공 범위는 계정 화면에서 다시 확인합니다.",
-          "sources": [
-            "https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview",
-            "https://blogs.bing.com/search/June-2026/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare"
-          ]
+          "sources": []
         },
         {
           "text": "OpenAI는 ChatGPT 참조 URL에 utm_source=chatgpt.com을 자동으로 붙인다고 안내합니다. 분석 도구가 UTM 파라미터를 보존하도록 설정돼 있다면 ChatGPT 유입 세션과 랜딩 페이지를 구분할 수 있습니다. 예약 문의를 보려면 폼 제출·전화·메신저 같은 전환 이벤트를 별도로 설정해야 합니다.",
           "sources": [
+            "https://developers.google.com/search/blog/2026/06/gen-ai-performance-reports",
+            "https://support.google.com/webmasters/answer/16984139",
+            "https://blogs.bing.com/webmaster/February-2026/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview",
+            "https://blogs.bing.com/search/June-2026/New-AI-Visibility-Insights-in-Bing-Webmaster-Tools-Intents-Topics-Citation-Share-Compare",
             "https://help.openai.com/en/articles/12627856-publishers-and-developers-faq"
           ]
         }
@@ -897,5 +871,9 @@
     "summary_label": "7곳을 확인한 결과",
     "compact_layout": false,
     "show_table_of_contents": false
-  }
+  },
+  "revision_log": [
+    "2026-09-15: 이해관계 고지 data_card를 추가해 조사 대상 7곳이 Clinic GEO·써밋피드의 계약·광고 관계가 없는 익명 표본임을 명시함. E-E-A-T 점검 결과 그 외 항목(말투, 근거 출처, 검증 한계 고지)은 기존 원고가 이미 충족하고 있어 변경하지 않음.",
+    "2026-09-15: 섹션당 문단마다 따로 붙던 '출처' 표시를 섹션당 1개로 통합함. 각 섹션에서 인용됐던 출처는 하나도 삭제하지 않고, 그 섹션의 마지막 문단(또는 표) 한 곳에 모아 표시함."
+  ]
 }

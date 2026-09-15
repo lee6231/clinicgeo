@@ -4,7 +4,7 @@ import Link from "next/link";
 const navigation = [
   { href: "/#services", label: "서비스" },
   { href: "/#process", label: "진행 방식" },
-  { href: "/hospitals", label: "병원 정보" },
+  { href: "/hospitals", label: "진료별 GEO" },
   { href: "/blog", label: "GEO 인사이트" },
 ];
 
